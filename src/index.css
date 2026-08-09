@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@import "./styles/theme.css";
+
+:root {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--background);
+  color: var(--foreground);
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+/* ========================================
+   ENGINEERING BACKGROUND
+   ======================================== */
+
+.engineering-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.engineering-background__image {
+  position: absolute;
+  inset: 0;
+
+  background-image: url("/assets/backgrounds/light-blueprint.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  opacity: 0.28;
+
+  transition:
+    opacity 300ms ease,
+    background-image 300ms ease;
+}
+
+/* DARK / WORKSHOP MODE */
+
+.dark .engineering-background__image {
+  background-image: url("/assets/backgrounds/dark-blueprint.png");
+  opacity: 0.32;
+}
