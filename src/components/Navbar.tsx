@@ -1,450 +1,476 @@
-import { Menu, Moon, Sun, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import {
+  Menu,
+  Moon,
+  Sun,
+  X,
+} from "lucide-react";
 
-const navItems = [
-  { label: "HOME", href: "#home" },
-  { label: "ABOUT MESA", href: "#about-mesa" },
-  { label: "TEAM", href: "#team" },
-  { label: "EVENTS", href: "#events" },
-  { label: "GALLERY", href: "#gallery" },
-  { label: "CONTACT", href: "#contact" },
+import {
+  useEffect,
+  useState,
+} from "react";
+
+type Props = {
+  activePage?: string;
+};
+
+const links = [
+  {
+    label: "HOME",
+    page: "home",
+  },
+  {
+    label: "ABOUT MESA",
+    page: "about",
+  },
+  {
+    label: "TEAM",
+    page: "team",
+  },
+  {
+    label: "EVENTS",
+    page: "events",
+  },
+  {
+    label: "GALLERY",
+    page: "gallery",
+  },
+  {
+    label: "CONTACT",
+    page: "contact",
+  },
 ];
 
-function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+function getHashPage() {
+  const hash =
+    window.location.hash
+      .replace("#/", "")
+      .split("?")[0]
+      .trim();
 
-  // Dark mode is the default
-  const [isDark, setIsDark] = useState(true);
+  return hash || "home";
+}
 
-  // --------------------------------------------------
-  // LOAD THEME
-  // --------------------------------------------------
+function Navbar({
+  activePage,
+}: Props = {}) {
+  const [mobileOpen, setMobileOpen] =
+    useState(false);
+
+  const [scrolled, setScrolled] =
+    useState(false);
+
+  const [currentPage, setCurrentPage] =
+    useState(
+      activePage ||
+        getHashPage()
+    );
+
+  const [isDark, setIsDark] =
+    useState(true);
+
+  const isHome =
+    currentPage === "home";
+
+  /* --------------------------------
+     ROUTE
+  -------------------------------- */
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("mesa-theme");
+    const updatePage = () => {
+      setCurrentPage(
+        activePage ||
+          getHashPage()
+      );
 
-    // If user has previously selected light mode
-    if (savedTheme === "light") {
-      document.documentElement.classList.remove("dark");
-      setIsDark(false);
-    } else {
-      // Default = DARK
-      document.documentElement.classList.add("dark");
-      setIsDark(true);
-      localStorage.setItem("mesa-theme", "dark");
-    }
+      setMobileOpen(false);
+
+      window.scrollTo({
+        top: 0,
+        behavior: "instant",
+      });
+    };
+
+    updatePage();
+
+    window.addEventListener(
+      "hashchange",
+      updatePage
+    );
+
+    return () => {
+      window.removeEventListener(
+        "hashchange",
+        updatePage
+      );
+    };
+  }, [activePage]);
+
+  /* --------------------------------
+     SCROLL
+  -------------------------------- */
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(
+        window.scrollY > 55
+      );
+    };
+
+    handleScroll();
+
+    window.addEventListener(
+      "scroll",
+      handleScroll,
+      {
+        passive: true,
+      }
+    );
+
+    return () => {
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
+    };
   }, []);
 
-  // --------------------------------------------------
-  // THEME TOGGLE
-  // --------------------------------------------------
+  /* --------------------------------
+     THEME
+  -------------------------------- */
 
-  const toggleTheme = () => {
-    const root = document.documentElement;
+  useEffect(() => {
+    const saved =
+      localStorage.getItem(
+        "mesa-theme"
+      );
 
-    if (root.classList.contains("dark")) {
-      // DARK → LIGHT
-      root.classList.remove("dark");
-      localStorage.setItem("mesa-theme", "light");
-      setIsDark(false);
-    } else {
-      // LIGHT → DARK
-      root.classList.add("dark");
-      localStorage.setItem("mesa-theme", "dark");
-      setIsDark(true);
-    }
-  };
+    const light =
+      saved === "light" ||
+      saved === "editorial";
 
-  // --------------------------------------------------
-  // CLOSE MOBILE MENU
-  // --------------------------------------------------
+    const dark =
+      !light;
 
-  const closeMobileMenu = () => {
-    setMobileOpen(false);
-  };
+    document.documentElement
+      .classList.toggle(
+        "dark",
+        dark
+      );
+
+    document.documentElement
+      .dataset.theme =
+      dark
+        ? "night"
+        : "editorial";
+
+    setIsDark(dark);
+  }, []);
+
+  function toggleTheme() {
+    const nextDark =
+      !isDark;
+
+    setIsDark(nextDark);
+
+    document.documentElement
+      .classList.toggle(
+        "dark",
+        nextDark
+      );
+
+    document.documentElement
+      .dataset.theme =
+      nextDark
+        ? "night"
+        : "editorial";
+
+    localStorage.setItem(
+      "mesa-theme",
+      nextDark
+        ? "night"
+        : "editorial"
+    );
+  }
+
+  /* --------------------------------
+     CAD MOUSE PARALLAX
+  -------------------------------- */
+
+  useEffect(() => {
+    let frame = 0;
+
+    const handlePointerMove = (
+      event: PointerEvent
+    ) => {
+      cancelAnimationFrame(
+        frame
+      );
+
+      frame =
+        requestAnimationFrame(
+          () => {
+            const mouseX =
+              event.clientX /
+                window.innerWidth -
+              0.5;
+
+            const mouseY =
+              event.clientY /
+                window.innerHeight -
+              0.5;
+
+            const x =
+              mouseX * 16;
+
+            const y =
+              mouseY * 10;
+
+            document.documentElement
+              .style.setProperty(
+                "--cad-x",
+                `${x}px`
+              );
+
+            document.documentElement
+              .style.setProperty(
+                "--cad-y",
+                `${y}px`
+              );
+          }
+        );
+    };
+
+    const resetParallax = () => {
+      document.documentElement
+        .style.setProperty(
+          "--cad-x",
+          "0px"
+        );
+
+      document.documentElement
+        .style.setProperty(
+          "--cad-y",
+          "0px"
+        );
+    };
+
+    window.addEventListener(
+      "pointermove",
+      handlePointerMove,
+      {
+        passive: true,
+      }
+    );
+
+    window.addEventListener(
+      "blur",
+      resetParallax
+    );
+
+    return () => {
+      cancelAnimationFrame(
+        frame
+      );
+
+      window.removeEventListener(
+        "pointermove",
+        handlePointerMove
+      );
+
+      window.removeEventListener(
+        "blur",
+        resetParallax
+      );
+    };
+  }, []);
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 sm:px-5 md:px-8">
+    <header
+      className={`
+        mesa-smart-nav-shell
+        ${
+          isHome
+            ? "mesa-smart-nav-home"
+            : "mesa-smart-nav-inner"
+        }
+        ${
+          scrolled
+            ? "mesa-smart-nav-scrolled"
+            : ""
+        }
+      `}
+    >
+      {/* LARGE PCCOE LOGO — HOME ONLY */}
 
-      {/* ==================================================
-          MAIN NAVBAR
-      ================================================== */}
-
-      <nav
-        className="
-          mx-auto
-          flex
-          max-w-7xl
-          items-center
-          justify-between
-          rounded-2xl
-          border
-          border-[var(--border)]/70
-          bg-[var(--surface)]/80
-          px-4
-          py-3
-          shadow-sm
-          backdrop-blur-xl
-          transition-all
-          duration-300
-          sm:px-5
-          md:px-6
-        "
-      >
-
-        {/* ==================================================
-            LEFT — LOGO + MESA
-        ================================================== */}
-
+      {isHome && (
         <a
-          href="#home"
-          onClick={closeMobileMenu}
-          aria-label="MESA PCCOE Home"
-          className="
-            group
-            flex
-            items-center
-            gap-3
-          "
+          href="#/home"
+          className="home-pccoe-mark"
+          aria-label="PCCOE Home"
         >
+          <img
+            src="/assets/brand/pccoe-logo.png"
+            alt="PCCOE"
+          />
+        </a>
+      )}
 
-          {/* ----------------------------------------------
-              DARK THEME LOGO
-          ---------------------------------------------- */}
+      {/* NAVBAR */}
 
-          {isDark && (
-            <img
-              src="/assets/mesa-logo-dark.png"
-              alt="MESA PCCOE"
-              className="
-                h-11
-                w-11
-                shrink-0
-                object-contain
-                transition-transform
-                duration-200
-                group-hover:scale-105
-                sm:h-12
-                sm:w-12
-              "
-            />
-          )}
+      <nav className="mesa-smart-navbar">
+        <a
+          href="#/home"
+          className="mesa-smart-brand"
+          onClick={() =>
+            setMobileOpen(false)
+          }
+        >
+          <img
+            src="/assets/brand/mesa-logo.png"
+            alt="MESA PCCOE"
+          />
 
-          {/* ----------------------------------------------
-              LIGHT THEME LOGO
-          ---------------------------------------------- */}
-
-          {!isDark && (
-            <img
-              src="/assets/mesa-logo-light.png"
-              alt="MESA PCCOE"
-              className="
-                h-11
-                w-11
-                shrink-0
-                object-contain
-                transition-transform
-                duration-200
-                group-hover:scale-105
-                sm:h-12
-                sm:w-12
-              "
-            />
-          )}
-
-          {/* ----------------------------------------------
-              MESA TEXT
-          ---------------------------------------------- */}
-
-          <div className="flex flex-col leading-none">
-
-            <span
-              className="
-                font-[var(--font-display)]
-                text-xl
-                font-bold
-                tracking-tight
-                text-[var(--text-primary)]
-                transition-colors
-                duration-200
-                group-hover:text-[var(--accent)]
-                sm:text-[22px]
-              "
-            >
+          <div>
+            <strong>
               MESA
-            </span>
+            </strong>
 
-            <span
-              className="
-                mt-1
-                font-[var(--font-mono)]
-                text-[10px]
-                font-medium
-                tracking-[0.22em]
-                text-[var(--text-muted)]
-              "
-            >
+            <span>
               PCCOE
             </span>
-
           </div>
         </a>
 
-
-        {/* ==================================================
-            DESKTOP NAVIGATION
-        ================================================== */}
-
-        <div className="hidden items-center gap-6 lg:flex xl:gap-9">
-
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="
-                group
-                relative
-                py-1
-                font-[var(--font-body)]
-                text-[13px]
-                font-medium
-                tracking-wide
-                text-[var(--text-secondary)]
-                transition-colors
-                duration-200
-                hover:text-[var(--accent)]
-              "
-            >
-
-              {item.label}
-
-              {/* Technical underline */}
-
-              <span
-                className="
-                  absolute
-                  -bottom-1
-                  left-0
-                  h-px
-                  w-0
-                  bg-[var(--accent)]
-                  transition-all
-                  duration-200
-                  group-hover:w-full
-                "
-              />
-
-            </a>
-          ))}
-
+        <div className="mesa-smart-links">
+          {links.map(
+            (link) => (
+              <a
+                key={
+                  link.page
+                }
+                href={`#/${link.page}`}
+                className={
+                  currentPage ===
+                  link.page
+                    ? "active"
+                    : ""
+                }
+              >
+                {
+                  link.label
+                }
+              </a>
+            )
+          )}
         </div>
 
-
-        {/* ==================================================
-            RIGHT SIDE
-        ================================================== */}
-
-        <div className="flex items-center gap-2">
-
-          {/* Engineering metadata */}
-
-          <span
-            className="
-              hidden
-              font-[var(--font-mono)]
-              text-[9px]
-              tracking-[0.16em]
-              text-[var(--text-muted)]
-              xl:block
-            "
-          >
-            REV 26–27
-          </span>
-
-
-          {/* ==================================================
-              THEME TOGGLE
-          ================================================== */}
-
+        <div className="mesa-smart-actions">
           <button
             type="button"
-            onClick={toggleTheme}
-            aria-label={
-              isDark
-                ? "Switch to light mode"
-                : "Switch to dark mode"
+            className="mesa-smart-theme"
+            onClick={
+              toggleTheme
             }
-            className="
-              flex
-              h-9
-              w-9
-              shrink-0
-              items-center
-              justify-center
-              rounded-xl
-              border
-              border-[var(--border)]
-              bg-[var(--surface)]/40
-              text-[var(--text-primary)]
-              transition-all
-              duration-200
-              hover:border-[var(--accent)]
-              hover:text-[var(--accent)]
-            "
+            aria-label="Change theme"
           >
+            <span className="mesa-smart-theme-icon">
+              {isDark ? (
+                <Moon
+                  size={16}
+                />
+              ) : (
+                <Sun
+                  size={16}
+                />
+              )}
+            </span>
 
-            {isDark ? (
-              <Sun
-                size={17}
-                strokeWidth={1.8}
-              />
-            ) : (
-              <Moon
-                size={17}
-                strokeWidth={1.8}
-              />
-            )}
+            <span className="mesa-smart-theme-copy">
+              <small>
+                MODE
+              </small>
 
+              <strong>
+                {isDark
+                  ? "NIGHT"
+                  : "DAY"}
+              </strong>
+            </span>
           </button>
 
-
-          {/* ==================================================
-              MOBILE MENU BUTTON
-          ================================================== */}
-
           <button
             type="button"
+            className="mesa-smart-menu"
             onClick={() =>
-              setMobileOpen((current) => !current)
+              setMobileOpen(
+                (current) =>
+                  !current
+              )
             }
-            aria-label={
-              mobileOpen
-                ? "Close navigation menu"
-                : "Open navigation menu"
-            }
-            aria-expanded={mobileOpen}
-            className="
-              flex
-              h-9
-              w-9
-              shrink-0
-              items-center
-              justify-center
-              rounded-xl
-              border
-              border-[var(--border)]
-              bg-[var(--surface)]/40
-              text-[var(--text-primary)]
-              transition-all
-              duration-200
-              hover:border-[var(--accent)]
-              hover:text-[var(--accent)]
-              lg:hidden
-            "
+            aria-label="Open navigation"
           >
-
             {mobileOpen ? (
-              <X
-                size={18}
-                strokeWidth={1.8}
-              />
+              <X size={20} />
             ) : (
-              <Menu
-                size={18}
-                strokeWidth={1.8}
-              />
+              <Menu size={20} />
             )}
-
           </button>
-
         </div>
-
       </nav>
 
-
-      {/* ====================================================
-          MOBILE NAVIGATION
-      ==================================================== */}
+      {/* MOBILE */}
 
       <div
         className={`
-          mx-auto
-          mt-2
-          max-w-7xl
-          overflow-hidden
-          rounded-2xl
-          border
-          border-[var(--border)]/70
-          bg-[var(--surface)]/90
-          shadow-sm
-          backdrop-blur-xl
-          transition-all
-          duration-300
-          lg:hidden
-
+          mesa-smart-mobile
           ${
             mobileOpen
-              ? "max-h-[520px] opacity-100"
-              : "pointer-events-none max-h-0 opacity-0"
+              ? "open"
+              : ""
           }
         `}
       >
-
-        <div className="p-2">
-
-          {navItems.map((item, index) => (
+        {links.map(
+          (
+            link,
+            index
+          ) => (
             <a
-              key={item.label}
-              href={item.href}
-              onClick={closeMobileMenu}
-              className={`
-                group
-                flex
-                items-center
-                justify-between
-                px-3
-                py-4
-                font-[var(--font-body)]
-                text-[15px]
-                font-medium
-                text-[var(--text-secondary)]
-                transition-colors
-                duration-200
-                hover:text-[var(--accent)]
-
-                ${
-                  index !== navItems.length - 1
-                    ? "border-b border-[var(--border)]/60"
-                    : ""
-                }
-              `}
+              key={
+                link.page
+              }
+              href={`#/${link.page}`}
+              className={
+                currentPage ===
+                link.page
+                  ? "active"
+                  : ""
+              }
+              onClick={() =>
+                setMobileOpen(
+                  false
+                )
+              }
             >
+              <small>
+                {String(
+                  index + 1
+                ).padStart(
+                  2,
+                  "0"
+                )}
+              </small>
 
-              <span>
-                {item.label}
-              </span>
-
-              <span
-                className="
-                  font-[var(--font-mono)]
-                  text-[9px]
-                  tracking-widest
-                  text-[var(--text-muted)]
-                  transition-colors
-                  duration-200
-                  group-hover:text-[var(--accent)]
-                "
-              >
-                {String(index + 1).padStart(2, "0")}
-              </span>
-
+              <strong>
+                {
+                  link.label
+                }
+              </strong>
             </a>
-          ))}
-
-        </div>
-
+          )
+        )}
       </div>
-
     </header>
   );
 }

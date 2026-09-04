@@ -1,58 +1,166 @@
-import EngineeringBackground from "./components/EngineeringBackground";
+import {
+  useCallback,
+  useState,
+} from "react";
+
+import {
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
+
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+import LoadingScreen from "./components/LoadingScreen";
+import PagePiston from "./components/PagePiston";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Team from "./pages/Team";
+import Events from "./pages/Events";
+import Gallery from "./pages/Gallery";
+import Contact from "./pages/Contact";
+
 
 function App() {
+
+  const [
+    loading,
+    setLoading,
+  ] = useState(true);
+
+
+  const finishLoading =
+    useCallback(() => {
+
+      setLoading(false);
+
+    }, []);
+
+
+
+  /* ================================================
+     SENIOR'S INTRO FIRST
+  ================================================= */
+
+  if (loading) {
+
+    return (
+
+      <LoadingScreen
+        duration={3200}
+        onComplete={
+          finishLoading
+        }
+      />
+
+    );
+
+  }
+
+
+
   return (
-    <>
-      <EngineeringBackground />
+
+    <div className="app">
+
+
+      {/* ==========================================
+          PISTON BEFORE PAGE CHANGE
+      ========================================== */}
+
+      <PagePiston />
+
 
       <Navbar />
 
-      <main className="relative z-10 min-h-screen">
 
-        <section
-          id="home"
-          className="
-            flex
-            min-h-screen
-            items-center
-            justify-center
-            px-6
-          "
-        >
-          <div className="text-center">
+      <main>
 
-            <p
-              className="
-                mb-4
-                font-[var(--font-mono)]
-                text-xs
-                tracking-[0.25em]
-                text-[var(--blueprint)]
-              "
-            >
-              DWG-004 · REV A · STATUS: ACTIVE
-            </p>
+        <Routes>
 
-            <h1
-              className="
-                font-[var(--font-display)]
-                text-6xl
-                font-bold
-                text-[var(--text-primary)]
-                sm:text-7xl
-                md:text-8xl
-              "
-            >
-              MESA
-            </h1>
+          <Route
+            path="/"
+            element={
+              <Navigate
+                to="/home"
+                replace
+              />
+            }
+          />
 
-          </div>
-        </section>
+
+          <Route
+            path="/home"
+            element={
+              <Home />
+            }
+          />
+
+
+          <Route
+            path="/about"
+            element={
+              <About />
+            }
+          />
+
+
+          <Route
+            path="/team"
+            element={
+              <Team />
+            }
+          />
+
+
+          <Route
+            path="/events"
+            element={
+              <Events />
+            }
+          />
+
+
+          <Route
+            path="/gallery"
+            element={
+              <Gallery />
+            }
+          />
+
+
+          <Route
+            path="/contact"
+            element={
+              <Contact />
+            }
+          />
+
+
+          <Route
+            path="*"
+            element={
+              <Navigate
+                to="/home"
+                replace
+              />
+            }
+          />
+
+        </Routes>
 
       </main>
-    </>
+
+
+      <Footer />
+
+    </div>
+
   );
+
 }
+
 
 export default App;

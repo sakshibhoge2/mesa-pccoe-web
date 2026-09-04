@@ -1,0 +1,3061 @@
+/* ============================================================
+   MESA PCCOE — CLEAN FINAL POLISH
+============================================================ */
+
+:root {
+  --cad-x: 0px;
+  --cad-y: 0px;
+
+  --orange: #f2a900;
+
+  --mesa-bg: #061019;
+  --mesa-text: #f8f5ed;
+
+  --mesa-soft:
+    rgba(248, 245, 237, 0.82);
+
+  --mesa-muted:
+    rgba(248, 245, 237, 0.68);
+
+  --mesa-line:
+    rgba(255, 255, 255, 0.13);
+
+  --mesa-card:
+    rgba(5, 10, 15, 0.72);
+}
+
+
+/* ============================================================
+   BACKGROUND
+============================================================ */
+
+html {
+  background:
+    var(--mesa-bg);
+}
+
+
+body {
+  position: relative;
+
+  isolation: isolate;
+
+  background:
+    var(--mesa-bg) !important;
+}
+
+
+/* ONLY REAL CAD IMAGE */
+
+body::before {
+  content: "";
+
+  position: fixed;
+
+  inset: -42px;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background-image:
+    url(
+      "/assets/backgrounds/light-blueprint.jpg"
+    );
+
+  background-size:
+    cover;
+
+  background-repeat:
+    no-repeat;
+
+background-position:
+  calc(50% + var(--cad-x, 0px))
+  calc(50% + var(--cad-y, 0px));
+
+  opacity:
+    0.28;
+
+  transform:
+    translate3d(
+      var(--cad-x, 0px),
+      var(--cad-y, 0px),
+      0
+    )
+    scale(1.055);
+
+transform:
+  scale(1.07);
+
+transition:
+  background-position
+  0.25s
+  cubic-bezier(
+    0.16,
+    1,
+    0.3,
+    1
+  );
+
+
+  will-change:
+    transform,
+    background-position;
+}
+
+
+/* DARK */
+
+html.dark body::before {
+  background-image:
+    url(
+      "/assets/backgrounds/dark-blueprint.jpg"
+    );
+
+  opacity:
+    0.52;
+
+  filter:
+    brightness(4)
+    contrast(1.08);
+}
+
+
+/* REMOVE THE OLD CIRCLE COMPLETELY */
+
+body::after {
+  content: none !important;
+
+  display: none !important;
+
+  background: none !important;
+
+  box-shadow: none !important;
+
+  border: 0 !important;
+
+  animation: none !important;
+}
+
+
+#root {
+  position: relative;
+
+  z-index: 1;
+}
+
+
+/* SLOW AUTOMATIC MOVEMENT */
+
+@keyframes mesaBlueprintDrift {
+
+  0% {
+    background-position:
+      48.5% 49%;
+  }
+
+  50% {
+    background-position:
+      51.5% 50.5%;
+  }
+
+  100% {
+    background-position:
+      49% 52%;
+  }
+
+}
+
+
+/* ============================================================
+   TRANSPARENT SECTIONS SO CAD CAN BE SEEN
+============================================================ */
+
+.paper-intro,
+
+.mesa-is-section,
+
+.home-photo-showcase,
+
+.home-events,
+
+.about-leaders-hero,
+
+.about-pillars,
+
+.vision-machine-section,
+
+.vision-mission-final,
+
+.faculty-guidance,
+
+.faculty-guidance-final,
+
+.about-champions,
+
+.team-premium-hero,
+
+.core-team-section,
+
+.other-teams,
+
+.annual-team-section,
+
+.compact-events-page,
+
+.compact-event-tabs,
+
+.compact-events-list,
+
+.events-compact-header,
+
+.events-final-list,
+
+.gallery-compact-header,
+
+.gallery-filters-final,
+
+.gallery-page-section,
+
+.contact-compact-header,
+
+.contact-workspace {
+  background:
+    transparent !important;
+}
+
+
+/* REMOVE OLD SECTION OVERLAYS */
+
+.paper-intro::before,
+
+.home-photo-showcase::before,
+
+.home-events::before,
+
+.about-leaders-hero::before,
+
+.about-pillars::before,
+
+.vision-mission-final::before,
+
+.faculty-guidance-final::before,
+
+.events-final-list::before,
+
+.gallery-page-section::before,
+
+.contact-workspace::before {
+  opacity:
+    0 !important;
+}
+
+
+/* ============================================================
+   REMOVE SMALL PCCOE LOGO FROM HERO
+============================================================ */
+
+.cinematic-hero
+.hero-college,
+
+.cinematic-hero
+.hero-college-logo-only {
+  display:
+    none !important;
+}
+
+
+/* ============================================================
+   NAVBAR SHELL
+============================================================ */
+
+.mesa-smart-nav-shell {
+  position:
+    fixed;
+
+  z-index:
+    9000;
+
+  top:
+    14px;
+
+  left:
+    0;
+
+  right:
+    0;
+
+  height:
+    72px;
+
+  padding:
+    0 4vw;
+
+  pointer-events:
+    none;
+
+  transition:
+    top
+    0.4s ease;
+}
+
+
+/* ============================================================
+   NAVBAR
+============================================================ */
+
+.mesa-smart-navbar {
+  width:
+    min(
+      900px,
+      calc(
+        100vw - 70px
+      )
+    );
+
+  min-height:
+    66px;
+
+  margin:
+    0 auto;
+
+  padding:
+    7px 14px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    145px
+    1fr
+    110px;
+
+  gap:
+    20px;
+
+  align-items:
+    center;
+
+  pointer-events:
+    auto;
+
+  border:
+    1px solid
+    rgba(
+      242,
+      169,
+      0,
+      0.26
+    );
+
+  border-radius:
+    24px;
+
+  background:
+    rgba(
+      3,
+      7,
+      10,
+      0.88
+    );
+
+  backdrop-filter:
+    blur(18px)
+    saturate(125%);
+
+  box-shadow:
+    0 18px 55px
+    rgba(
+      0,
+      0,
+      0,
+      0.22
+    );
+
+  transition:
+    width
+      0.65s
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      ),
+
+    margin
+      0.65s
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      ),
+
+    min-height
+      0.4s ease,
+
+    background
+      0.4s ease,
+
+    border-color
+      0.4s ease;
+}
+
+
+/* ============================================================
+   HOME NAVBAR
+============================================================ */
+
+/* HOME = RIGHT SIDE */
+
+.mesa-smart-nav-home
+.mesa-smart-navbar {
+  width:
+    min(
+      900px,
+      calc(
+        100vw - 300px
+      )
+    );
+
+  margin-left:
+    auto;
+
+  margin-right:
+    28px;
+
+  transform:
+    none;
+}
+
+
+/* HOME AFTER SCROLL = CENTER */
+
+.mesa-smart-nav-home.mesa-smart-nav-scrolled
+.mesa-smart-navbar {
+  width:
+    min(
+      900px,
+      calc(
+        100vw - 70px
+      )
+    );
+
+  margin-left:
+    auto;
+
+  margin-right:
+    auto;
+
+  transform:
+    none;
+}
+
+
+/* OTHER PAGES = CENTER */
+
+.mesa-smart-nav-inner
+.mesa-smart-navbar {
+  width:
+    min(
+      900px,
+      calc(
+        100vw - 70px
+      )
+    );
+
+  margin-left:
+    auto;
+
+  margin-right:
+    auto;
+
+  transform:
+    none !important;
+}
+
+
+/* SCROLLED */
+
+.mesa-smart-nav-scrolled {
+  top:
+    8px;
+}
+
+
+.mesa-smart-nav-scrolled
+.mesa-smart-navbar {
+  min-height:
+    60px;
+
+  background:
+    rgba(
+      3,
+      7,
+      10,
+      0.71
+    );
+
+  border-color:
+    rgba(
+      242,
+      169,
+      0,
+      0.18
+    );
+}
+
+
+/* ============================================================
+   HOME PCCOE LOGO
+============================================================ */
+
+.home-pccoe-mark {
+  position:
+    absolute;
+
+  left:
+    clamp(
+      72px,
+      4.8vw,
+      80px
+    );
+
+  top:
+    -5px;
+
+  width:
+    145px;
+
+  height:
+    145px;
+
+  padding:
+    6px;
+
+  overflow:
+    hidden;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  pointer-events:
+    auto;
+
+  border:
+    1px solid
+    rgba(
+      242,
+      169,
+      0,
+      0.38
+    );
+
+  border-radius:
+    24px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.97
+    );
+
+  box-shadow:
+    0 18px 55px
+    rgba(
+      0,
+      0,
+      0,
+      0.28
+    );
+
+  opacity:
+    1;
+
+  transform:
+    translate3d(
+      0,
+      0,
+      0
+    );
+
+  transition:
+    opacity
+      0.45s ease,
+
+    transform
+      0.65s
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      );
+}
+
+
+.home-pccoe-mark
+img {
+  width:
+    100%;
+
+  height:
+    100%;
+
+  object-fit:
+    contain;
+
+  border-radius:
+    18px;
+}
+
+
+/* PCCOE FADES ON SCROLL */
+
+.mesa-smart-nav-home.mesa-smart-nav-scrolled
+.home-pccoe-mark {
+  opacity:
+    0;
+
+  transform:
+    translateY(-18px)
+    scale(0.94);
+
+  pointer-events:
+    none;
+}
+
+
+/* ============================================================
+   NAV BRAND
+============================================================ */
+
+.mesa-smart-brand {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    11px;
+}
+
+
+.mesa-smart-brand
+img {
+  width:
+    42px;
+
+  height:
+    42px;
+
+  object-fit:
+    contain;
+}
+
+
+.mesa-smart-brand
+div {
+  display:
+    grid;
+
+  gap:
+    3px;
+}
+
+
+.mesa-smart-brand
+strong {
+  color:
+    #fff;
+
+  font-family:
+    var(
+      --font-display
+    );
+
+  font-size:
+    21px;
+
+  line-height:
+    1;
+}
+
+
+.mesa-smart-brand
+span {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.68
+    );
+
+  font-family:
+    var(
+      --font-mono
+    );
+
+  font-size:
+    10px;
+
+  font-weight:
+    600;
+
+  letter-spacing:
+    0.17em;
+}
+
+
+/* ============================================================
+   NAV LINKS
+============================================================ */
+
+.mesa-smart-links {
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap:
+    clamp(
+      18px,
+      1.5vw,
+      25px
+    );
+}
+
+
+.mesa-smart-links
+a {
+  position:
+    relative;
+
+  padding:
+    17px 0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.82
+    );
+
+  font-size:
+    13px;
+
+  font-weight:
+    700;
+
+  white-space:
+    nowrap;
+
+  transition:
+    color
+    0.25s ease;
+}
+
+
+.mesa-smart-links
+a::after {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  left:
+    50%;
+
+  right:
+    50%;
+
+  bottom:
+    7px;
+
+  height:
+    2px;
+
+  border-radius:
+    99px;
+
+  background:
+    var(
+      --orange
+    );
+
+  transition:
+    left
+      0.3s ease,
+
+    right
+      0.3s ease;
+}
+
+
+.mesa-smart-links
+a:hover,
+
+.mesa-smart-links
+a.active {
+  color:
+    #fff;
+}
+
+
+.mesa-smart-links
+a:hover::after,
+
+.mesa-smart-links
+a.active::after {
+  left:
+    0;
+
+  right:
+    0;
+}
+
+
+/* ============================================================
+   NAV ACTIONS
+============================================================ */
+
+.mesa-smart-actions {
+  display:
+    flex;
+
+  justify-content:
+    flex-end;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+}
+
+
+.mesa-smart-theme {
+  min-height:
+    44px;
+
+  padding:
+    5px 11px
+    5px 6px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    8px;
+
+  border:
+    1px solid
+    rgba(
+      242,
+      169,
+      0,
+      0.4
+    );
+
+  border-radius:
+    15px;
+
+  background:
+    rgba(
+      0,
+      0,
+      0,
+      0.18
+    );
+
+  color:
+    #fff;
+
+  cursor:
+    pointer;
+}
+
+
+.mesa-smart-theme-icon {
+  width:
+    32px;
+
+  height:
+    32px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  border:
+    1px solid
+    rgba(
+      242,
+      169,
+      0,
+      0.5
+    );
+
+  border-radius:
+    50%;
+
+  color:
+    var(
+      --orange
+    );
+}
+
+
+.mesa-smart-theme-copy {
+  display:
+    grid;
+
+  gap:
+    2px;
+
+  text-align:
+    left;
+}
+
+
+.mesa-smart-theme-copy
+small {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.65
+    );
+
+  font-size:
+    10px !important;
+}
+
+
+.mesa-smart-theme-copy
+strong {
+  color:
+    #fff;
+
+  font-size:
+    11px;
+}
+
+
+.mesa-smart-menu {
+  display:
+    none;
+
+  width:
+    42px;
+
+  height:
+    42px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.15
+    );
+
+  border-radius:
+    13px;
+
+  background:
+    rgba(
+      0,
+      0,
+      0,
+      0.22
+    );
+
+  color:
+    #fff;
+
+  cursor:
+    pointer;
+}
+
+
+/* ============================================================
+   MOBILE NAV
+============================================================ */
+
+.mesa-smart-mobile {
+  width:
+    min(
+      620px,
+      calc(
+        100vw - 20px
+      )
+    );
+
+  max-height:
+    0;
+
+  margin:
+    8px auto 0;
+
+  overflow:
+    hidden;
+
+  pointer-events:
+    none;
+
+  opacity:
+    0;
+
+  border:
+    1px solid
+    transparent;
+
+  border-radius:
+    18px;
+
+  background:
+    rgba(
+      3,
+      7,
+      10,
+      0.96
+    );
+
+  backdrop-filter:
+    blur(18px);
+
+  transition:
+    max-height
+      0.4s ease,
+
+    opacity
+      0.3s ease;
+}
+
+
+.mesa-smart-mobile.open {
+  max-height:
+    500px;
+
+  opacity:
+    1;
+
+  pointer-events:
+    auto;
+
+  border-color:
+    rgba(
+      242,
+      169,
+      0,
+      0.22
+    );
+}
+
+
+.mesa-smart-mobile
+a {
+  min-height:
+    55px;
+
+  padding:
+    0 18px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    42px 1fr;
+
+  align-items:
+    center;
+
+  border-bottom:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.84
+    );
+}
+
+
+.mesa-smart-mobile
+small {
+  color:
+    var(
+      --orange
+    );
+
+  font-size:
+    11px !important;
+}
+
+
+.mesa-smart-mobile
+strong {
+  font-size:
+    14px;
+}
+
+
+.mesa-smart-mobile
+a.active strong {
+  color:
+    var(
+      --orange
+    );
+}
+
+
+/* ============================================================
+   GLOBAL READABILITY
+============================================================ */
+
+.section-title > span,
+
+.section-heading-row
+> div
+> span,
+
+.paper-intro-main
+> span,
+
+.inner-heading
+> span,
+
+.team-premium-copy
+> span,
+
+.story-copy
+> span,
+
+.compact-events-heading
+span,
+
+.compact-event-copy
+> small,
+
+.gallery-compact-header
+> span,
+
+.contact-compact-header
+> span,
+
+.contact-form-panel
+> span,
+
+.sponsorship-panel
+> span,
+
+.faculty-grid
+article
+> span,
+
+.core-team-grid
+article
+> span,
+
+.team-machine-tag
+span {
+  font-size:
+    12px !important;
+
+  font-weight:
+    700 !important;
+
+  opacity:
+    1 !important;
+}
+
+
+p,
+
+.paper-intro-main
+p,
+
+.story-copy
+p,
+
+.team-premium-copy
+p,
+
+.about-leaders-hero
+p,
+
+.vision-content-machine
+p,
+
+.compact-event-copy
+p,
+
+.contact-form-panel
+p,
+
+.sponsorship-panel
+p {
+  font-size:
+    16px !important;
+
+  line-height:
+    1.68 !important;
+
+  color:
+    var(
+      --mesa-soft
+    )
+    !important;
+
+  opacity:
+    1 !important;
+}
+
+
+.event-preview-body
+span,
+
+.event-preview-body
+small,
+
+.event-preview-body
+p,
+
+.compact-event-meta
+span,
+
+.team-accordion
+article
+> button
+> span,
+
+.team-accordion-members
+span,
+
+.contact-form-panel
+label
+small,
+
+.sponsor-contact-list
+small {
+  font-size:
+    12px !important;
+
+  opacity:
+    1 !important;
+}
+
+
+.gallery-filters-final
+button,
+
+.compact-event-tabs
+button,
+
+.register-event-button {
+  font-size:
+    12px !important;
+
+  opacity:
+    1 !important;
+}
+
+
+.hero-identity
+> span,
+
+.student-manifesto
+small,
+
+.champion-trigger-small
+span,
+
+.cinematic-controls
+span,
+
+.cinematic-scroll,
+
+.hero-ticker
+span {
+  font-size:
+    11px !important;
+
+  opacity:
+    0.85 !important;
+}
+
+
+/* ============================================================
+   CARDS
+============================================================ */
+
+.mesa-story-grid,
+
+.events-preview-grid
+article,
+
+.vision-content-machine,
+
+.faculty-grid
+article,
+
+.about-champions-grid,
+
+.core-team-grid
+article,
+
+.team-accordion
+article,
+
+.compact-event-card,
+
+.contact-form-panel,
+
+.sponsorship-panel {
+  background:
+    rgba(
+      5,
+      10,
+      15,
+      0.7
+    )
+    !important;
+
+  backdrop-filter:
+    blur(10px);
+
+  border-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.13
+    )
+    !important;
+}
+
+
+/* ============================================================
+   TEAM ACCORDIONS
+============================================================ */
+
+.team-accordion
+article {
+  border-radius:
+    20px !important;
+}
+
+
+.team-accordion
+article
+> button {
+  min-height:
+    82px !important;
+}
+
+
+.team-accordion
+article
+> button
+> strong {
+  font-size:
+    22px !important;
+}
+
+
+.team-accordion
+article
+> button
+svg {
+  transition:
+    transform
+    0.45s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    );
+}
+
+
+.team-accordion
+article.open
+> button
+svg {
+  transform:
+    rotate(180deg);
+}
+
+
+.team-accordion-members {
+  max-height:
+    0 !important;
+
+  padding-top:
+    0 !important;
+
+  padding-bottom:
+    0 !important;
+
+  overflow:
+    hidden;
+
+  opacity:
+    0;
+
+  transition:
+    max-height
+      0.5s
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      ),
+
+    padding
+      0.4s ease,
+
+    opacity
+      0.3s ease;
+}
+
+
+.team-accordion
+article.open
+.team-accordion-members {
+  max-height:
+    500px !important;
+
+  padding-bottom:
+    22px !important;
+
+  opacity:
+    1;
+}
+
+
+/* ============================================================
+   ANNUAL TEAM
+============================================================ */
+
+.annual-team-section {
+  padding:
+    45px
+    max(
+      6vw,
+      28px
+    )
+    95px;
+}
+
+
+.annual-team-trigger {
+  position:
+    relative;
+
+  width:
+    min(
+      1360px,
+      100%
+    );
+
+  min-height:
+    90px;
+
+  margin:
+    0 auto;
+
+  padding:
+    0 27px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.13
+    );
+
+  border-radius:
+    22px;
+
+  background:
+    rgba(
+      5,
+      10,
+      15,
+      0.72
+    );
+
+  color:
+    var(
+      --mesa-text
+    );
+
+  cursor:
+    pointer;
+}
+
+
+.annual-team-trigger::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  left:
+    0;
+
+  top:
+    18px;
+
+  bottom:
+    18px;
+
+  width:
+    3px;
+
+  border-radius:
+    99px;
+
+  background:
+    var(
+      --orange
+    );
+
+  transform:
+    scaleY(0.35);
+
+  transition:
+    transform
+    0.4s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    );
+}
+
+
+.annual-team-trigger:hover::before,
+
+.annual-team-trigger.open::before {
+  transform:
+    scaleY(1);
+}
+
+
+.annual-team-trigger
+> div {
+  display:
+    flex;
+
+  align-items:
+    baseline;
+
+  gap:
+    16px;
+}
+
+
+.annual-team-trigger
+span {
+  color:
+    var(
+      --orange
+    )
+    !important;
+
+  font-size:
+    12px !important;
+
+  font-weight:
+    700;
+}
+
+
+.annual-team-trigger
+strong {
+  color:
+    var(
+      --mesa-text
+    )
+    !important;
+
+  font-family:
+    var(
+      --font-display
+    );
+
+  font-size:
+    clamp(
+      26px,
+      2.6vw,
+      40px
+    );
+
+  line-height:
+    1;
+}
+
+
+.annual-team-trigger
+svg {
+  color:
+    var(
+      --orange
+    );
+
+  transition:
+    transform
+    0.45s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    );
+}
+
+
+.annual-team-trigger.open
+svg {
+  transform:
+    rotate(180deg);
+}
+
+
+.annual-team-content {
+  width:
+    min(
+      1360px,
+      100%
+    );
+
+  margin:
+    auto;
+
+  display:
+    grid;
+
+  grid-template-rows:
+    0fr;
+
+  opacity:
+    0;
+
+  transition:
+    grid-template-rows
+      0.7s
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      ),
+
+    opacity
+      0.35s ease;
+}
+
+
+.annual-team-content.open {
+  grid-template-rows:
+    1fr;
+
+  opacity:
+    1;
+}
+
+
+.annual-team-content
+> .annual-team-grid {
+  overflow:
+    hidden;
+}
+
+
+.annual-team-grid {
+  padding-top:
+    18px;
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(
+        0,
+        1fr
+      )
+    );
+
+  gap:
+    15px;
+}
+
+
+.annual-team-member {
+  overflow:
+    hidden;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.12
+    );
+
+  border-radius:
+    20px;
+
+  background:
+    rgba(
+      5,
+      10,
+      15,
+      0.74
+    );
+
+  opacity:
+    0;
+
+  transform:
+    translateY(22px);
+
+  transition:
+    opacity
+      0.45s ease,
+
+    transform
+      0.6s
+      cubic-bezier(
+        0.16,
+        1,
+        0.3,
+        1
+      ),
+
+    border-color
+      0.3s ease;
+}
+
+
+.annual-team-content.open
+.annual-team-member {
+  opacity:
+    1;
+
+  transform:
+    translateY(0);
+}
+
+
+.annual-team-member:hover {
+  border-color:
+    rgba(
+      242,
+      169,
+      0,
+      0.48
+    );
+}
+
+
+.annual-member-photo {
+  width:
+    100%;
+
+  aspect-ratio:
+    4 / 4.5 !important;
+
+  height:
+    auto !important;
+
+  min-height:
+    0 !important;
+
+  background:
+    #f1f1ee !important;
+}
+
+
+.annual-member-photo
+img {
+  width:
+    100%;
+
+  height:
+    100%;
+
+  object-fit:
+    contain !important;
+
+  object-position:
+    center bottom;
+
+  background:
+    #f1f1ee;
+}
+
+
+.annual-member-copy {
+  padding:
+    18px
+    18px
+    21px;
+}
+
+
+.annual-member-copy
+span {
+  display:
+    block;
+
+  color:
+    var(
+      --orange
+    );
+
+  font-size:
+    12px;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.35;
+}
+
+
+.annual-member-copy
+h3 {
+  margin:
+    8px 0 0;
+
+  color:
+    var(
+      --mesa-text
+    );
+
+  font-family:
+    var(
+      --font-display
+    );
+
+  font-size:
+    22px;
+
+  line-height:
+    1.05;
+}
+
+
+/* ============================================================
+   GALLERY LIGHTBOX
+============================================================ */
+
+.gallery-final-item,
+
+.gallery-page-item {
+  cursor:
+    zoom-in;
+}
+
+
+.mesa-gallery-lightbox {
+  position:
+    fixed;
+
+  inset:
+    0;
+
+  z-index:
+    20000;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  padding:
+    55px 85px;
+
+  background:
+    rgba(
+      0,
+      0,
+      0,
+      0.92
+    );
+
+  backdrop-filter:
+    blur(15px);
+
+  animation:
+    galleryBackdropIn
+    0.25s ease both;
+}
+
+
+@keyframes galleryBackdropIn {
+
+  from {
+    opacity:
+      0;
+  }
+
+  to {
+    opacity:
+      1;
+  }
+
+}
+
+
+.mesa-lightbox-content {
+  width:
+    min(
+      1200px,
+      calc(
+        100vw - 180px
+      )
+    );
+
+  max-height:
+    calc(
+      100vh - 100px
+    );
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.14
+    );
+
+  border-radius:
+    22px;
+
+  background:
+    #050709;
+
+  box-shadow:
+    0 35px 100px
+    rgba(
+      0,
+      0,
+      0,
+      0.55
+    );
+}
+
+
+.mesa-lightbox-content
+img {
+  width:
+    100%;
+
+  max-height:
+    calc(
+      100vh - 180px
+    );
+
+  object-fit:
+    contain;
+
+  background:
+    #050709;
+}
+
+
+.mesa-lightbox-caption {
+  min-height:
+    65px;
+
+  padding:
+    13px 18px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    20px;
+
+  border-top:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.1
+    );
+}
+
+
+.mesa-lightbox-caption
+span {
+  color:
+    var(
+      --orange
+    );
+
+  font-size:
+    12px;
+}
+
+
+.mesa-lightbox-caption
+strong {
+  color:
+    #fff;
+
+  font-size:
+    16px;
+}
+
+
+.mesa-lightbox-close,
+
+.mesa-lightbox-arrow {
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.18
+    );
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(
+      10,
+      10,
+      10,
+      0.78
+    );
+
+  color:
+    #fff;
+
+  cursor:
+    pointer;
+}
+
+
+.mesa-lightbox-close {
+  position:
+    fixed;
+
+  top:
+    24px;
+
+  right:
+    25px;
+
+  z-index:
+    20004;
+
+  width:
+    46px;
+
+  height:
+    46px;
+}
+
+
+.mesa-lightbox-arrow {
+  position:
+    fixed;
+
+  top:
+    50%;
+
+  z-index:
+    20004;
+
+  width:
+    54px;
+
+  height:
+    54px;
+
+  transform:
+    translateY(-50%);
+}
+
+
+.mesa-lightbox-prev {
+  left:
+    23px;
+}
+
+
+.mesa-lightbox-next {
+  right:
+    23px;
+}
+
+
+/* ============================================================
+   FOOTER
+============================================================ */
+
+.mesa-footer,
+
+.final-footer {
+  position:
+    relative;
+
+  overflow:
+    hidden;
+
+  border-top:
+    1px solid
+    rgba(
+      242,
+      169,
+      0,
+      0.24
+    )
+    !important;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(
+        2,
+        5,
+        7,
+        0.97
+      ),
+      rgba(
+        6,
+        10,
+        13,
+        0.97
+      )
+    )
+    !important;
+}
+
+
+.mesa-footer::before,
+
+.final-footer::before {
+  content:
+    "";
+
+  position:
+    absolute;
+
+  left:
+    6%;
+
+  right:
+    6%;
+
+  top:
+    0;
+
+  height:
+    1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(
+        --orange
+      ),
+      transparent
+    );
+
+  opacity:
+    0.75;
+}
+
+
+.mesa-footer-brand
+strong,
+
+.footer-brand
+strong {
+  color:
+    #fff;
+
+  font-size:
+    21px !important;
+}
+
+
+.mesa-footer-brand
+span,
+
+.footer-brand
+span {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.72
+    )
+    !important;
+
+  font-size:
+    12px !important;
+
+  opacity:
+    1 !important;
+}
+
+
+.mesa-footer-nav
+a,
+
+.footer-links
+a {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.75
+    )
+    !important;
+
+  font-size:
+    12px !important;
+
+  font-weight:
+    700;
+}
+
+
+.mesa-footer-nav
+a:hover,
+
+.footer-links
+a:hover {
+  color:
+    var(
+      --orange
+    )
+    !important;
+}
+
+
+.mesa-footer-bottom
+span,
+
+.footer-bottom
+span {
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.6
+    )
+    !important;
+
+  font-size:
+    11px !important;
+
+  opacity:
+    1 !important;
+}
+
+
+/* ============================================================
+   LIGHT MODE
+============================================================ */
+
+html:not(.dark) {
+  --mesa-bg:
+    #e9e6dd;
+
+  --mesa-text:
+    #101318;
+
+  --mesa-soft:
+    rgba(
+      16,
+      19,
+      24,
+      0.8
+    );
+
+  --mesa-muted:
+    rgba(
+      16,
+      19,
+      24,
+      0.66
+    );
+
+  --mesa-line:
+    rgba(
+      16,
+      19,
+      24,
+      0.14
+    );
+
+  --mesa-card:
+    rgba(
+      255,
+      255,
+      255,
+      0.78
+    );
+}
+
+
+html:not(.dark)
+body {
+  background:
+    #e9e6dd !important;
+
+  color:
+    #101318 !important;
+}
+
+
+html:not(.dark)
+body::before {
+  background-image:
+    url(
+      "/assets/backgrounds/light-blueprint.jpg"
+    );
+
+  opacity:
+    0.07;
+
+  filter:
+    brightness(1.45)
+    contrast(0.60);
+}
+
+
+html:not(.dark)
+.mesa-story-grid,
+
+html:not(.dark)
+.events-preview-grid article,
+
+html:not(.dark)
+.vision-content-machine,
+
+html:not(.dark)
+.faculty-grid article,
+
+html:not(.dark)
+.about-champions-grid,
+
+html:not(.dark)
+.core-team-grid article,
+
+html:not(.dark)
+.team-accordion article,
+
+html:not(.dark)
+.annual-team-trigger,
+
+html:not(.dark)
+.annual-team-member,
+
+html:not(.dark)
+.compact-event-card,
+
+html:not(.dark)
+.contact-form-panel,
+
+html:not(.dark)
+.sponsorship-panel {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.8
+    )
+    !important;
+
+  border-color:
+    rgba(
+      16,
+      19,
+      24,
+      0.15
+    )
+    !important;
+
+  color:
+    #101318 !important;
+}
+
+
+html:not(.dark)
+h1,
+
+html:not(.dark)
+h2,
+
+html:not(.dark)
+h3,
+
+html:not(.dark)
+.team-accordion
+strong,
+
+html:not(.dark)
+.annual-team-trigger
+strong {
+  color:
+    #101318 !important;
+}
+
+
+html:not(.dark)
+p {
+  color:
+    rgba(
+      16,
+      19,
+      24,
+      0.8
+    )
+    !important;
+}
+
+
+html:not(.dark)
+.mesa-smart-navbar {
+  background:
+    rgba(
+      248,
+      246,
+      239,
+      0.9
+    );
+
+  border-color:
+    rgba(
+      16,
+      19,
+      24,
+      0.16
+    );
+}
+
+
+html:not(.dark)
+.mesa-smart-brand
+strong {
+  color:
+    #101318;
+}
+
+
+html:not(.dark)
+.mesa-smart-brand
+span {
+  color:
+    rgba(
+      16,
+      19,
+      24,
+      0.67
+    );
+}
+
+
+html:not(.dark)
+.mesa-smart-links
+a {
+  color:
+    rgba(
+      16,
+      19,
+      24,
+      0.76
+    );
+}
+
+
+html:not(.dark)
+.mesa-smart-links
+a:hover,
+
+html:not(.dark)
+.mesa-smart-links
+a.active {
+  color:
+    #101318;
+}
+
+
+html:not(.dark)
+.mesa-smart-theme {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.68
+    );
+
+  color:
+    #101318;
+}
+
+
+html:not(.dark)
+.mesa-smart-theme-copy
+small {
+  color:
+    rgba(
+      16,
+      19,
+      24,
+      0.62
+    );
+}
+
+
+html:not(.dark)
+.mesa-smart-theme-copy
+strong {
+  color:
+    #101318;
+}
+
+
+html:not(.dark)
+.contact-form-panel
+input,
+
+html:not(.dark)
+.contact-form-panel
+textarea {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.82
+    )
+    !important;
+
+  border-color:
+    rgba(
+      16,
+      19,
+      24,
+      0.17
+    )
+    !important;
+
+  color:
+    #101318 !important;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (
+  max-width:
+  1100px
+) {
+
+  .home-pccoe-mark {
+    width:
+      115px;
+
+    height:
+      115px;
+
+    left:
+      18px;
+  }
+
+
+  .mesa-smart-navbar {
+    width:
+      min(
+        860px,
+        calc(
+          100vw - 60px
+        )
+      );
+
+    grid-template-columns:
+      135px
+      1fr
+      104px;
+  }
+
+
+  .mesa-smart-nav-home
+  .mesa-smart-navbar {
+    width:
+      min(
+        860px,
+        calc(
+          100vw - 180px
+        )
+      );
+
+    margin-right:
+      18px;
+  }
+
+
+  .mesa-smart-links {
+    gap:
+      13px;
+  }
+
+
+  .mesa-smart-links
+  a {
+    font-size:
+      11px;
+  }
+
+
+  .annual-team-grid {
+    grid-template-columns:
+      repeat(
+        3,
+        minmax(
+          0,
+          1fr
+        )
+      );
+  }
+
+}
+
+
+@media (
+  max-width:
+  850px
+) {
+
+  .mesa-smart-nav-shell {
+    top:
+      7px;
+
+    padding:
+      0 8px;
+  }
+
+
+  .home-pccoe-mark {
+    display:
+      none;
+  }
+
+
+  .mesa-smart-navbar,
+
+  .mesa-smart-nav-home
+  .mesa-smart-navbar,
+
+  .mesa-smart-nav-inner
+  .mesa-smart-navbar {
+    width:
+      100%;
+
+    min-height:
+      58px;
+
+    margin:
+      0 auto;
+
+    padding:
+      5px 9px;
+
+    grid-template-columns:
+      1fr auto;
+
+    transform:
+      none !important;
+
+    border-radius:
+      17px;
+  }
+
+
+  .mesa-smart-links {
+    display:
+      none;
+  }
+
+
+  .mesa-smart-menu {
+    display:
+      grid;
+
+    place-items:
+      center;
+  }
+
+
+  .mesa-smart-theme-copy {
+    display:
+      none;
+  }
+
+
+  .annual-team-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(
+          0,
+          1fr
+        )
+      );
+  }
+
+
+  .mesa-gallery-lightbox {
+    padding:
+      55px 15px;
+  }
+
+
+  .mesa-lightbox-content {
+    width:
+      calc(
+        100vw - 30px
+      );
+  }
+
+
+  .mesa-lightbox-prev {
+    left:
+      8px;
+  }
+
+
+  .mesa-lightbox-next {
+    right:
+      8px;
+  }
+
+}
+
+
+@media (
+  max-width:
+  550px
+) {
+
+  .annual-team-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .annual-team-trigger {
+    min-height:
+      78px;
+
+    padding:
+      0 18px;
+  }
+
+
+  .annual-team-trigger
+  > div {
+    display:
+      grid;
+
+    gap:
+      6px;
+  }
+
+
+  .annual-team-trigger
+  strong {
+    font-size:
+      25px;
+  }
+
+
+  .mesa-lightbox-caption {
+    align-items:
+      flex-start;
+
+    flex-direction:
+      column;
+
+    gap:
+      5px;
+  }
+
+}
+
+/* =========================================================
+   DISABLE OLD STATIC ENGINEERING BACKGROUND
+========================================================= */
+
+.engineering-background,
+.engineering-background__image {
+  display: none !important;
+}
+
+/* =========================================================
+   FINAL WORKING CAD PARALLAX OVERRIDE
+========================================================= */
+
+body::before {
+  content: "" !important;
+
+  position: fixed !important;
+  inset: -70px !important;
+
+  z-index: 0 !important;
+  pointer-events: none !important;
+
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+
+  background-position:
+    50% 50% !important;
+
+  transform:
+    translate3d(
+      var(--cad-x, 0px),
+      var(--cad-y, 0px),
+      0
+    )
+    scale(1.09) !important;
+
+  transform-origin:
+    center center !important;
+
+  transition:
+    transform
+    0.18s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    ) !important;
+
+  animation: none !important;
+
+  will-change:
+    transform !important;
+}
+
+
+/* DARK MODE */
+
+html.dark body::before {
+  background-image:
+    url("/assets/backgrounds/dark-blueprint.jpg")
+    !important;
+
+  opacity:
+    0.52 !important;
+
+  filter:
+    brightness(1.45)
+    contrast(1.08)
+    !important;
+}
+
+
+/* LIGHT MODE */
+
+html:not(.dark) body::before {
+  background-image:
+    url("/assets/backgrounds/light-blueprint.jpg")
+    !important;
+
+  opacity:
+    0.40 !important;
+
+  filter:
+    brightness(1.05)
+    contrast(0.95)
+    !important;
+}
+
+
+/* REMOVE OLD STATIC BG */
+
+.engineering-background,
+.engineering-background__image {
+  display:
+    none !important;
+}
+
+
+/* REMOVE OLD GHOST CIRCLE */
+
+body::after {
+  content:
+    none !important;
+
+  display:
+    none !important;
+}
+
+/* FIX LEGACY TIMELINE LINE */
+
+.legacy-line {
+  background: var(--orange) !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  z-index: 1 !important;
+}
+
+.legacy-timeline article {
+  position: relative;
+  z-index: 2;
+}
+
+.legacy-timeline article i {
+  z-index: 3;
+}
+
+/* LIGHT MODE — LEGACY TIMELINE */
+
+html:not(.dark) .legacy-timeline {
+  background: rgba(255, 255, 255, 0.88) !important;
+
+  border-color: rgba(0, 0, 0, 0.10) !important;
+}
+
+html:not(.dark) .legacy-timeline article strong {
+  color: rgba(15, 18, 22, 0.88) !important;
+}
+
+/* =========================================
+   FORCE LIGHT MODE BACKGROUND
+========================================= */
+
+html:not(.dark) {
+  background: #ffffff !important;
+}
+
+html:not(.dark) body {
+  background: #ffffff !important;
+}
+
+
+/* LIGHT BLUEPRINT — VERY FAINT */
+
+html:not(.dark) body::before {
+  background-image:
+    url("/assets/backgrounds/light-blueprint.jpg")
+    !important;
+
+  opacity: 0.4 !important;
+
+  filter:
+    brightness(1.4)
+    contrast(0.55)
+    !important;
+}
+
+
+/* LIGHT MODE LEGACY TIMELINE */
+
+html:not(.dark) .legacy-timeline {
+  background:
+    rgba(255, 255, 255, 0.96)
+    !important;
+
+  border-color:
+    rgba(0, 0, 0, 0.10)
+    !important;
+}
+
+html:not(.dark)
+.legacy-timeline article strong {
+  color:
+    #17191c
+    !important;
+}
