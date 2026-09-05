@@ -32,6 +32,11 @@ export const coreTeam = [
     image: "/assets/team/shreepadma-munishwar.jpg",
   },
   {
+    name: "Sharvil Adavale",
+    role: "HRM",
+    image: "/assets/team/sharvil-adavale.jpg",
+  },
+  {
     name: "Netraja Patil",
     role: "MARKETING AND SPONSORSHIP HEAD",
     image: "/assets/team/netraja-patil.jpg",
@@ -56,11 +61,7 @@ export const coreTeam = [
     role: "WEB DEVELOPMENT HEAD",
     image: "/assets/team/sakshi-bhoge.jpg",
   },
-  {
-    name: "Sharvil Adavale",
-    role: "HRM",
-    image: "/assets/team/sharvil-adavale.jpg",
-  },
+  
 ];
 
 export const teams = [

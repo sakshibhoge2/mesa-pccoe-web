@@ -1,8 +1,4 @@
 import {
-  Trophy,
-} from "lucide-react";
-
-import {
   useState,
 } from "react";
 
@@ -13,6 +9,7 @@ import {
   facultyMembers,
 } from "../data/faculty";
 
+
 const visionMission = {
   vision: {
     number:
@@ -20,9 +17,6 @@ const visionMission = {
 
     label:
       "VISION",
-
-    title:
-      "THE FUTURE WE WANT TO CREATE.",
 
     text:
       "To build a student community where Mechanical Engineering students grow through technical excellence, innovation, teamwork, leadership and meaningful real-world exposure.",
@@ -35,15 +29,28 @@ const visionMission = {
     label:
       "MISSION",
 
-    title:
-      "HOW WE MOVE FORWARD.",
-
     text:
-      "To create opportunities through workshops, competitions, industry interaction, student-led initiatives and collaborative experiences that turn classroom learning into capability and impact.",
+      "To provide a platform for students to learn, lead and collaborate through technical and non-technical events, competitions, training programmes, workshops, guest lectures and industry interactions.",
   },
 };
 
+
+const facultyRoles = [
+  "DEAN — STUDENT DEVELOPMENT & WELFARE",
+  "HEAD OF DEPARTMENT",
+  "FACULTY INCHARGE — MESA",
+];
+
+
+const facultyNames = [
+  "Prof. Dr. P. A. Deshmukh",
+  "Prof. P. R. Kale",
+  "Assistant Prof. S. S. Shinde",
+];
+
+
 function About() {
+
   const [
     selected,
     setSelected,
@@ -55,13 +62,19 @@ function About() {
       "vision"
     );
 
+
   const content =
     visionMission[
       selected
     ];
 
+
   return (
     <div className="inner-page about-page">
+
+      {/* =====================================================
+          ABOUT HERO
+      ===================================================== */}
 
       <section className="about-leaders-hero">
 
@@ -91,6 +104,7 @@ function About() {
 
         </div>
 
+
         <div className="about-logo-machine">
 
           <img
@@ -102,6 +116,10 @@ function About() {
 
       </section>
 
+
+      {/* =====================================================
+          VISION / MISSION
+      ===================================================== */}
 
       <section className="vision-machine-section">
 
@@ -130,6 +148,7 @@ function About() {
                 <span>
                   VISION
                 </span>
+
               </button>
 
 
@@ -166,6 +185,7 @@ function About() {
                 <span>
                   MISSION
                 </span>
+
               </button>
 
             </div>
@@ -178,27 +198,22 @@ function About() {
               className="vision-content-machine"
             >
 
-              <span>
-                {
-                  content.number
-                }
+              <span className="vision-number">
+                {content.number}
                 {" / "}
-                {
-                  content.label
-                }
+                {content.label}
               </span>
 
-              <h2>
-                {
-                  content.title
-                }
+
+              <h2 className="vision-main-title">
+                {content.label}
               </h2>
 
+
               <p>
-                {
-                  content.text
-                }
+                {content.text}
               </p>
+
 
               <small>
                 SELECT VISION / MISSION
@@ -212,6 +227,10 @@ function About() {
 
       </section>
 
+
+      {/* =====================================================
+          FACULTY GUIDANCE
+      ===================================================== */}
 
       <section className="faculty-guidance">
 
@@ -239,12 +258,13 @@ function About() {
 
             {facultyMembers.map(
               (
-                member
+                member,
+                index
               ) => (
 
                 <article
                   key={
-                    member.id
+                    `${member.name}-${index}`
                   }
                 >
 
@@ -253,22 +273,24 @@ function About() {
                       member.image
                     }
                     alt={
-                      member.name
+                      facultyNames[index]
                     }
                     label="FACULTY PHOTO"
                   />
+
 
                   <div className="faculty-card-copy">
 
                     <span>
                       {
-                        member.designation
+                        facultyRoles[index]
                       }
                     </span>
 
+
                     <h3>
                       {
-                        member.name
+                        facultyNames[index]
                       }
                     </h3>
 
@@ -285,50 +307,9 @@ function About() {
 
       </section>
 
-
-      <section className="about-champions">
-
-        <ScrollReveal>
-
-          <div className="about-champions-grid">
-
-            <MediaSlot
-              src="/assets/hero/champions-stage.png"
-              alt="PCCOE Champions 2025"
-              label="CHAMPIONS PHOTO"
-              className="about-champion-photo"
-            />
-
-            <div>
-
-              <Trophy
-                size={29}
-              />
-
-              <span>
-                PCCOE CHAMPIONS 2025
-              </span>
-
-              <h2>
-                DEPARTMENT OF
-                <br />
-                MECHANICAL ENGINEERING
-              </h2>
-
-              <strong>
-                WINNERS
-              </strong>
-
-            </div>
-
-          </div>
-
-        </ScrollReveal>
-
-      </section>
-
     </div>
   );
 }
+
 
 export default About;
