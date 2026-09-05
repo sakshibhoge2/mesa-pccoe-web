@@ -32,22 +32,17 @@ function Events() {
   ] =
     useState<
       string | null
-    >(
-      null
-    );
+    >(null);
 
   const visibleEvents =
     events.filter(
-      (
-        event
-      ) =>
+      (event) =>
         event.status ===
         activeTab
     );
 
   return (
     <div className="inner-page compact-events-page">
-
 
       {/* MEMORABLE OLD EVENTS */}
 
@@ -72,7 +67,6 @@ function Events() {
 
           </div>
 
-
           <div className="legacy-timeline">
 
             <div className="legacy-line" />
@@ -88,26 +82,20 @@ function Events() {
                     event.id
                   }
                   className={
-                    index %
-                      2 ===
-                    0
+                    index % 2 === 0
                       ? "legacy-up"
                       : "legacy-down"
                   }
                 >
 
-                  <span>
-                    {
-                      event.year
-                    }
+                   <span>
+                    {String(index + 1).padStart(2, "0")}
                   </span>
 
                   <i />
 
                   <strong>
-                    {
-                      event.title
-                    }
+                    {event.title}
                   </strong>
 
                 </article>
@@ -120,7 +108,6 @@ function Events() {
         </ScrollReveal>
 
       </section>
-
 
       {/* CURRENT YEAR */}
 
@@ -145,7 +132,6 @@ function Events() {
             UPCOMING
           </button>
 
-
           <button
             type="button"
             className={
@@ -167,7 +153,6 @@ function Events() {
 
       </section>
 
-
       <section className="compact-events-list">
 
         <ScrollReveal>
@@ -186,7 +171,6 @@ function Events() {
             </h1>
 
           </div>
-
 
           <div className="compact-event-grid">
 
@@ -229,7 +213,6 @@ function Events() {
 
                     </div>
 
-
                     <div className="compact-event-copy">
 
                       <small>
@@ -249,7 +232,6 @@ function Events() {
                           event.description
                         }
                       </p>
-
 
                       <div className="compact-event-meta">
 
@@ -274,7 +256,6 @@ function Events() {
                         </span>
 
                       </div>
-
 
                       {activeTab ===
                       "upcoming" ? (
@@ -330,7 +311,6 @@ function Events() {
         </ScrollReveal>
 
       </section>
-
 
       {/* REGISTRATION POPUP */}
 

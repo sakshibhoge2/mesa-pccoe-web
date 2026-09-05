@@ -15,9 +15,6 @@ import {
   annualTeam,
 } from "../data/team";
 
-
-
-
 function Team() {
   /* CLOSED BY DEFAULT */
 
@@ -347,12 +344,13 @@ function Team() {
 
               {annualTeam.members.map(
                 (
-                  member
+                  member,
+                  index
                 ) => (
 
                   <article
                     key={
-                      member.id
+                      `${member.name}-${index}`
                     }
                     className="annual-team-member"
                   >

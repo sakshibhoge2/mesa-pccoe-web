@@ -1,7 +1,10 @@
 import {
-  ReactNode,
   useEffect,
   useRef,
+} from "react";
+
+import type {
+  ReactNode,
 } from "react";
 
 type Props = {

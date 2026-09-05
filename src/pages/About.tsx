@@ -63,7 +63,6 @@ function About() {
   return (
     <div className="inner-page about-page">
 
-
       <section className="about-leaders-hero">
 
         <div>
@@ -109,7 +108,6 @@ function About() {
         <ScrollReveal>
 
           <div className="vision-machine-grid">
-
 
             <div className="vision-selector">
 
@@ -258,9 +256,6 @@ function About() {
                       member.name
                     }
                     label="FACULTY PHOTO"
-                    position={
-                      member.position
-                    }
                   />
 
                   <div className="faculty-card-copy">
