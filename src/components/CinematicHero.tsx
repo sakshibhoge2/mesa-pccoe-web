@@ -19,9 +19,7 @@ import {
 
 function CinematicHero() {
   const videoRef =
-    useRef<HTMLVideoElement>(
-      null
-    );
+    useRef<HTMLVideoElement>(null);
 
   const [
     videoFailed,
@@ -51,11 +49,9 @@ function CinematicHero() {
 
     if (video.paused) {
       void video.play();
-
       setPaused(false);
     } else {
       video.pause();
-
       setPaused(true);
     }
   }
@@ -66,17 +62,16 @@ function CinematicHero() {
 
     if (!video) return;
 
-    const next =
-      !muted;
+    const next = !muted;
 
-    video.muted =
-      next;
-
+    video.muted = next;
     setMuted(next);
   }
 
   return (
     <section className="cinematic-hero">
+
+      {/* HERO VIDEO */}
 
       <div className="cinematic-media">
 
@@ -87,11 +82,9 @@ function CinematicHero() {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             onError={() =>
-              setVideoFailed(
-                true
-              )
+              setVideoFailed(true)
             }
           >
             <source
@@ -114,7 +107,7 @@ function CinematicHero() {
       </div>
 
 
-      {/* PCCOE LOGO ONLY */}
+      {/* PCCOE LOGO */}
 
       <div className="hero-college hero-college-logo-only">
 
@@ -126,6 +119,8 @@ function CinematicHero() {
       </div>
 
 
+      {/* MAIN MESA HERO IDENTITY */}
+
       <div className="hero-identity">
 
         <img
@@ -133,21 +128,22 @@ function CinematicHero() {
           alt="MESA PCCOE"
         />
 
-        <span>
-          LEADERS OF TOMORROW
-        </span>
+        <h1 className="hero-leaders-title">
 
-        <h1>
-          WHERE IDEAS
+          LEADERS OF
+
           <br />
 
           <em>
-            BECOME IMPACT.
+            TOMORROW.
           </em>
+
         </h1>
 
       </div>
 
+
+      {/* STUDENT MANIFESTO */}
 
       <div className="student-manifesto">
 
@@ -185,29 +181,21 @@ function CinematicHero() {
 
           <div className="hero-popup-small">
 
-            <BellRing
-              size={19}
-            />
+            <BellRing size={19} />
 
             <div>
 
               <span>
-                {
-                  heroPopup.eyebrow
-                }
+                {heroPopup.eyebrow}
               </span>
 
               <strong>
-                {
-                  heroPopup.meta
-                }
+                {heroPopup.meta}
               </strong>
 
             </div>
 
-            <ArrowUpRight
-              size={16}
-            />
+            <ArrowUpRight size={16} />
 
           </div>
 
@@ -217,32 +205,23 @@ function CinematicHero() {
             <div>
 
               <small>
-                {
-                  heroPopup.eyebrow
-                }
+                {heroPopup.eyebrow}
               </small>
 
               <strong>
-                {
-                  heroPopup.title
-                }
+                {heroPopup.title}
               </strong>
 
               <a
-                href={
-                  heroPopup.href
-                }
-                onClick={(
-                  event
-                ) =>
+                href={heroPopup.href}
+                onClick={(event) =>
                   event.stopPropagation()
                 }
               >
                 VIEW DETAILS
 
-                <ArrowUpRight
-                  size={14}
-                />
+                <ArrowUpRight size={14} />
+
               </a>
 
             </div>
@@ -254,47 +233,35 @@ function CinematicHero() {
       )}
 
 
+      {/* VIDEO CONTROLS */}
+
       {!videoFailed && (
 
         <div className="cinematic-controls">
 
           <button
             type="button"
-            onClick={
-              toggleVideo
-            }
+            onClick={toggleVideo}
           >
-
             {paused ? (
-              <Play
-                size={15}
-              />
+              <Play size={15} />
             ) : (
-              <Pause
-                size={15}
-              />
+              <Pause size={15} />
             )}
-
           </button>
+
 
           <button
             type="button"
-            onClick={
-              toggleSound
-            }
+            onClick={toggleSound}
           >
-
             {muted ? (
-              <VolumeX
-                size={15}
-              />
+              <VolumeX size={15} />
             ) : (
-              <Volume2
-                size={15}
-              />
+              <Volume2 size={15} />
             )}
-
           </button>
+
 
           <span>
             <i />
@@ -306,17 +273,20 @@ function CinematicHero() {
       )}
 
 
+      {/* DISCOVER */}
+
       <a
         href="#mesa-intro"
         className="cinematic-scroll"
       >
         DISCOVER MESA
 
-        <ArrowDown
-          size={15}
-        />
+        <ArrowDown size={15} />
+
       </a>
 
+
+      {/* TICKER */}
 
       <div className="hero-ticker">
 
@@ -349,6 +319,7 @@ function CinematicHero() {
                 {item}
 
                 <i />
+
               </span>
 
             )

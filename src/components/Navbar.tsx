@@ -15,30 +15,12 @@ type Props = {
 };
 
 const links = [
-  {
-    label: "HOME",
-    page: "home",
-  },
-  {
-    label: "ABOUT MESA",
-    page: "about",
-  },
-  {
-    label: "TEAM",
-    page: "team",
-  },
-  {
-    label: "EVENTS",
-    page: "events",
-  },
-  {
-    label: "GALLERY",
-    page: "gallery",
-  },
-  {
-    label: "CONTACT",
-    page: "contact",
-  },
+  { label: "HOME", page: "home" },
+  { label: "ABOUT MESA", page: "about" },
+  { label: "TEAM", page: "team" },
+  { label: "EVENTS", page: "events" },
+  { label: "GALLERY", page: "gallery" },
+  { label: "CONTACT", page: "contact" },
 ];
 
 function getHashPage() {
@@ -51,9 +33,7 @@ function getHashPage() {
   return hash || "home";
 }
 
-function Navbar({
-  activePage,
-}: Props = {}) {
+function Navbar({ activePage }: Props = {}) {
   const [mobileOpen, setMobileOpen] =
     useState(false);
 
@@ -62,8 +42,7 @@ function Navbar({
 
   const [currentPage, setCurrentPage] =
     useState(
-      activePage ||
-        getHashPage()
+      activePage || getHashPage()
     );
 
   const [isDark, setIsDark] =
@@ -72,15 +51,10 @@ function Navbar({
   const isHome =
     currentPage === "home";
 
-  /* --------------------------------
-     ROUTE
-  -------------------------------- */
-
   useEffect(() => {
     const updatePage = () => {
       setCurrentPage(
-        activePage ||
-          getHashPage()
+        activePage || getHashPage()
       );
 
       setMobileOpen(false);
@@ -106,15 +80,11 @@ function Navbar({
     };
   }, [activePage]);
 
-  /* --------------------------------
-     SCROLL
-  -------------------------------- */
-
+  /* Scroll state is used only for the PCCOE-logo transition.
+     The navbar itself stays centered in both states. */
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(
-        window.scrollY > 55
-      );
+      setScrolled(window.scrollY > 55);
     };
 
     handleScroll();
@@ -122,9 +92,7 @@ function Navbar({
     window.addEventListener(
       "scroll",
       handleScroll,
-      {
-        passive: true,
-      }
+      { passive: true }
     );
 
     return () => {
@@ -135,67 +103,45 @@ function Navbar({
     };
   }, []);
 
-  /* --------------------------------
-     THEME
-  -------------------------------- */
-
   useEffect(() => {
     const saved =
-      localStorage.getItem(
-        "mesa-theme"
-      );
+      localStorage.getItem("mesa-theme");
 
     const light =
       saved === "light" ||
       saved === "editorial";
 
-    const dark =
-      !light;
+    const dark = !light;
 
-    document.documentElement
-      .classList.toggle(
-        "dark",
-        dark
-      );
-
-    document.documentElement
-      .dataset.theme =
+    document.documentElement.classList.toggle(
+      "dark",
       dark
-        ? "night"
-        : "editorial";
+    );
+
+    document.documentElement.dataset.theme =
+      dark ? "night" : "editorial";
 
     setIsDark(dark);
   }, []);
 
   function toggleTheme() {
-    const nextDark =
-      !isDark;
+    const nextDark = !isDark;
 
     setIsDark(nextDark);
 
-    document.documentElement
-      .classList.toggle(
-        "dark",
-        nextDark
-      );
-
-    document.documentElement
-      .dataset.theme =
+    document.documentElement.classList.toggle(
+      "dark",
       nextDark
-        ? "night"
-        : "editorial";
+    );
+
+    document.documentElement.dataset.theme =
+      nextDark ? "night" : "editorial";
 
     localStorage.setItem(
       "mesa-theme",
-      nextDark
-        ? "night"
-        : "editorial"
+      nextDark ? "night" : "editorial"
     );
   }
-
-  /* --------------------------------
-     CAD MOUSE PARALLAX
-  -------------------------------- */
 
   useEffect(() => {
     let frame = 0;
@@ -203,64 +149,47 @@ function Navbar({
     const handlePointerMove = (
       event: PointerEvent
     ) => {
-      cancelAnimationFrame(
-        frame
-      );
+      cancelAnimationFrame(frame);
 
-      frame =
-        requestAnimationFrame(
-          () => {
-            const mouseX =
-              event.clientX /
-                window.innerWidth -
-              0.5;
+      frame = requestAnimationFrame(() => {
+        const mouseX =
+          event.clientX /
+            window.innerWidth -
+          0.5;
 
-            const mouseY =
-              event.clientY /
-                window.innerHeight -
-              0.5;
+        const mouseY =
+          event.clientY /
+            window.innerHeight -
+          0.5;
 
-            const x =
-              mouseX * 16;
-
-            const y =
-              mouseY * 10;
-
-            document.documentElement
-              .style.setProperty(
-                "--cad-x",
-                `${x}px`
-              );
-
-            document.documentElement
-              .style.setProperty(
-                "--cad-y",
-                `${y}px`
-              );
-          }
+        document.documentElement.style.setProperty(
+          "--cad-x",
+          `${mouseX * 16}px`
         );
+
+        document.documentElement.style.setProperty(
+          "--cad-y",
+          `${mouseY * 10}px`
+        );
+      });
     };
 
     const resetParallax = () => {
-      document.documentElement
-        .style.setProperty(
-          "--cad-x",
-          "0px"
-        );
+      document.documentElement.style.setProperty(
+        "--cad-x",
+        "0px"
+      );
 
-      document.documentElement
-        .style.setProperty(
-          "--cad-y",
-          "0px"
-        );
+      document.documentElement.style.setProperty(
+        "--cad-y",
+        "0px"
+      );
     };
 
     window.addEventListener(
       "pointermove",
       handlePointerMove,
-      {
-        passive: true,
-      }
+      { passive: true }
     );
 
     window.addEventListener(
@@ -269,9 +198,7 @@ function Navbar({
     );
 
     return () => {
-      cancelAnimationFrame(
-        frame
-      );
+      cancelAnimationFrame(frame);
 
       window.removeEventListener(
         "pointermove",
@@ -287,22 +214,16 @@ function Navbar({
 
   return (
     <header
-      className={`
-        mesa-smart-nav-shell
-        ${
-          isHome
-            ? "mesa-smart-nav-home"
-            : "mesa-smart-nav-inner"
-        }
-        ${
-          scrolled
-            ? "mesa-smart-nav-scrolled"
-            : ""
-        }
-      `}
+      className={[
+        "mesa-smart-nav-shell",
+        isHome
+          ? "mesa-smart-nav-home"
+          : "mesa-smart-nav-inner",
+        scrolled
+          ? "mesa-smart-nav-scrolled"
+          : "",
+      ].join(" ")}
     >
-      {/* LARGE PCCOE LOGO — HOME ONLY */}
-
       {isHome && (
         <a
           href="#/home"
@@ -315,8 +236,6 @@ function Navbar({
           />
         </a>
       )}
-
-      {/* NAVBAR */}
 
       <nav className="mesa-smart-navbar">
         <a
@@ -332,69 +251,46 @@ function Navbar({
           />
 
           <div>
-            <strong>
-              MESA
-            </strong>
-
-            <span>
-              PCCOE
-            </span>
+            <strong>MESA</strong>
+            <span>PCCOE</span>
           </div>
         </a>
 
         <div className="mesa-smart-links">
-          {links.map(
-            (link) => (
-              <a
-                key={
-                  link.page
-                }
-                href={`#/${link.page}`}
-                className={
-                  currentPage ===
-                  link.page
-                    ? "active"
-                    : ""
-                }
-              >
-                {
-                  link.label
-                }
-              </a>
-            )
-          )}
+          {links.map((link) => (
+            <a
+              key={link.page}
+              href={`#/${link.page}`}
+              className={
+                currentPage === link.page
+                  ? "active"
+                  : ""
+              }
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
 
         <div className="mesa-smart-actions">
           <button
             type="button"
             className="mesa-smart-theme"
-            onClick={
-              toggleTheme
-            }
+            onClick={toggleTheme}
             aria-label="Change theme"
           >
             <span className="mesa-smart-theme-icon">
               {isDark ? (
-                <Moon
-                  size={16}
-                />
+                <Moon size={16} />
               ) : (
-                <Sun
-                  size={16}
-                />
+                <Sun size={16} />
               )}
             </span>
 
             <span className="mesa-smart-theme-copy">
-              <small>
-                MODE
-              </small>
-
+              <small>MODE</small>
               <strong>
-                {isDark
-                  ? "NIGHT"
-                  : "DAY"}
+                {isDark ? "NIGHT" : "DAY"}
               </strong>
             </span>
           </button>
@@ -404,11 +300,11 @@ function Navbar({
             className="mesa-smart-menu"
             onClick={() =>
               setMobileOpen(
-                (current) =>
-                  !current
+                (current) => !current
               )
             }
             aria-label="Open navigation"
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? (
               <X size={20} />
@@ -419,57 +315,32 @@ function Navbar({
         </div>
       </nav>
 
-      {/* MOBILE */}
-
       <div
-        className={`
-          mesa-smart-mobile
-          ${
-            mobileOpen
-              ? "open"
-              : ""
-          }
-        `}
+        className={[
+          "mesa-smart-mobile",
+          mobileOpen ? "open" : "",
+        ].join(" ")}
       >
-        {links.map(
-          (
-            link,
-            index
-          ) => (
-            <a
-              key={
-                link.page
-              }
-              href={`#/${link.page}`}
-              className={
-                currentPage ===
-                link.page
-                  ? "active"
-                  : ""
-              }
-              onClick={() =>
-                setMobileOpen(
-                  false
-                )
-              }
-            >
-              <small>
-                {String(
-                  index + 1
-                ).padStart(
-                  2,
-                  "0"
-                )}
-              </small>
+        {links.map((link, index) => (
+          <a
+            key={link.page}
+            href={`#/${link.page}`}
+            className={
+              currentPage === link.page
+                ? "active"
+                : ""
+            }
+            onClick={() =>
+              setMobileOpen(false)
+            }
+          >
+            <small>
+              {String(index + 1).padStart(2, "0")}
+            </small>
 
-              <strong>
-                {
-                  link.label
-                }
-              </strong>
-            </a>
-          )
-        )}
+            <strong>{link.label}</strong>
+          </a>
+        ))}
       </div>
     </header>
   );

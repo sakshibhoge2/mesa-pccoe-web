@@ -7255,3 +7255,656 @@ article:hover strong {
   }
 
 }
+/* ============================================================
+   MESA HOME — FINAL RESPONSIVE POLISH
+   Added as the final override layer
+============================================================ */
+
+.hero-identity {
+  width: min(760px, 72vw) !important;
+  bottom: clamp(118px, 15vh, 165px) !important;
+}
+
+.hero-identity img {
+  width: clamp(135px, 12vw, 185px) !important;
+  margin-bottom: 18px !important;
+}
+
+/* Keep existing JSX working, but replace the tiny label visually. */
+.hero-identity > span {
+  display: block !important;
+  height: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  font-size: 0 !important;
+}
+
+.hero-identity > span::after {
+  content: "LEADERS OF\A TOMORROW." !important;
+  display: block !important;
+  white-space: pre !important;
+  height: auto !important;
+  overflow: visible !important;
+  color: #fff !important;
+  font-family: var(--font-display) !important;
+  font-size: clamp(46px, 6vw, 86px) !important;
+  font-weight: 700 !important;
+  line-height: .88 !important;
+  letter-spacing: -.055em !important;
+  text-shadow: 0 10px 35px rgba(0,0,0,.5) !important;
+}
+
+.hero-identity h1 {
+  display: none !important;
+}
+
+/* Existing final overrides already define the orange accent. */
+.hero-identity > span::after {
+  color: #fff !important;
+}
+
+/* Make TOMORROW orange using a background-free, safe approach only when
+   the markup is updated to .hero-leaders-title in the future. */
+.hero-leaders-title em {
+  color: var(--orange) !important;
+  font-style: normal !important;
+}
+
+.hero-college-logo-only {
+  top: clamp(92px, 11vh, 115px) !important;
+  left: clamp(24px, 4vw, 70px) !important;
+}
+
+.hero-college-logo-only img {
+  width: clamp(72px, 6vw, 96px) !important;
+  height: clamp(72px, 6vw, 96px) !important;
+  object-fit: contain !important;
+}
+
+.premium-navbar {
+  right: 50% !important;
+  transform: translate(50%, -50%) !important;
+  width: min(900px, calc(100vw - 300px)) !important;
+}
+
+.section-title > span,
+.section-heading-row > div > span,
+.paper-intro-main > span {
+  font-size: clamp(12px, .9vw, 14px) !important;
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+  letter-spacing: .16em !important;
+  opacity: 1 !important;
+}
+
+.home-mesa-mark {
+  min-width: 0 !important;
+  width: 100% !important;
+  gap: 22px !important;
+}
+
+.home-mesa-mark img {
+  width: min(340px, 82%) !important;
+  max-height: 280px !important;
+  object-fit: contain !important;
+}
+
+.home-mesa-mark span {
+  width: min(100%, 390px) !important;
+  max-width: 390px !important;
+  font-size: clamp(12px, 1vw, 15px) !important;
+  font-weight: 700 !important;
+  line-height: 1.45 !important;
+  letter-spacing: .06em !important;
+  color: var(--text-soft) !important;
+}
+
+.events-preview-grid article {
+  min-width: 0 !important;
+  transition: transform .4s cubic-bezier(.16,1,.3,1), border-color .35s ease, box-shadow .4s ease !important;
+}
+
+.events-preview-grid article:hover {
+  transform: translateY(-8px) !important;
+  border-color: rgba(242,169,0,.7) !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,.28), 0 0 0 1px rgba(242,169,0,.08) !important;
+}
+
+.event-image {
+  height: clamp(270px, 22vw, 330px) !important;
+}
+
+.mesa-footer,
+.mesa-footer-main,
+.mesa-footer-bottom,
+.mesa-footer-brand,
+.mesa-footer-cta,
+.mesa-footer-nav,
+.mesa-footer-social {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+.mesa-footer-main {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, .8fr) minmax(0, 1.1fr) auto !important;
+}
+
+.mesa-footer-brand > div {
+  min-width: 0 !important;
+}
+
+.mesa-footer-brand span {
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+}
+
+.mesa-footer-bottom {
+  min-width: 0 !important;
+  flex-wrap: wrap !important;
+}
+
+.mesa-footer-bottom span,
+.mesa-footer-bottom strong {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+}
+
+@media (max-width: 1100px) {
+  .premium-navbar {
+    width: min(900px, calc(100vw - 40px)) !important;
+  }
+
+  .events-preview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .mesa-footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 28px !important;
+  }
+}
+
+@media (max-width: 820px) {
+  .premium-navbar {
+    right: 8px !important;
+    left: 8px !important;
+    width: auto !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .hero-identity {
+    width: min(92vw, 620px) !important;
+    bottom: clamp(105px, 14vh, 125px) !important;
+  }
+
+  .hero-identity img {
+    width: clamp(115px, 27vw, 155px) !important;
+    margin-bottom: 14px !important;
+  }
+
+  .hero-identity > span::after {
+    font-size: clamp(40px, 11vw, 64px) !important;
+  }
+
+  .hero-college-logo-only {
+    top: 82px !important;
+    left: 14px !important;
+  }
+
+  .hero-college-logo-only img {
+    width: 58px !important;
+    height: 58px !important;
+  }
+
+  .events-preview-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .event-image {
+    height: clamp(230px, 62vw, 310px) !important;
+  }
+
+  .home-mesa-mark img {
+    width: min(290px, 78vw) !important;
+  }
+
+  .home-mesa-mark span {
+    width: min(100%, 360px) !important;
+    font-size: 12px !important;
+  }
+
+  .mesa-footer-main {
+    grid-template-columns: 1fr !important;
+  }
+
+  .mesa-footer-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-identity > span::after {
+    font-size: clamp(36px, 11vw, 52px) !important;
+  }
+
+  .hero-identity img {
+    width: 110px !important;
+  }
+
+  .section-title > span,
+  .section-heading-row > div > span,
+  .paper-intro-main > span {
+    font-size: 11px !important;
+  }
+
+  .home-mesa-mark span {
+    font-size: 11px !important;
+  }
+
+  .mesa-footer {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+/* =========================================================
+   MESA SMART NAVBAR — FINAL RESPONSIVE SYSTEM
+   Centered from page load; scroll only hides PCCOE logo.
+   ========================================================= */
+
+.mesa-smart-nav-shell {
+  position: fixed;
+  z-index: 3000;
+  top: 22px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-height: 84px;
+  padding: 0 24px;
+  pointer-events: none;
+}
+
+.mesa-smart-nav-shell .home-pccoe-mark {
+  position: absolute;
+  top: 50%;
+  left: clamp(28px, 4vw, 72px);
+  width: clamp(105px, 8vw, 150px);
+  height: clamp(105px, 8vw, 150px);
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  pointer-events: auto;
+  opacity: 1;
+  transition: opacity .42s ease, transform .55s cubic-bezier(.16,1,.3,1);
+}
+
+.mesa-smart-nav-shell .home-pccoe-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 40px rgba(0,0,0,.34));
+}
+
+.mesa-smart-nav-scrolled .home-pccoe-mark {
+  opacity: 0;
+  transform: translateY(-50%) translateX(-45px) scale(.72);
+  pointer-events: none;
+}
+
+/* CENTERED NAVBAR — same horizontal position before and after scroll */
+.mesa-smart-navbar {
+  position: relative;
+  width: min(1180px, calc(100vw - clamp(48px, 14vw, 260px)));
+  min-height: 72px;
+  margin: 0 auto;
+  padding: 0 18px;
+  display: grid;
+  grid-template-columns: clamp(145px, 13vw, 190px) minmax(0,1fr) clamp(105px,12vw,165px);
+  align-items: center;
+  gap: clamp(12px, 2vw, 26px);
+  border: 1px solid rgba(242,169,0,.25);
+  border-radius: 20px;
+  background: rgba(3,5,7,.88);
+  backdrop-filter: blur(18px) saturate(125%);
+  box-shadow: 0 18px 55px rgba(0,0,0,.24);
+  pointer-events: auto;
+  transition: min-height .35s ease, width .35s ease, background .35s ease,
+              transform .35s cubic-bezier(.16,1,.3,1),
+              box-shadow .35s ease;
+}
+
+/* Scroll changes only the visual compactness — never the X position */
+.mesa-smart-nav-scrolled .mesa-smart-navbar {
+  min-height: 64px;
+  transform: scale(.985);
+  background: rgba(3,5,7,.62);
+  box-shadow: 0 18px 55px rgba(0,0,0,.30);
+}
+
+.mesa-smart-brand {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.mesa-smart-brand img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.mesa-smart-brand div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mesa-smart-brand strong {
+  font-size: 21px;
+  line-height: 1;
+  letter-spacing: .02em;
+}
+
+.mesa-smart-brand span {
+  margin-top: 4px;
+  color: rgba(255,255,255,.58);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+.mesa-smart-links {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 1.8vw, 28px);
+}
+
+.mesa-smart-links a {
+  position: relative;
+  white-space: nowrap;
+  color: rgba(255,255,255,.76);
+  font-size: clamp(10px, .72vw, 13px);
+  font-weight: 700;
+  letter-spacing: .055em;
+  transition: color .22s ease, transform .22s ease;
+}
+
+.mesa-smart-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: -8px;
+  height: 2px;
+  background: var(--orange);
+  transition: left .22s ease, right .22s ease;
+}
+
+.mesa-smart-links a:hover,
+.mesa-smart-links a.active {
+  color: #fff;
+}
+
+.mesa-smart-links a:hover {
+  transform: translateY(-1px);
+}
+
+.mesa-smart-links a:hover::after,
+.mesa-smart-links a.active::after {
+  left: 0;
+  right: 0;
+}
+
+.mesa-smart-actions {
+  min-width: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.mesa-smart-theme {
+  min-width: 78px;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 10px;
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 11px;
+  background: rgba(255,255,255,.025);
+  color: #fff;
+  cursor: pointer;
+}
+
+.mesa-smart-theme-icon {
+  display: grid;
+  place-items: center;
+}
+
+.mesa-smart-theme-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mesa-smart-theme-copy small {
+  color: rgba(255,255,255,.46);
+  font-size: 7px;
+  line-height: 1;
+  letter-spacing: .12em;
+}
+
+.mesa-smart-theme-copy strong {
+  margin-top: 4px;
+  font-size: 9px;
+  line-height: 1;
+}
+
+.mesa-smart-menu {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 11px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.mesa-smart-mobile {
+  position: absolute;
+  top: 82px;
+  left: 12px;
+  right: 12px;
+  max-height: 0;
+  overflow: hidden;
+  border: 1px solid rgba(242,169,0,.20);
+  border-radius: 17px;
+  background: rgba(3,6,9,.96);
+  opacity: 0;
+  pointer-events: none;
+  transition: max-height .35s ease, opacity .25s ease;
+}
+
+.mesa-smart-mobile.open {
+  max-height: 500px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mesa-smart-mobile a {
+  min-height: 54px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  color: rgba(255,255,255,.72);
+}
+
+.mesa-smart-mobile a:last-child {
+  border-bottom: 0;
+}
+
+.mesa-smart-mobile a small {
+  min-width: 22px;
+  color: var(--orange);
+  font-size: 9px;
+}
+
+.mesa-smart-mobile a strong {
+  font-size: 13px;
+}
+
+.mesa-smart-mobile a.active strong {
+  color: var(--orange);
+}
+
+/* Laptop */
+@media (max-width: 1250px) and (min-width: 821px) {
+  .mesa-smart-nav-shell {
+    padding: 0 16px;
+  }
+
+  .mesa-smart-navbar {
+    width: min(1080px, calc(100vw - 190px));
+    grid-template-columns: 130px minmax(0,1fr) 112px;
+    gap: 12px;
+    padding: 0 14px;
+  }
+
+  .mesa-smart-links {
+    gap: 13px;
+  }
+
+  .mesa-smart-links a {
+    font-size: 10px;
+  }
+
+  .mesa-smart-brand img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mesa-smart-brand strong {
+    font-size: 18px;
+  }
+
+  .mesa-smart-theme {
+    min-width: 42px;
+    width: 42px;
+    padding: 0;
+  }
+
+  .mesa-smart-theme-copy {
+    display: none;
+  }
+}
+
+/* Tablet / mobile */
+@media (max-width: 820px) {
+  .mesa-smart-nav-shell {
+    top: 8px;
+    min-height: 60px;
+    padding: 0 8px;
+  }
+
+  .mesa-smart-nav-shell .home-pccoe-mark {
+    display: none;
+  }
+
+  .mesa-smart-navbar,
+  .mesa-smart-nav-scrolled .mesa-smart-navbar {
+    width: 100%;
+    min-height: 58px;
+    margin: 0;
+    padding: 0 12px;
+    grid-template-columns: 1fr auto;
+    border-radius: 15px;
+    transform: none;
+  }
+
+  .mesa-smart-brand img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .mesa-smart-brand strong {
+    font-size: 18px;
+  }
+
+  .mesa-smart-brand span {
+    font-size: 7px;
+  }
+
+  .mesa-smart-links {
+    display: none;
+  }
+
+  .mesa-smart-actions {
+    gap: 7px;
+  }
+
+  .mesa-smart-theme {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    padding: 0;
+  }
+
+  .mesa-smart-theme-copy {
+    display: none;
+  }
+
+  .mesa-smart-menu {
+    display: grid;
+  }
+
+  .mesa-smart-mobile {
+    top: 66px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .mesa-smart-navbar,
+  .mesa-smart-nav-scrolled .mesa-smart-navbar {
+    min-height: 54px;
+  }
+
+  .mesa-smart-brand img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .mesa-smart-brand strong {
+    font-size: 16px;
+  }
+
+  .mesa-smart-brand span {
+    font-size: 6px;
+  }
+
+  .mesa-smart-theme,
+  .mesa-smart-menu {
+    width: 38px;
+    min-width: 38px;
+    height: 38px;
+  }
+
+  .mesa-smart-mobile {
+    top: 62px;
+  }
+}
