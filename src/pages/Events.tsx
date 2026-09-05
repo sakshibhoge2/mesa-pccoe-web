@@ -14,10 +14,16 @@ import ScrollReveal from "../components/ScrollReveal";
 import {
   events,
   legacyEvents,
-  type EventStatus,
 } from "../data/events";
 
+
+type EventStatus =
+  | "upcoming"
+  | "past";
+
+
 function Events() {
+
   const [
     activeTab,
     setActiveTab,
@@ -25,6 +31,7 @@ function Events() {
     useState<EventStatus>(
       "upcoming"
     );
+
 
   const [
     registrationMessage,
@@ -34,6 +41,7 @@ function Events() {
       string | null
     >(null);
 
+
   const visibleEvents =
     events.filter(
       (event) =>
@@ -41,10 +49,15 @@ function Events() {
         activeTab
     );
 
+
   return (
+
     <div className="inner-page compact-events-page">
 
-      {/* MEMORABLE OLD EVENTS */}
+
+      {/* =====================================================
+          LEGACY EVENTS
+      ===================================================== */}
 
       <section className="legacy-events-section">
 
@@ -67,41 +80,72 @@ function Events() {
 
           </div>
 
+
           <div className="legacy-timeline">
 
-            <div className="legacy-line" />
+            <div className="legacy-track">
 
-            {legacyEvents.map(
-              (
-                event,
-                index
-              ) => (
 
-                <article
-                  key={
-                    event.id
-                  }
-                  className={
-                    index % 2 === 0
-                      ? "legacy-up"
-                      : "legacy-down"
-                  }
-                >
+              {legacyEvents.map(
+                (
+                  event,
+                  index
+                ) => (
 
-                   <span>
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+                  <article
+                    key={
+                      event.id
+                    }
+                    className={
+                      index % 2 === 0
+                        ? "legacy-event legacy-event-top"
+                        : "legacy-event legacy-event-bottom"
+                    }
+                  >
 
-                  <i />
 
-                  <strong>
-                    {event.title}
-                  </strong>
+                    {/* PHOTO */}
 
-                </article>
+                    <div className="legacy-event-photo">
 
-              )
-            )}
+                      <img
+                        src={
+                          event.image
+                        }
+                        alt={
+                          event.title
+                        }
+                      />
+
+                    </div>
+
+
+                    {/* TIMELINE NODE */}
+
+                    <i />
+
+
+                    {/* EVENT NAME */}
+
+                    <strong>
+                      {
+                        event.title
+                      }
+                    </strong>
+
+
+                  </article>
+
+                )
+              )}
+
+
+              {/* MAIN LINE */}
+
+              <div className="legacy-line" />
+
+
+            </div>
 
           </div>
 
@@ -109,11 +153,16 @@ function Events() {
 
       </section>
 
-      {/* CURRENT YEAR */}
+
+
+      {/* =====================================================
+          CURRENT YEAR TABS
+      ===================================================== */}
 
       <section className="compact-event-tabs">
 
         <div>
+
 
           <button
             type="button"
@@ -132,6 +181,7 @@ function Events() {
             UPCOMING
           </button>
 
+
           <button
             type="button"
             className={
@@ -149,9 +199,16 @@ function Events() {
             PAST — THIS YEAR
           </button>
 
+
         </div>
 
       </section>
+
+
+
+      {/* =====================================================
+          EVENT LIST
+      ===================================================== */}
 
       <section className="compact-events-list">
 
@@ -164,147 +221,180 @@ function Events() {
             </span>
 
             <h1>
-              {activeTab ===
-              "upcoming"
-                ? "UPCOMING EVENTS"
-                : "COMPLETED THIS YEAR"}
+
+              {
+                activeTab ===
+                "upcoming"
+                  ? "UPCOMING EVENTS"
+                  : "COMPLETED THIS YEAR"
+              }
+
             </h1>
 
           </div>
 
+
           <div className="compact-event-grid">
 
-            {visibleEvents.length >
-            0 ? (
 
-              visibleEvents.map(
-                (
-                  event,
-                  index
-                ) => (
+            {
+              visibleEvents.length >
+              0 ? (
 
-                  <article
-                    key={
-                      event.id
-                    }
-                    className="compact-event-card"
-                  >
+                visibleEvents.map(
+                  (
+                    event,
+                    index
+                  ) => (
 
-                    <div className="compact-event-image">
+                    <article
+                      key={
+                        event.id
+                      }
+                      className="compact-event-card"
+                    >
 
-                      <MediaSlot
-                        src={
-                          event.image
-                        }
-                        alt={
-                          event.title
-                        }
-                        label="EVENT PHOTO"
-                      />
 
-                      <span>
-                        {String(
-                          index + 1
-                        ).padStart(
-                          2,
-                          "0"
-                        )}
-                      </span>
+                      <div className="compact-event-image">
 
-                    </div>
+                        <MediaSlot
+                          src={
+                            event.image
+                          }
+                          alt={
+                            event.title
+                          }
+                          label="EVENT PHOTO"
+                        />
 
-                    <div className="compact-event-copy">
-
-                      <small>
-                        {
-                          event.category
-                        }
-                      </small>
-
-                      <h2>
-                        {
-                          event.title
-                        }
-                      </h2>
-
-                      <p>
-                        {
-                          event.description
-                        }
-                      </p>
-
-                      <div className="compact-event-meta">
 
                         <span>
-                          <CalendarDays
-                            size={16}
-                          />
 
                           {
-                            event.date
+                            String(
+                              index + 1
+                            ).padStart(
+                              2,
+                              "0"
+                            )
                           }
-                        </span>
 
-                        <span>
-                          <MapPin
-                            size={16}
-                          />
-
-                          {
-                            event.location
-                          }
                         </span>
 
                       </div>
 
-                      {activeTab ===
-                      "upcoming" ? (
 
-                        <button
-                          type="button"
-                          className="register-event-button"
-                          onClick={() =>
-                            setRegistrationMessage(
-                              "Event registration is not active yet."
-                            )
+
+                      <div className="compact-event-copy">
+
+                        <small>
+                          {
+                            event.category
                           }
-                        >
-                          REGISTER
-                        </button>
+                        </small>
 
-                      ) : (
 
-                        <button
-                          type="button"
-                          className="register-event-button registration-closed"
-                          disabled
-                        >
-                          REGISTRATION CLOSED
-                        </button>
+                        <h2>
+                          {
+                            event.title
+                          }
+                        </h2>
 
-                      )}
 
-                    </div>
+                        <p>
+                          {
+                            event.description
+                          }
+                        </p>
 
-                  </article>
 
+                        <div className="compact-event-meta">
+
+                          <span>
+
+                            <CalendarDays
+                              size={16}
+                            />
+
+                            {
+                              event.date
+                            }
+
+                          </span>
+
+
+                          <span>
+
+                            <MapPin
+                              size={16}
+                            />
+
+                            {
+                              event.location
+                            }
+
+                          </span>
+
+                        </div>
+
+
+                        {
+                          activeTab ===
+                          "upcoming" ? (
+
+                            <button
+                              type="button"
+                              className="register-event-button"
+                              onClick={() =>
+                                setRegistrationMessage(
+                                  "Event registration is not active yet."
+                                )
+                              }
+                            >
+                              REGISTER
+                            </button>
+
+                          ) : (
+
+                            <button
+                              type="button"
+                              className="register-event-button registration-closed"
+                              disabled
+                            >
+                              REGISTRATION CLOSED
+                            </button>
+
+                          )
+                        }
+
+
+                      </div>
+
+                    </article>
+
+                  )
                 )
+
+              ) : (
+
+                <div className="events-empty-state">
+
+                  <strong>
+
+                    {
+                      activeTab ===
+                      "upcoming"
+                        ? "NO UPCOMING EVENTS ADDED YET."
+                        : "NO COMPLETED EVENTS ADDED FOR THIS YEAR YET."
+                    }
+
+                  </strong>
+
+                </div>
+
               )
+            }
 
-            ) : (
-
-              <div className="events-empty-state">
-
-                <strong>
-                  {activeTab ===
-                  "upcoming"
-                    ? "NO UPCOMING EVENTS ADDED YET."
-                    : "NO COMPLETED EVENTS ADDED FOR THIS YEAR YET."}
-                </strong>
-
-              </div>
-
-            )}
 
           </div>
 
@@ -312,62 +402,80 @@ function Events() {
 
       </section>
 
-      {/* REGISTRATION POPUP */}
 
-      {registrationMessage && (
 
-        <div
-          className="registration-modal-backdrop"
-          onClick={() =>
-            setRegistrationMessage(
-              null
-            )
-          }
-        >
+      {/* =====================================================
+          REGISTRATION POPUP
+      ===================================================== */}
+
+      {
+        registrationMessage && (
 
           <div
-            className="registration-modal"
-            onClick={(
-              event
-            ) =>
-              event.stopPropagation()
+            className="registration-modal-backdrop"
+            onClick={() =>
+              setRegistrationMessage(
+                null
+              )
             }
           >
 
-            <button
-              type="button"
-              className="registration-modal-close"
-              onClick={() =>
-                setRegistrationMessage(
-                  null
-                )
+            <div
+              className="registration-modal"
+              onClick={(
+                event
+              ) =>
+                event.stopPropagation()
               }
             >
-              <X size={18} />
-            </button>
 
-            <span>
-              MESA / REGISTRATION
-            </span>
 
-            <h2>
-              NOT ACTIVE YET.
-            </h2>
+              <button
+                type="button"
+                className="registration-modal-close"
+                aria-label="Close registration popup"
+                onClick={() =>
+                  setRegistrationMessage(
+                    null
+                  )
+                }
+              >
 
-            <p>
-              {
-                registrationMessage
-              }
-            </p>
+                <X size={18} />
+
+              </button>
+
+
+              <span>
+                MESA / REGISTRATION
+              </span>
+
+
+              <h2>
+                NOT ACTIVE YET.
+              </h2>
+
+
+              <p>
+                {
+                  registrationMessage
+                }
+              </p>
+
+
+            </div>
 
           </div>
 
-        </div>
+        )
+      }
 
-      )}
 
     </div>
+
   );
+
 }
+
 
 export default Events;

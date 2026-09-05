@@ -15,79 +15,105 @@ import MediaSlot from "../components/MediaSlot";
 
 function Contact() {
 
-  const [
-    submitted,
-    setSubmitted,
-  ] =
+  const [submitted, setSubmitted] =
+    useState(false);
+
+  const [sending, setSending] =
     useState(false);
 
 
-
-  function handleSubmit(
-    event:
-      FormEvent<HTMLFormElement>
+  async function handleSubmit(
+    event: FormEvent<HTMLFormElement>
   ) {
 
     event.preventDefault();
 
+    if (sending) return;
+
+
+    setSending(true);
+    setSubmitted(false);
+
 
     const form =
-      new FormData(
-        event.currentTarget
-      );
+      event.currentTarget;
+
+    const formData =
+      new FormData(form);
 
 
-    const name =
-      form.get(
-        "name"
-      );
+    const data =
+      new URLSearchParams();
 
 
-    const email =
-      form.get(
-        "email"
-      );
-
-
-    const subject =
-      form.get(
-        "subject"
-      );
-
-
-    const message =
-      form.get(
-        "message"
-      );
-
-
-    const body =
-      `Name: ${name}
-Email: ${email}
-
-${message}`;
-
-
-    window.location.href =
-      `mailto:mesapccoeofficial@gmail.com?subject=${
-        encodeURIComponent(
-          String(
-            subject
-          )
-        )
-      }&body=${
-        encodeURIComponent(
-          body
-        )
-      }`;
-
-
-    setSubmitted(
-      true
+    data.append(
+      "name",
+      String(
+        formData.get("name") || ""
+      )
     );
 
-  }
 
+    data.append(
+      "email",
+      String(
+        formData.get("email") || ""
+      )
+    );
+
+
+    data.append(
+      "subject",
+      String(
+        formData.get("subject") || ""
+      )
+    );
+
+
+    data.append(
+      "message",
+      String(
+        formData.get("message") || ""
+      )
+    );
+
+
+    /*
+     * Google Apps Script does receive the
+     * request successfully, but the browser
+     * cannot read its cross-origin response.
+     *
+     * Therefore we intentionally don't use
+     * try/catch for success detection.
+     */
+
+    fetch(
+      "https://script.google.com/macros/s/AKfycbwhOunUIscSma6u5CETz9_wBrUyzwsR11ynSOWl5qwuT0gPd_Xvo04I5ELhNmfJXE--/exec",
+      {
+        method: "POST",
+        mode: "no-cors",
+        body: data,
+      }
+    );
+
+
+    // Clear the form
+    form.reset();
+
+
+    // Show success message
+    setSending(false);
+    setSubmitted(true);
+
+
+    // Return button to normal
+    setTimeout(() => {
+
+      setSubmitted(false);
+
+    }, 4000);
+
+  }
 
 
   return (
@@ -111,7 +137,6 @@ ${message}`;
           LET&apos;S BUILD
 
           <br />
-
 
           <em>
             SOMETHING TOGETHER.
@@ -158,9 +183,7 @@ ${message}`;
 
 
           <form
-            onSubmit={
-              handleSubmit
-            }
+            onSubmit={handleSubmit}
           >
 
 
@@ -178,6 +201,7 @@ ${message}`;
                   name="name"
                   required
                   placeholder="Your name"
+                  disabled={sending}
                 />
 
               </label>
@@ -196,6 +220,7 @@ ${message}`;
                   required
                   type="email"
                   placeholder="you@email.com"
+                  disabled={sending}
                 />
 
               </label>
@@ -216,6 +241,7 @@ ${message}`;
                 name="subject"
                 required
                 placeholder="What is this about?"
+                disabled={sending}
               />
 
             </label>
@@ -234,25 +260,31 @@ ${message}`;
                 required
                 rows={7}
                 placeholder="Write your message..."
+                disabled={sending}
               />
 
             </label>
 
 
 
-            <button
+                        <button
               type="submit"
+              disabled={sending}
             >
-
-              {submitted
-                ? "OPENING EMAIL"
+              {sending
+                ? "SENDING..."
                 : "SEND MESSAGE"}
 
               <Send
                 size={15}
               />
-
             </button>
+
+            {submitted && (
+              <p className="contact-success-message">
+                ✓ MESSAGE SENT SUCCESSFULLY
+              </p>
+            )}
 
 
           </form>
@@ -307,7 +339,9 @@ ${message}`;
           <div className="sponsor-contact-list">
 
 
-            <a href="mailto:mesapccoe2627@gmail.com">
+            <a
+              href="mailto:mesapccoe2627@gmail.com"
+            >
 
               <Mail
                 size={16}
@@ -371,10 +405,8 @@ ${message}`;
                 </small>
 
                 <strong>
-
                   Nigdi,
                   Pune
-
                 </strong>
 
               </div>

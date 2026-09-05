@@ -96,7 +96,7 @@ function Footer() {
             </a>
 
             <a
-              href="mailto:mesapccoeofficial@gmail.com"
+              href="mailto:mesapccoe2627@gmail.com"
               aria-label="Email"
             >
               <Mail size={18} />

@@ -255,7 +255,8 @@ body::after {
    REMOVE SMALL PCCOE LOGO FROM HERO
 ============================================================ */
 
-.cinematic-hero
+
+
 .hero-college,
 
 .cinematic-hero
@@ -3114,4 +3115,2156 @@ html:not(.dark)
     right: 12px !important;
   }
 
+}
+/* =========================================================
+   =========================================================
+   MESA FINAL MOBILE RESPONSIVE PATCH
+   Team + Faculty + Events + Gallery + Vision/Mission
+   =========================================================
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+
+  /* =====================================================
+     CURRENT TEAM — TWO CARDS PER ROW
+  ===================================================== */
+
+  .core-team-grid,
+  .core-team-grid-flexible {
+    display:
+      grid
+      !important;
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      )
+      !important;
+
+    gap:
+      10px 8px
+      !important;
+  }
+
+
+  .core-team-grid article,
+  .core-team-grid-flexible article {
+    min-width:
+      0
+      !important;
+
+    border-radius:
+      14px
+      !important;
+
+    overflow:
+      hidden
+      !important;
+  }
+
+
+  .core-team-grid .media-slot,
+  .core-team-grid-flexible .media-slot {
+    width:
+      100%
+      !important;
+
+    height:
+      auto
+      !important;
+
+    min-height:
+      0
+      !important;
+
+    aspect-ratio:
+      4 / 5
+      !important;
+  }
+
+
+  .core-team-grid .media-slot img,
+  .core-team-grid-flexible .media-slot img {
+    width:
+      100%
+      !important;
+
+    height:
+      100%
+      !important;
+
+    object-fit:
+      cover
+      !important;
+
+    object-position:
+      center top
+      !important;
+  }
+
+
+
+  /* =====================================================
+     FACULTY — TWO CARDS PER ROW
+  ===================================================== */
+
+  .faculty-grid {
+    display:
+      grid
+      !important;
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      )
+      !important;
+
+    gap:
+      10px 8px
+      !important;
+
+    margin-top:
+      28px
+      !important;
+  }
+
+
+  .faculty-grid article {
+    min-width:
+      0
+      !important;
+
+    border-radius:
+      14px
+      !important;
+
+    overflow:
+      hidden
+      !important;
+  }
+
+
+  .faculty-grid article .media-slot {
+    width:
+      100%
+      !important;
+
+    height:
+      auto
+      !important;
+
+    min-height:
+      0
+      !important;
+
+    aspect-ratio:
+      4 / 5
+      !important;
+  }
+
+
+  .faculty-grid article .media-slot img {
+    width:
+      100%
+      !important;
+
+    height:
+      100%
+      !important;
+
+    object-fit:
+      cover
+      !important;
+
+    object-position:
+      center top
+      !important;
+  }
+
+
+
+  /* =====================================================
+     PAST / ARCHIVE TEAM — TWO PER ROW
+  ===================================================== */
+
+  .annual-team-grid {
+    display:
+      grid
+      !important;
+
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      )
+      !important;
+
+    gap:
+      10px 8px
+      !important;
+
+    padding-top:
+      12px
+      !important;
+  }
+
+
+  .annual-team-member {
+    min-width:
+      0
+      !important;
+
+    border-radius:
+      14px
+      !important;
+
+    overflow:
+      hidden
+      !important;
+  }
+
+
+  .annual-member-photo {
+    width:
+      100%
+      !important;
+
+    height:
+      auto
+      !important;
+
+    min-height:
+      0
+      !important;
+
+    aspect-ratio:
+      4 / 5
+      !important;
+
+    overflow:
+      hidden
+      !important;
+  }
+
+
+  .annual-member-photo img {
+    width:
+      100%
+      !important;
+
+    height:
+      100%
+      !important;
+
+    object-fit:
+      cover
+      !important;
+
+    object-position:
+      center top
+      !important;
+  }
+
+
+  .annual-member-copy {
+    padding:
+      11px
+      11px
+      14px
+      !important;
+  }
+
+
+  .annual-member-copy span {
+    font-size:
+      9px
+      !important;
+
+    line-height:
+      1.25
+      !important;
+  }
+
+
+  .annual-member-copy h3 {
+    margin-top:
+      5px
+      !important;
+
+    font-size:
+      17px
+      !important;
+  }
+
+
+
+  /* =====================================================
+     ARCHIVE TITLE
+  ===================================================== */
+
+  .annual-team-trigger {
+    padding:
+      18px
+      !important;
+  }
+
+
+  .annual-team-trigger strong {
+    font-size:
+      clamp(
+        25px,
+        8vw,
+        34px
+      )
+      !important;
+
+    line-height:
+      1
+      !important;
+  }
+
+
+
+  /* =====================================================
+     EVENT POSTER — DO NOT CROP IMAGE
+  ===================================================== */
+
+  .compact-event-card {
+    display:
+      block
+      !important;
+
+    min-height:
+      0
+      !important;
+
+    overflow:
+      hidden
+      !important;
+  }
+
+
+  .compact-event-image {
+    width:
+      100%
+      !important;
+
+    height:
+      auto
+      !important;
+
+    min-height:
+      0
+      !important;
+
+    aspect-ratio:
+      auto
+      !important;
+
+    overflow:
+      hidden
+      !important;
+  }
+
+
+  .compact-event-image .media-slot {
+    width:
+      100%
+      !important;
+
+    height:
+      auto
+      !important;
+
+    min-height:
+      0
+      !important;
+  }
+
+
+  .compact-event-image img {
+    width:
+      100%
+      !important;
+
+    height:
+      auto
+      !important;
+
+    max-height:
+      none
+      !important;
+
+    display:
+      block
+      !important;
+
+    object-fit:
+      contain
+      !important;
+
+    object-position:
+      center
+      !important;
+  }
+
+
+  .compact-event-copy {
+    padding:
+      18px
+      !important;
+  }
+
+
+
+  /* =====================================================
+     GALLERY FILTER
+     ONE HORIZONTAL SWIPEABLE ROW
+  ===================================================== */
+
+  .gallery-filters-final {
+    width:
+      100%
+      !important;
+
+    padding:
+      12px
+      14px
+      18px
+      !important;
+
+    overflow-x:
+      auto
+      !important;
+
+    overflow-y:
+      hidden
+      !important;
+
+    scrollbar-width:
+      none
+      !important;
+
+    -webkit-overflow-scrolling:
+      touch;
+  }
+
+
+  .gallery-filters-final::-webkit-scrollbar {
+    display:
+      none
+      !important;
+  }
+
+
+  .gallery-filters-final .reveal {
+    width:
+      max-content
+      !important;
+
+    min-width:
+      max-content
+      !important;
+
+    overflow:
+      visible
+      !important;
+  }
+
+
+  .gallery-filter-row {
+    width:
+      max-content
+      !important;
+
+    min-width:
+      max-content
+      !important;
+
+    display:
+      flex
+      !important;
+
+    flex-direction:
+      row
+      !important;
+
+    flex-wrap:
+      nowrap
+      !important;
+
+    grid-template-columns:
+      none
+      !important;
+
+    align-items:
+      center
+      !important;
+
+    justify-content:
+      flex-start
+      !important;
+
+    gap:
+      8px
+      !important;
+
+    padding:
+      0
+      !important;
+
+    margin:
+      0
+      !important;
+  }
+
+
+  .gallery-filter-row button {
+    flex:
+      0 0 auto
+      !important;
+
+    width:
+      auto
+      !important;
+
+    min-width:
+      max-content
+      !important;
+
+    height:
+      42px
+      !important;
+
+    min-height:
+      42px
+      !important;
+
+    padding:
+      0 16px
+      !important;
+
+    display:
+      inline-flex
+      !important;
+
+    align-items:
+      center
+      !important;
+
+    justify-content:
+      center
+      !important;
+
+    font-size:
+      10px
+      !important;
+
+    white-space:
+      nowrap
+      !important;
+
+    text-align:
+      center
+      !important;
+
+    border-radius:
+      999px
+      !important;
+  }
+
+
+
+  /* =====================================================
+     VISION / MISSION
+     CENTER GEAR BEHIND BOTH BUTTONS
+  ===================================================== */
+
+  .vision-machine-section {
+    padding:
+      48px
+      14px
+      !important;
+  }
+
+
+  .vision-machine-grid {
+    display:
+      block
+      !important;
+
+    width:
+      100%
+      !important;
+  }
+
+
+  .vision-selector {
+    position:
+      relative
+      !important;
+
+    width:
+      100%
+      !important;
+
+    min-height:
+      300px
+      !important;
+
+    display:
+      flex
+      !important;
+
+    align-items:
+      center
+      !important;
+
+    justify-content:
+      center
+      !important;
+
+    margin:
+      0 auto
+      !important;
+  }
+
+
+  /* GEAR */
+
+  .vision-rotary {
+    position:
+      absolute
+      !important;
+
+    left:
+      50%
+      !important;
+
+    top:
+      50%
+      !important;
+
+    width:
+      210px
+      !important;
+
+    height:
+      210px
+      !important;
+
+    margin:
+      0
+      !important;
+
+    z-index:
+      1
+      !important;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      rotate(0deg)
+      !important;
+
+    transition:
+      transform
+      .65s
+      cubic-bezier(
+        .16,
+        1,
+        .3,
+        1
+      )
+      !important;
+  }
+
+
+  .vision-rotary.mission {
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      rotate(180deg)
+      !important;
+  }
+
+
+  /* VISION / MISSION BUTTONS */
+
+  .vision-selector button {
+    position:
+      absolute
+      !important;
+
+    top:
+      50%
+      !important;
+
+    width:
+      140px
+      !important;
+
+    min-height:
+      105px
+      !important;
+
+    padding:
+      10px
+      !important;
+
+    border-radius:
+      20px
+      !important;
+
+    z-index:
+      5
+      !important;
+
+    transform:
+      translateY(-50%)
+      !important;
+  }
+
+
+  .vision-selector button:first-child {
+    left:
+      8px
+      !important;
+  }
+
+
+  .vision-selector button:last-child {
+    right:
+      8px
+      !important;
+  }
+
+
+  .vision-selector button.active {
+    transform:
+      translateY(-50%)
+      !important;
+  }
+
+
+  .vision-content-machine {
+    min-height:
+      0
+      !important;
+
+    margin-top:
+      16px
+      !important;
+
+    padding:
+      22px
+      !important;
+
+    border-radius:
+      18px
+      !important;
+  }
+
+}
+
+
+
+/* =========================================================
+   EXTRA SMALL PHONE
+========================================================= */
+
+@media (max-width: 390px) {
+
+  .vision-rotary {
+    width:
+      185px
+      !important;
+
+    height:
+      185px
+      !important;
+  }
+
+
+  .vision-selector button {
+    width:
+      120px
+      !important;
+
+    min-height:
+      94px
+      !important;
+  }
+
+
+  .vision-selector button:first-child {
+    left:
+      3px
+      !important;
+  }
+
+
+  .vision-selector button:last-child {
+    right:
+      3px
+      !important;
+  }
+
+}
+
+/* =========================================================
+   =========================================================
+   MESA FINAL LEGACY EVENT TIMELINE
+   DESKTOP = 4 EVENTS / NO SCROLL
+   MOBILE  = HORIZONTAL SWIPE
+   =========================================================
+   ========================================================= */
+
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+.legacy-events-section {
+  position:
+    relative;
+}
+
+
+.legacy-heading {
+  margin-bottom:
+    26px;
+}
+
+
+
+/* =====================================================
+   MAIN TIMELINE BOX
+===================================================== */
+
+.legacy-timeline {
+
+  position:
+    relative
+    !important;
+
+  width:
+    calc(100% - 24px)
+    !important;
+
+  max-width:
+    none
+    !important;
+
+  margin:
+    20px auto 0
+    !important;
+
+  padding:
+    20px
+    28px
+    !important;
+
+  overflow:
+    hidden
+    !important;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      .10
+    )
+    !important;
+
+  border-radius:
+    24px
+    !important;
+
+  background:
+    rgba(
+      2,
+      9,
+      17,
+      .84
+    )
+    !important;
+
+}
+
+
+
+/* =====================================================
+   DESKTOP TRACK
+===================================================== */
+
+.legacy-track {
+
+  position:
+    relative
+    !important;
+
+  width:
+    100%
+    !important;
+
+  height:
+    310px
+    !important;
+
+  min-height:
+    310px
+    !important;
+
+  display:
+    grid
+    !important;
+
+  grid-template-columns:
+    repeat(
+      4,
+      minmax(
+        0,
+        1fr
+      )
+    )
+    !important;
+
+  column-gap:
+    0
+    !important;
+
+  align-items:
+    stretch
+    !important;
+
+}
+
+
+
+/* =====================================================
+   ORANGE TIMELINE LINE
+===================================================== */
+
+.legacy-line {
+
+  position:
+    absolute
+    !important;
+
+  left:
+    8px
+    !important;
+
+  right:
+    8px
+    !important;
+
+  top:
+    50%
+    !important;
+
+  width:
+    auto
+    !important;
+
+  min-width:
+    0
+    !important;
+
+  height:
+    4px
+    !important;
+
+  transform:
+    translateY(
+      -50%
+    )
+    !important;
+
+  border-radius:
+    999px
+    !important;
+
+  background:
+    #f4b000
+    !important;
+
+  box-shadow:
+    0 0 14px
+    rgba(
+      244,
+      176,
+      0,
+      .12
+    )
+    !important;
+
+  z-index:
+    1
+    !important;
+
+}
+
+
+
+/* =====================================================
+   EACH EVENT COLUMN
+===================================================== */
+
+.legacy-track article {
+
+  position:
+    relative
+    !important;
+
+  width:
+    100%
+    !important;
+
+  min-width:
+    0
+    !important;
+
+  height:
+    310px
+    !important;
+
+  min-height:
+    310px
+    !important;
+
+  padding:
+    0 12px
+    !important;
+
+  margin:
+    0
+    !important;
+
+  display:
+    block
+    !important;
+
+  text-align:
+    center
+    !important;
+
+  z-index:
+    2
+    !important;
+
+}
+
+
+
+/* remove old alternating offsets */
+
+.legacy-track
+article:nth-child(2),
+
+.legacy-track
+article:nth-child(4) {
+
+  margin-top:
+    0
+    !important;
+
+  padding-top:
+    0
+    !important;
+
+}
+
+
+
+/* =====================================================
+   PHOTO FRAME
+===================================================== */
+
+.legacy-event-photo {
+
+  position:
+    absolute
+    !important;
+
+  left:
+    50%
+    !important;
+
+  width:
+    min(
+      86%,
+      285px
+    )
+    !important;
+
+  height:
+    auto
+    !important;
+
+  aspect-ratio:
+    16 / 9
+    !important;
+
+  max-height:
+    118px
+    !important;
+
+  transform:
+    translateX(
+      -50%
+    )
+    !important;
+
+  overflow:
+    hidden
+    !important;
+
+  border:
+    2px solid
+    rgba(
+      255,
+      255,
+      255,
+      .72
+    )
+    !important;
+
+  border-radius:
+    15px
+    !important;
+
+  background:
+    #07111a
+    !important;
+
+  box-shadow:
+    none
+    !important;
+
+}
+
+
+
+/* REMOVE OLD DECORATIVE FRAME */
+
+.legacy-event-photo::before,
+.legacy-event-photo::after {
+
+  content:
+    none
+    !important;
+
+  display:
+    none
+    !important;
+
+}
+
+
+
+/* IMAGE */
+
+.legacy-event-photo img {
+
+  position:
+    static
+    !important;
+
+  inset:
+    auto
+    !important;
+
+  width:
+    100%
+    !important;
+
+  height:
+    100%
+    !important;
+
+  margin:
+    0
+    !important;
+
+  display:
+    block
+    !important;
+
+  transform:
+    none
+    !important;
+
+  object-fit:
+    cover
+    !important;
+
+  object-position:
+    center
+    !important;
+
+  border:
+    0
+    !important;
+
+  border-radius:
+    0
+    !important;
+
+}
+
+
+
+/* =====================================================
+   EVENT 1 + EVENT 3
+   PHOTO ABOVE / NAME BELOW
+===================================================== */
+
+.legacy-track
+article:nth-child(1)
+.legacy-event-photo,
+
+.legacy-track
+article:nth-child(3)
+.legacy-event-photo {
+
+  top:
+    8px
+    !important;
+
+  bottom:
+    auto
+    !important;
+
+}
+
+
+
+.legacy-track
+article:nth-child(1)
+strong,
+
+.legacy-track
+article:nth-child(3)
+strong {
+
+  position:
+    absolute
+    !important;
+
+  left:
+    50%
+    !important;
+
+  top:
+    calc(
+      50% + 30px
+    )
+    !important;
+
+  bottom:
+    auto
+    !important;
+
+  transform:
+    translateX(
+      -50%
+    )
+    !important;
+
+}
+
+
+
+/* =====================================================
+   EVENT 2 + EVENT 4
+   NAME ABOVE / PHOTO BELOW
+===================================================== */
+
+.legacy-track
+article:nth-child(2)
+strong,
+
+.legacy-track
+article:nth-child(4)
+strong {
+
+  position:
+    absolute
+    !important;
+
+  left:
+    50%
+    !important;
+
+  top:
+    auto
+    !important;
+
+  bottom:
+    calc(
+      50% + 30px
+    )
+    !important;
+
+  transform:
+    translateX(
+      -50%
+    )
+    !important;
+
+}
+
+
+
+.legacy-track
+article:nth-child(2)
+.legacy-event-photo,
+
+.legacy-track
+article:nth-child(4)
+.legacy-event-photo {
+
+  top:
+    calc(
+      50% + 36px
+    )
+    !important;
+
+  bottom:
+    auto
+    !important;
+
+}
+
+
+
+/* =====================================================
+   EVENT NAME PILL
+===================================================== */
+
+.legacy-track article strong {
+
+  width:
+    max-content
+    !important;
+
+  max-width:
+    90%
+    !important;
+
+  margin:
+    0
+    !important;
+
+  padding:
+    10px 18px
+    !important;
+
+  display:
+    inline-flex
+    !important;
+
+  align-items:
+    center
+    !important;
+
+  justify-content:
+    center
+    !important;
+
+  border:
+    1px solid
+    rgba(
+      244,
+      176,
+      0,
+      .25
+    )
+    !important;
+
+  border-radius:
+    999px
+    !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(
+        244,
+        176,
+        0,
+        .18
+      ),
+      rgba(
+        244,
+        176,
+        0,
+        .05
+      )
+    )
+    !important;
+
+  color:
+    #f4f1e9
+    !important;
+
+  font-size:
+    18px
+    !important;
+
+  line-height:
+    1
+    !important;
+
+  font-weight:
+    900
+    !important;
+
+  text-transform:
+    uppercase
+    !important;
+
+  letter-spacing:
+    .025em
+    !important;
+
+  white-space:
+    nowrap
+    !important;
+
+  box-shadow:
+    inset
+    0 0 0 1px
+    rgba(
+      255,
+      255,
+      255,
+      .025
+    ),
+    0 8px 20px
+    rgba(
+      0,
+      0,
+      0,
+      .18
+    )
+    !important;
+
+}
+
+
+
+/* REMOVE DOT BEFORE EVENT NAME */
+
+.legacy-track
+article
+strong::before {
+
+  content:
+    none
+    !important;
+
+  display:
+    none
+    !important;
+
+}
+
+
+
+/* =====================================================
+   SMALL CONNECTOR FROM TITLE TOWARD NODE
+===================================================== */
+
+.legacy-track
+article
+strong::after {
+
+  content:
+    ""
+    !important;
+
+  position:
+    absolute
+    !important;
+
+  left:
+    50%
+    !important;
+
+  width:
+    2px
+    !important;
+
+  height:
+    20px
+    !important;
+
+  transform:
+    translateX(
+      -50%
+    )
+    !important;
+
+  background:
+    rgba(
+      244,
+      176,
+      0,
+      .48
+    )
+    !important;
+
+}
+
+
+/* below-line titles connect upward */
+
+.legacy-track
+article:nth-child(1)
+strong::after,
+
+.legacy-track
+article:nth-child(3)
+strong::after {
+
+  bottom:
+    100%
+    !important;
+
+  top:
+    auto
+    !important;
+
+}
+
+
+/* above-line titles connect downward */
+
+.legacy-track
+article:nth-child(2)
+strong::after,
+
+.legacy-track
+article:nth-child(4)
+strong::after {
+
+  top:
+    100%
+    !important;
+
+  bottom:
+    auto
+    !important;
+
+}
+
+
+
+/* =====================================================
+   TIMELINE CIRCLES
+   FIXED ON LINE
+===================================================== */
+
+.legacy-track
+article i {
+
+  position:
+    absolute
+    !important;
+
+  left:
+    50%
+    !important;
+
+  top:
+    50%
+    !important;
+
+  width:
+    30px
+    !important;
+
+  height:
+    30px
+    !important;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    )
+    !important;
+
+  border:
+    4px solid
+    #f4b000
+    !important;
+
+  border-radius:
+    50%
+    !important;
+
+  background:
+    #f4b000
+    !important;
+
+  box-shadow:
+    0 0 0 5px
+    rgba(
+      244,
+      176,
+      0,
+      .14
+    )
+    !important;
+
+  z-index:
+    6
+    !important;
+
+  transition:
+    box-shadow
+    .22s ease,
+    background
+    .22s ease,
+    border-color
+    .22s ease
+    !important;
+
+}
+
+
+
+/* REMOVE INNER BLACK CIRCLE */
+
+.legacy-track
+article
+i::after {
+
+  content:
+    none
+    !important;
+
+  display:
+    none
+    !important;
+
+}
+
+
+
+/* =====================================================
+   HOVER
+   NODE DOES NOT MOVE
+   ONLY HIGHLIGHTS
+===================================================== */
+
+@media
+(hover: hover)
+and
+(pointer: fine) {
+
+  .legacy-track
+  article:hover
+  i {
+
+    top:
+      50%
+      !important;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      !important;
+
+    background:
+      #ffc62f
+      !important;
+
+    border-color:
+      #ffd96d
+      !important;
+
+    box-shadow:
+      0 0 0 7px
+      rgba(
+        244,
+        176,
+        0,
+        .18
+      ),
+      0 0 25px
+      rgba(
+        244,
+        176,
+        0,
+        .52
+      )
+      !important;
+
+  }
+
+}
+
+
+
+/* =====================================================
+   REMOVE OLD ARTICLE CONNECTOR
+===================================================== */
+
+.legacy-track
+article::after {
+
+  content:
+    none
+    !important;
+
+  display:
+    none
+    !important;
+
+}
+
+
+
+/* =====================================================
+   BIG SCREEN
+===================================================== */
+
+@media
+(min-width: 1200px) {
+
+  .legacy-event-photo {
+
+    width:
+      clamp(
+        220px,
+        18vw,
+        300px
+      )
+      !important;
+
+    height:
+      auto
+      !important;
+
+    aspect-ratio:
+      16 / 9
+      !important;
+
+    max-height:
+      118px
+      !important;
+
+  }
+
+}
+
+
+
+@media
+(min-width: 1600px) {
+
+  .legacy-track {
+
+    height:
+      330px
+      !important;
+
+    min-height:
+      330px
+      !important;
+
+  }
+
+
+  .legacy-track
+  article {
+
+    height:
+      330px
+      !important;
+
+    min-height:
+      330px
+      !important;
+
+  }
+
+
+  .legacy-event-photo {
+
+    width:
+      min(
+        300px,
+        82%
+      )
+      !important;
+
+    max-height:
+      125px
+      !important;
+
+  }
+
+}
+
+
+
+/* =====================================================
+   DESKTOP
+   NO HORIZONTAL SCROLL
+===================================================== */
+
+@media
+(min-width: 769px) {
+
+  .legacy-timeline {
+
+    overflow:
+      hidden
+      !important;
+
+  }
+
+
+  .legacy-track {
+
+    width:
+      100%
+      !important;
+
+    min-width:
+      0
+      !important;
+
+  }
+
+}
+
+
+
+/* =====================================================
+   MOBILE
+   HORIZONTAL SWIPE
+===================================================== */
+
+@media
+(max-width: 768px) {
+
+  .legacy-timeline {
+
+    width:
+      calc(
+        100% - 20px
+      )
+      !important;
+
+    padding:
+      16px
+      14px
+      14px
+      !important;
+
+    overflow-x:
+      auto
+      !important;
+
+    overflow-y:
+      hidden
+      !important;
+
+    scrollbar-width:
+      none
+      !important;
+
+    -webkit-overflow-scrolling:
+      touch;
+
+  }
+
+
+  .legacy-timeline
+  ::-webkit-scrollbar {
+
+    display:
+      none
+      !important;
+
+  }
+
+
+  .legacy-track {
+
+    display:
+      flex
+      !important;
+
+    width:
+      max-content
+      !important;
+
+    min-width:
+      max-content
+      !important;
+
+    height:
+      270px
+      !important;
+
+    min-height:
+      270px
+      !important;
+
+    gap:
+      8px
+      !important;
+
+  }
+
+
+  .legacy-track
+  article {
+
+    flex:
+      0 0
+      195px
+      !important;
+
+    width:
+      195px
+      !important;
+
+    min-width:
+      195px
+      !important;
+
+    height:
+      270px
+      !important;
+
+    min-height:
+      270px
+      !important;
+
+    padding:
+      0 6px
+      !important;
+
+  }
+
+
+  /* LANDSCAPE PHOTOS ON PHONE */
+
+  .legacy-event-photo {
+
+    width:
+      172px
+      !important;
+
+    height:
+      96px
+      !important;
+
+    min-height:
+      96px
+      !important;
+
+    max-height:
+      96px
+      !important;
+
+    aspect-ratio:
+      16 / 9
+      !important;
+
+    border-radius:
+      13px
+      !important;
+
+  }
+
+
+  .legacy-event-photo
+  img {
+
+    width:
+      100%
+      !important;
+
+    height:
+      100%
+      !important;
+
+    object-fit:
+      cover
+      !important;
+
+  }
+
+
+  /* TOP PHOTOS */
+
+  .legacy-track
+  article:nth-child(1)
+  .legacy-event-photo,
+
+  .legacy-track
+  article:nth-child(3)
+  .legacy-event-photo {
+
+    top:
+      10px
+      !important;
+
+  }
+
+
+  /* BOTTOM PHOTOS */
+
+  .legacy-track
+  article:nth-child(2)
+  .legacy-event-photo,
+
+  .legacy-track
+  article:nth-child(4)
+  .legacy-event-photo {
+
+    top:
+      calc(
+        50% + 32px
+      )
+      !important;
+
+  }
+
+
+  /* BELOW LINE TITLES */
+
+  .legacy-track
+  article:nth-child(1)
+  strong,
+
+  .legacy-track
+  article:nth-child(3)
+  strong {
+
+    top:
+      calc(
+        50% + 27px
+      )
+      !important;
+
+  }
+
+
+  /* ABOVE LINE TITLES */
+
+  .legacy-track
+  article:nth-child(2)
+  strong,
+
+  .legacy-track
+  article:nth-child(4)
+  strong {
+
+    bottom:
+      calc(
+        50% + 27px
+      )
+      !important;
+
+  }
+
+
+  .legacy-track
+  article
+  strong {
+
+    max-width:
+      185px
+      !important;
+
+    padding:
+      8px
+      12px
+      !important;
+
+    font-size:
+      14px
+      !important;
+
+  }
+
+
+  /* MOBILE LINE ACROSS FULL SCROLLABLE TRACK */
+
+  .legacy-line {
+
+    left:
+      10px
+      !important;
+
+    right:
+      auto
+      !important;
+
+    top:
+      50%
+      !important;
+
+    width:
+      calc(
+        195px * 4
+        +
+        24px
+      )
+      !important;
+
+  }
+
+
+  /* NODES STAY EXACTLY ON LINE */
+
+  .legacy-track
+  article i,
+
+  .legacy-track
+  article:hover i {
+
+    top:
+      50%
+      !important;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      !important;
+
+  }
+
+}
+.contact-success-message {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
 }

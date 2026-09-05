@@ -150,53 +150,34 @@ export const events: MesaEvent[] = [
 ONLY MEMORABLE EVENTS FROM OLDER YEARS
 */
 
+
+
 export const legacyEvents = [
   {
-    id:
-      "legacy-01",
-
-    title:
-      "PCCOE CHAMPIONS",
+    id: 1,
+    title: "PCCOE CHAMPIONS",
+    image:
+      "/assets/events/legacy/pccoe-champions.jpg",
   },
 
   {
-    id:
-      "legacy-02",
-
-    title:
-      "ADHYAY",
+    id: 2,
+    title: "ADHYAY",
+    image:
+      "/assets/events/legacy/adhyay.jpg",
   },
 
   {
-    id:
-      "legacy-03",
-
-    title:
-      "AUTO EXPO",
+    id: 3,
+    title: "UNMILAN",
+    image:
+      "/assets/events/legacy/unmilan.jpg",
   },
 
   {
-    id:
-      "legacy-04",
-
-    title:
-      "UNMILAN",
+    id: 4,
+    title: "TECH FEST",
+    image:
+      "/assets/events/legacy/techfest.jpg",
   },
-
-  {
-    id:
-      "legacy-05",
-
-    title:
-      "TECH FEST",
-  },
-
-  {
-    id:
-      "legacy-05",
-
-    title:
-      "SPORTS",
-  },
-
 ];

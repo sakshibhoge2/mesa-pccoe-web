@@ -250,7 +250,7 @@ function Gallery() {
 
         <ScrollReveal>
 
-          <div>
+          <div className="gallery-filter-row">
 
             {categories.map(
               (
@@ -441,8 +441,6 @@ function Gallery() {
           >
 
 
-            {/* CLOSE */}
-
             <button
 
               type="button"
@@ -462,8 +460,6 @@ function Gallery() {
             </button>
 
 
-
-            {/* PREVIOUS */}
 
             {
               filteredImages.length >
@@ -499,8 +495,6 @@ function Gallery() {
             }
 
 
-
-            {/* IMAGE */}
 
             <div
 
@@ -566,8 +560,6 @@ function Gallery() {
             </div>
 
 
-
-            {/* NEXT */}
 
             {
               filteredImages.length >
