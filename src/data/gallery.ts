@@ -2,8 +2,7 @@ export type GalleryCategory =
   | "EVENTS"
   | "WORKSHOPS"
   | "COMPETITIONS"
-  | "TEAM"
-  | "CAMPUS";
+  | "TEAM";
 
 
 export type GalleryImage = {
@@ -104,9 +103,5 @@ export const galleryImages = [
     category: "TEAM",
   },
 
-  {
-    title: "Campus Photo 01",
-    src: "/assets/gallery/campus/campus-01.jpg",
-    category: "CAMPUS",
-  },
+  
 ];

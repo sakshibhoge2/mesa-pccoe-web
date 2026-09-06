@@ -24,7 +24,6 @@
     rgba(5, 10, 15, 0.72);
 }
 
-
 /* ============================================================
    BACKGROUND
 ============================================================ */
@@ -33,7 +32,6 @@ html {
   background:
     var(--mesa-bg);
 }
-
 
 body {
   position: relative;
@@ -44,99 +42,11 @@ body {
     var(--mesa-bg) !important;
 }
 
-
 /* ONLY REAL CAD IMAGE */
-
-body::before {
-  content: "";
-
-  position: fixed;
-
-  inset: -42px;
-
-  z-index: 0;
-
-  pointer-events: none;
-
-  background-image:
-    url(
-      "/assets/backgrounds/light-blueprint.jpg"
-    );
-
-  background-size:
-    cover;
-
-  background-repeat:
-    no-repeat;
-
-background-position:
-  calc(50% + var(--cad-x, 0px))
-  calc(50% + var(--cad-y, 0px));
-
-  opacity:
-    0.28;
-
-  transform:
-    translate3d(
-      var(--cad-x, 0px),
-      var(--cad-y, 0px),
-      0
-    )
-    scale(1.055);
-
-transform:
-  scale(1.07);
-
-transition:
-  background-position
-  0.25s
-  cubic-bezier(
-    0.16,
-    1,
-    0.3,
-    1
-  );
-
-
-  will-change:
-    transform,
-    background-position;
-}
-
 
 /* DARK */
 
-html.dark body::before {
-  background-image:
-    url(
-      "/assets/backgrounds/dark-blueprint.jpg"
-    );
-
-  opacity:
-    0.52;
-
-  filter:
-    brightness(4)
-    contrast(1.08);
-}
-
-
 /* REMOVE THE OLD CIRCLE COMPLETELY */
-
-body::after {
-  content: none !important;
-
-  display: none !important;
-
-  background: none !important;
-
-  box-shadow: none !important;
-
-  border: 0 !important;
-
-  animation: none !important;
-}
-
 
 #root {
   position: relative;
@@ -144,28 +54,22 @@ body::after {
   z-index: 1;
 }
 
-
 /* SLOW AUTOMATIC MOVEMENT */
 
-@keyframes mesaBlueprintDrift {
-
-  0% {
+@keyframes mesaBlueprintDrift {0% {
     background-position:
       48.5% 49%;
   }
 
-  50% {
+50% {
     background-position:
       51.5% 50.5%;
   }
 
-  100% {
+100% {
     background-position:
       49% 52%;
-  }
-
-}
-
+  }}
 
 /* ============================================================
    TRANSPARENT SECTIONS SO CAD CAN BE SEEN
@@ -224,7 +128,6 @@ body::after {
     transparent !important;
 }
 
-
 /* REMOVE OLD SECTION OVERLAYS */
 
 .paper-intro::before,
@@ -250,12 +153,9 @@ body::after {
     0 !important;
 }
 
-
 /* ============================================================
    REMOVE SMALL PCCOE LOGO FROM HERO
 ============================================================ */
-
-
 
 .hero-college,
 
@@ -264,7 +164,6 @@ body::after {
   display:
     none !important;
 }
-
 
 /* ============================================================
    NAVBAR SHELL
@@ -299,7 +198,6 @@ body::after {
     top
     0.4s ease;
 }
-
 
 /* ============================================================
    NAVBAR
@@ -402,7 +300,6 @@ body::after {
       0.4s ease;
 }
 
-
 /* ============================================================
    NAVBAR POSITIONING
    CENTERED ON EVERY DESKTOP/TABLET SIZE
@@ -433,14 +330,12 @@ body::after {
     none !important;
 }
 
-
 /* SCROLL CHANGES ONLY THE VISUAL STATE — NOT POSITION */
 
 .mesa-smart-nav-scrolled {
   top:
     8px;
 }
-
 
 .mesa-smart-nav-scrolled
 .mesa-smart-navbar {
@@ -463,7 +358,6 @@ body::after {
       0.18
     );
 }
-
 
 /* ============================================================
    HOME PCCOE LOGO
@@ -557,7 +451,6 @@ body::after {
       );
 }
 
-
 .home-pccoe-mark
 img {
   width:
@@ -572,7 +465,6 @@ img {
   border-radius:
     18px;
 }
-
 
 /* PCCOE FADES ON SCROLL */
 
@@ -589,7 +481,6 @@ img {
     none;
 }
 
-
 /* ============================================================
    NAV BRAND
 ============================================================ */
@@ -605,7 +496,6 @@ img {
     11px;
 }
 
-
 .mesa-smart-brand
 img {
   width:
@@ -618,7 +508,6 @@ img {
     contain;
 }
 
-
 .mesa-smart-brand
 div {
   display:
@@ -627,7 +516,6 @@ div {
   gap:
     3px;
 }
-
 
 .mesa-smart-brand
 strong {
@@ -645,7 +533,6 @@ strong {
   line-height:
     1;
 }
-
 
 .mesa-smart-brand
 span {
@@ -672,7 +559,6 @@ span {
     0.17em;
 }
 
-
 /* ============================================================
    NAV LINKS
 ============================================================ */
@@ -694,7 +580,6 @@ span {
       25px
     );
 }
-
 
 .mesa-smart-links
 a {
@@ -725,7 +610,6 @@ a {
     color
     0.25s ease;
 }
-
 
 .mesa-smart-links
 a::after {
@@ -763,7 +647,6 @@ a::after {
       0.3s ease;
 }
 
-
 .mesa-smart-links
 a:hover,
 
@@ -772,7 +655,6 @@ a.active {
   color:
     #fff;
 }
-
 
 .mesa-smart-links
 a:hover::after,
@@ -785,7 +667,6 @@ a.active::after {
   right:
     0;
 }
-
 
 /* ============================================================
    NAV ACTIONS
@@ -804,7 +685,6 @@ a.active::after {
   gap:
     8px;
 }
-
 
 .mesa-smart-theme {
   min-height:
@@ -850,7 +730,6 @@ a.active::after {
     pointer;
 }
 
-
 .mesa-smart-theme-icon {
   width:
     32px;
@@ -882,7 +761,6 @@ a.active::after {
     );
 }
 
-
 .mesa-smart-theme-copy {
   display:
     grid;
@@ -893,7 +771,6 @@ a.active::after {
   text-align:
     left;
 }
-
 
 .mesa-smart-theme-copy
 small {
@@ -909,7 +786,6 @@ small {
     10px !important;
 }
 
-
 .mesa-smart-theme-copy
 strong {
   color:
@@ -918,7 +794,6 @@ strong {
   font-size:
     11px;
 }
-
 
 .mesa-smart-menu {
   display:
@@ -956,7 +831,6 @@ strong {
   cursor:
     pointer;
 }
-
 
 /* ============================================================
    MOBILE NAV
@@ -1012,7 +886,6 @@ strong {
       0.3s ease;
 }
 
-
 .mesa-smart-mobile.open {
   max-height:
     500px;
@@ -1031,7 +904,6 @@ strong {
       0.22
     );
 }
-
 
 .mesa-smart-mobile
 a {
@@ -1068,7 +940,6 @@ a {
     );
 }
 
-
 .mesa-smart-mobile
 small {
   color:
@@ -1080,13 +951,11 @@ small {
     11px !important;
 }
 
-
 .mesa-smart-mobile
 strong {
   font-size:
     14px;
 }
-
 
 .mesa-smart-mobile
 a.active strong {
@@ -1095,7 +964,6 @@ a.active strong {
       --orange
     );
 }
-
 
 /* ============================================================
    GLOBAL READABILITY
@@ -1157,7 +1025,6 @@ span {
     1 !important;
 }
 
-
 p,
 
 .paper-intro-main
@@ -1199,7 +1066,6 @@ p {
     1 !important;
 }
 
-
 .event-preview-body
 span,
 
@@ -1233,7 +1099,6 @@ small {
     1 !important;
 }
 
-
 .gallery-filters-final
 button,
 
@@ -1247,7 +1112,6 @@ button,
   opacity:
     1 !important;
 }
-
 
 .hero-identity
 > span,
@@ -1271,7 +1135,6 @@ span {
   opacity:
     0.85 !important;
 }
-
 
 /* ============================================================
    CARDS
@@ -1322,7 +1185,6 @@ article,
     !important;
 }
 
-
 /* ============================================================
    TEAM ACCORDIONS
 ============================================================ */
@@ -1333,14 +1195,12 @@ article {
     20px !important;
 }
 
-
 .team-accordion
 article
 > button {
   min-height:
     82px !important;
 }
-
 
 .team-accordion
 article
@@ -1349,7 +1209,6 @@ article
   font-size:
     22px !important;
 }
-
 
 .team-accordion
 article
@@ -1366,7 +1225,6 @@ svg {
     );
 }
 
-
 .team-accordion
 article.open
 > button
@@ -1374,7 +1232,6 @@ svg {
   transform:
     rotate(180deg);
 }
-
 
 .team-accordion-members {
   max-height:
@@ -1409,7 +1266,6 @@ svg {
       0.3s ease;
 }
 
-
 .team-accordion
 article.open
 .team-accordion-members {
@@ -1422,7 +1278,6 @@ article.open
   opacity:
     1;
 }
-
 
 /* ============================================================
    ANNUAL TEAM
@@ -1437,7 +1292,6 @@ article.open
     )
     95px;
 }
-
 
 .annual-team-trigger {
   position:
@@ -1499,7 +1353,6 @@ article.open
     pointer;
 }
 
-
 .annual-team-trigger::before {
   content:
     "";
@@ -1541,14 +1394,12 @@ article.open
     );
 }
 
-
 .annual-team-trigger:hover::before,
 
 .annual-team-trigger.open::before {
   transform:
     scaleY(1);
 }
-
 
 .annual-team-trigger
 > div {
@@ -1561,7 +1412,6 @@ article.open
   gap:
     16px;
 }
-
 
 .annual-team-trigger
 span {
@@ -1577,7 +1427,6 @@ span {
   font-weight:
     700;
 }
-
 
 .annual-team-trigger
 strong {
@@ -1603,7 +1452,6 @@ strong {
     1;
 }
 
-
 .annual-team-trigger
 svg {
   color:
@@ -1622,13 +1470,11 @@ svg {
     );
 }
 
-
 .annual-team-trigger.open
 svg {
   transform:
     rotate(180deg);
 }
-
 
 .annual-team-content {
   width:
@@ -1663,7 +1509,6 @@ svg {
       0.35s ease;
 }
 
-
 .annual-team-content.open {
   grid-template-rows:
     1fr;
@@ -1672,13 +1517,11 @@ svg {
     1;
 }
 
-
 .annual-team-content
 > .annual-team-grid {
   overflow:
     hidden;
 }
-
 
 .annual-team-grid {
   padding-top:
@@ -1699,7 +1542,6 @@ svg {
   gap:
     15px;
 }
-
 
 .annual-team-member {
   overflow:
@@ -1748,7 +1590,6 @@ svg {
       0.3s ease;
 }
 
-
 .annual-team-content.open
 .annual-team-member {
   opacity:
@@ -1757,7 +1598,6 @@ svg {
   transform:
     translateY(0);
 }
-
 
 .annual-team-member:hover {
   border-color:
@@ -1768,7 +1608,6 @@ svg {
       0.48
     );
 }
-
 
 .annual-member-photo {
   width:
@@ -1786,7 +1625,6 @@ svg {
   background:
     #f1f1ee !important;
 }
-
 
 .annual-member-photo
 img {
@@ -1806,14 +1644,12 @@ img {
     #f1f1ee;
 }
 
-
 .annual-member-copy {
   padding:
     18px
     18px
     21px;
 }
-
 
 .annual-member-copy
 span {
@@ -1834,7 +1670,6 @@ span {
   line-height:
     1.35;
 }
-
 
 .annual-member-copy
 h3 {
@@ -1858,7 +1693,6 @@ h3 {
     1.05;
 }
 
-
 /* ============================================================
    GALLERY LIGHTBOX
 ============================================================ */
@@ -1869,7 +1703,6 @@ h3 {
   cursor:
     zoom-in;
 }
-
 
 .mesa-gallery-lightbox {
   position:
@@ -1906,21 +1739,15 @@ h3 {
     0.25s ease both;
 }
 
-
-@keyframes galleryBackdropIn {
-
-  from {
+@keyframes galleryBackdropIn {from {
     opacity:
       0;
   }
 
-  to {
+to {
     opacity:
       1;
-  }
-
-}
-
+  }}
 
 .mesa-lightbox-content {
   width:
@@ -1964,7 +1791,6 @@ h3 {
     );
 }
 
-
 .mesa-lightbox-content
 img {
   width:
@@ -1981,7 +1807,6 @@ img {
   background:
     #050709;
 }
-
 
 .mesa-lightbox-caption {
   min-height:
@@ -2012,7 +1837,6 @@ img {
     );
 }
 
-
 .mesa-lightbox-caption
 span {
   color:
@@ -2024,7 +1848,6 @@ span {
     12px;
 }
 
-
 .mesa-lightbox-caption
 strong {
   color:
@@ -2033,7 +1856,6 @@ strong {
   font-size:
     16px;
 }
-
 
 .mesa-lightbox-close,
 
@@ -2071,7 +1893,6 @@ strong {
     pointer;
 }
 
-
 .mesa-lightbox-close {
   position:
     fixed;
@@ -2091,7 +1912,6 @@ strong {
   height:
     46px;
 }
-
 
 .mesa-lightbox-arrow {
   position:
@@ -2113,18 +1933,15 @@ strong {
     translateY(-50%);
 }
 
-
 .mesa-lightbox-prev {
   left:
     23px;
 }
 
-
 .mesa-lightbox-next {
   right:
     23px;
 }
-
 
 /* ============================================================
    FOOTER
@@ -2168,7 +1985,6 @@ strong {
     !important;
 }
 
-
 .mesa-footer::before,
 
 .final-footer::before {
@@ -2204,7 +2020,6 @@ strong {
     0.75;
 }
 
-
 .mesa-footer-brand
 strong,
 
@@ -2216,7 +2031,6 @@ strong {
   font-size:
     21px !important;
 }
-
 
 .mesa-footer-brand
 span,
@@ -2239,7 +2053,6 @@ span {
     1 !important;
 }
 
-
 .mesa-footer-nav
 a,
 
@@ -2261,7 +2074,6 @@ a {
     700;
 }
 
-
 .mesa-footer-nav
 a:hover,
 
@@ -2273,7 +2085,6 @@ a:hover {
     )
     !important;
 }
-
 
 .mesa-footer-bottom
 span,
@@ -2296,77 +2107,9 @@ span {
     1 !important;
 }
 
-
 /* ============================================================
    LIGHT MODE
 ============================================================ */
-
-html:not(.dark) {
-  --mesa-bg:
-    #e9e6dd;
-
-  --mesa-text:
-    #101318;
-
-  --mesa-soft:
-    rgba(
-      16,
-      19,
-      24,
-      0.8
-    );
-
-  --mesa-muted:
-    rgba(
-      16,
-      19,
-      24,
-      0.66
-    );
-
-  --mesa-line:
-    rgba(
-      16,
-      19,
-      24,
-      0.14
-    );
-
-  --mesa-card:
-    rgba(
-      255,
-      255,
-      255,
-      0.78
-    );
-}
-
-
-html:not(.dark)
-body {
-  background:
-    #e9e6dd !important;
-
-  color:
-    #101318 !important;
-}
-
-
-html:not(.dark)
-body::before {
-  background-image:
-    url(
-      "/assets/backgrounds/light-blueprint.jpg"
-    );
-
-  opacity:
-    0.07;
-
-  filter:
-    brightness(1.45)
-    contrast(0.60);
-}
-
 
 html:not(.dark)
 .mesa-story-grid,
@@ -2425,7 +2168,6 @@ html:not(.dark)
     #101318 !important;
 }
 
-
 html:not(.dark)
 h1,
 
@@ -2446,7 +2188,6 @@ strong {
     #101318 !important;
 }
 
-
 html:not(.dark)
 p {
   color:
@@ -2458,7 +2199,6 @@ p {
     )
     !important;
 }
-
 
 html:not(.dark)
 .mesa-smart-navbar {
@@ -2479,14 +2219,12 @@ html:not(.dark)
     );
 }
 
-
 html:not(.dark)
 .mesa-smart-brand
 strong {
   color:
     #101318;
 }
-
 
 html:not(.dark)
 .mesa-smart-brand
@@ -2500,7 +2238,6 @@ span {
     );
 }
 
-
 html:not(.dark)
 .mesa-smart-links
 a {
@@ -2513,7 +2250,6 @@ a {
     );
 }
 
-
 html:not(.dark)
 .mesa-smart-links
 a:hover,
@@ -2524,7 +2260,6 @@ a.active {
   color:
     #101318;
 }
-
 
 html:not(.dark)
 .mesa-smart-theme {
@@ -2540,7 +2275,6 @@ html:not(.dark)
     #101318;
 }
 
-
 html:not(.dark)
 .mesa-smart-theme-copy
 small {
@@ -2553,14 +2287,12 @@ small {
     );
 }
 
-
 html:not(.dark)
 .mesa-smart-theme-copy
 strong {
   color:
     #101318;
 }
-
 
 html:not(.dark)
 .contact-form-panel
@@ -2591,7 +2323,6 @@ textarea {
     #101318 !important;
 }
 
-
 /* ============================================================
    RESPONSIVE
 ============================================================ */
@@ -2599,9 +2330,7 @@ textarea {
 @media (
   max-width:
   1100px
-) {
-
-  .home-pccoe-mark {
+) {.home-pccoe-mark {
     width:
       115px;
 
@@ -2612,8 +2341,7 @@ textarea {
       18px;
   }
 
-
-  .mesa-smart-navbar {
+.mesa-smart-navbar {
     width:
       min(
         860px,
@@ -2634,21 +2362,18 @@ textarea {
       104px;
   }
 
-
-  .mesa-smart-links {
+.mesa-smart-links {
     gap:
       13px;
   }
 
-
-  .mesa-smart-links
+.mesa-smart-links
   a {
     font-size:
       11px;
   }
 
-
-  .annual-team-grid {
+.annual-team-grid {
     grid-template-columns:
       repeat(
         3,
@@ -2657,17 +2382,12 @@ textarea {
           1fr
         )
       );
-  }
-
-}
-
+  }}
 
 @media (
   max-width:
   850px
-) {
-
-  .mesa-smart-nav-shell {
+) {.mesa-smart-nav-shell {
     top:
       7px;
 
@@ -2675,14 +2395,12 @@ textarea {
       0 8px;
   }
 
-
-  .home-pccoe-mark {
+.home-pccoe-mark {
     display:
       none;
   }
 
-
-  .mesa-smart-navbar,
+.mesa-smart-navbar,
 
   .mesa-smart-nav-home
   .mesa-smart-navbar,
@@ -2711,14 +2429,12 @@ textarea {
       17px;
   }
 
-
-  .mesa-smart-links {
+.mesa-smart-links {
     display:
       none;
   }
 
-
-  .mesa-smart-menu {
+.mesa-smart-menu {
     display:
       grid;
 
@@ -2726,21 +2442,19 @@ textarea {
       center;
   }
 
+/* Mobile uses hamburger only — remove theme switch completely */
 
-  /* Mobile uses hamburger only — remove theme switch completely */
-  .mesa-smart-theme {
+.mesa-smart-theme {
     display:
       none !important;
   }
 
-
-  .mesa-smart-theme-copy {
+.mesa-smart-theme-copy {
     display:
       none !important;
   }
 
-
-  .annual-team-grid {
+.annual-team-grid {
     grid-template-columns:
       repeat(
         2,
@@ -2751,47 +2465,37 @@ textarea {
       );
   }
 
-
-  .mesa-gallery-lightbox {
+.mesa-gallery-lightbox {
     padding:
       55px 15px;
   }
 
-
-  .mesa-lightbox-content {
+.mesa-lightbox-content {
     width:
       calc(
         100vw - 30px
       );
   }
 
-
-  .mesa-lightbox-prev {
+.mesa-lightbox-prev {
     left:
       8px;
   }
 
-
-  .mesa-lightbox-next {
+.mesa-lightbox-next {
     right:
       8px;
-  }
-
-}
-
+  }}
 
 @media (
   max-width:
   550px
-) {
-
-  .annual-team-grid {
+) {.annual-team-grid {
     grid-template-columns:
       1fr;
   }
 
-
-  .annual-team-trigger {
+.annual-team-trigger {
     min-height:
       78px;
 
@@ -2799,8 +2503,7 @@ textarea {
       0 18px;
   }
 
-
-  .annual-team-trigger
+.annual-team-trigger
   > div {
     display:
       grid;
@@ -2809,15 +2512,13 @@ textarea {
       6px;
   }
 
-
-  .annual-team-trigger
+.annual-team-trigger
   strong {
     font-size:
       25px;
   }
 
-
-  .mesa-lightbox-caption {
+.mesa-lightbox-caption {
     align-items:
       flex-start;
 
@@ -2826,51 +2527,35 @@ textarea {
 
     gap:
       5px;
-  }
-
-}
+  }}
 
 /* =========================================================
    DISABLE OLD STATIC ENGINEERING BACKGROUND
 ========================================================= */
 
-.engineering-background,
-.engineering-background__image {
-  display: none !important;
-}
-
 /* =========================================================
    FINAL WORKING CAD PARALLAX OVERRIDE
 ========================================================= */
 
-body::before {
-  content: "" !important;
-
-  position: fixed !important;
-  inset: -70px !important;
-
-  z-index: 0 !important;
-  pointer-events: none !important;
-
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-
-  background-position:
-    50% 50% !important;
-
-  transform:
-    translate3d(
+body::before {content: "" !important;
+position: fixed !important;
+inset: -70px !important;
+z-index: 0 !important;
+pointer-events: none !important;
+background-image: url(
+      "/assets/backgrounds/light-blueprint.jpg"
+    );
+background-size: cover !important;
+background-repeat: no-repeat !important;
+background-position: 50% 50% !important;
+opacity: 0.28;
+transform: translate3d(
       var(--cad-x, 0px),
       var(--cad-y, 0px),
       0
     )
     scale(1.09) !important;
-
-  transform-origin:
-    center center !important;
-
-  transition:
-    transform
+transition: transform
     0.18s
     cubic-bezier(
       0.16,
@@ -2878,75 +2563,34 @@ body::before {
       0.3,
       1
     ) !important;
-
-  animation: none !important;
-
-  will-change:
-    transform !important;
-}
-
+will-change: transform !important;
+transform-origin: center center !important;
+animation: none !important;}
 
 /* DARK MODE */
 
-html.dark body::before {
-  background-image:
-    url("/assets/backgrounds/dark-blueprint.jpg")
-    !important;
-
-  opacity:
-    0.52 !important;
-
-  filter:
-    brightness(1.45)
-    contrast(1.08)
-    !important;
-}
-
+html.dark body::before {background-image: url("/assets/backgrounds/dark-blueprint.jpg") !important;
+opacity: 0.52 !important;
+filter: brightness(1.45)
+    contrast(1.08) !important;}
 
 /* LIGHT MODE */
-
-html:not(.dark) body::before {
-  background-image:
-    url("/assets/backgrounds/light-blueprint.jpg")
-    !important;
-
-  opacity:
-    0.40 !important;
-
-  filter:
-    brightness(1.05)
-    contrast(0.95)
-    !important;
-}
-
 
 /* REMOVE OLD STATIC BG */
 
 .engineering-background,
-.engineering-background__image {
-  display:
-    none !important;
-}
-
+.engineering-background__image {display: none !important;}
 
 /* REMOVE OLD GHOST CIRCLE */
 
-body::after {
-  content:
-    none !important;
-
-  display:
-    none !important;
-}
+body::after {content: none !important;
+display: none !important;
+background: none !important;
+box-shadow: none !important;
+border: 0 !important;
+animation: none !important;}
 
 /* FIX LEGACY TIMELINE LINE */
-
-.legacy-line {
-  background: var(--orange) !important;
-  width: 100% !important;
-  min-width: 100% !important;
-  z-index: 1 !important;
-}
 
 .legacy-timeline article {
   position: relative;
@@ -2959,83 +2603,72 @@ body::after {
 
 /* LIGHT MODE — LEGACY TIMELINE */
 
-html:not(.dark) .legacy-timeline {
-  background: rgba(255, 255, 255, 0.88) !important;
-
-  border-color: rgba(0, 0, 0, 0.10) !important;
-}
-
-html:not(.dark) .legacy-timeline article strong {
-  color: rgba(15, 18, 22, 0.88) !important;
-}
-
 /* =========================================
    FORCE LIGHT MODE BACKGROUND
 ========================================= */
 
-html:not(.dark) {
-  background: #ffffff !important;
-}
+html:not(.dark) {--mesa-bg: #e9e6dd;
+--mesa-text: #101318;
+--mesa-soft: rgba(
+      16,
+      19,
+      24,
+      0.8
+    );
+--mesa-muted: rgba(
+      16,
+      19,
+      24,
+      0.66
+    );
+--mesa-line: rgba(
+      16,
+      19,
+      24,
+      0.14
+    );
+--mesa-card: rgba(
+      255,
+      255,
+      255,
+      0.78
+    );
+background: #ffffff !important;}
 
-html:not(.dark) body {
-  background: #ffffff !important;
-}
-
+html:not(.dark) body {background: #ffffff !important;
+color: #101318 !important;}
 
 /* LIGHT BLUEPRINT — VERY FAINT */
 
-html:not(.dark) body::before {
-  background-image:
-    url("/assets/backgrounds/light-blueprint.jpg")
-    !important;
-
-  opacity: 0.4 !important;
-
-  filter:
-    brightness(1.4)
-    contrast(0.55)
-    !important;
-}
-
+html:not(.dark) body::before {background-image: url("/assets/backgrounds/light-blueprint.jpg") !important;
+opacity: 0.4 !important;
+filter: brightness(1.4)
+    contrast(0.55) !important;}
 
 /* LIGHT MODE LEGACY TIMELINE */
 
-html:not(.dark) .legacy-timeline {
-  background:
-    rgba(255, 255, 255, 0.96)
-    !important;
-
-  border-color:
-    rgba(0, 0, 0, 0.10)
-    !important;
-}
+html:not(.dark) .legacy-timeline {background: rgba(255, 255, 255, 0.96) !important;
+border-color: rgba(0, 0, 0, 0.10) !important;}
 
 html:not(.dark)
-.legacy-timeline article strong {
-  color:
-    #17191c
-    !important;
-}
+.legacy-timeline article strong {color: #17191c !important;}
 
 /* FINAL PCCOE LOGO POSITION */
+
 .mesa-smart-nav-shell .home-pccoe-mark {
   top: 50%;
   transform: translateY(calc(-50% + 20px));
 }
 
-
-
 /* =========================================================
    FINAL MOBILE POLISH
    ========================================================= */
 
-@media (max-width: 1100px) {
-
-  /* =========================
+@media (max-width: 1100px) {/* =========================
      THEME — ICON ONLY
      ========================= */
 
-  .mesa-smart-theme {
+.mesa-smart-theme {
     display: grid !important;
     width: 42px;
     height: 42px;
@@ -3045,22 +2678,21 @@ html:not(.dark)
     flex-shrink: 0;
   }
 
-  .mesa-smart-theme-copy {
+.mesa-smart-theme-copy {
     display: none !important;
   }
 
-  .mesa-smart-theme-icon {
+.mesa-smart-theme-icon {
     width: 30px;
     height: 30px;
     border: 0;
   }
 
-
-  /* =========================
+/* =========================
      NAVBAR ACTIONS
      ========================= */
 
-  .mesa-smart-actions {
+.mesa-smart-actions {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -3068,29 +2700,27 @@ html:not(.dark)
     flex-shrink: 0;
   }
 
-
-  /* =========================
+/* =========================
      HERO MESA LOGO
      MOVE IT ABOVE POPUP
      ========================= */
 
-  .hero-identity {
+.hero-identity {
     bottom: 225px !important;
     width: 82vw;
   }
 
-  .hero-identity img {
+.hero-identity img {
     width: clamp(90px, 15vw, 135px);
     margin-bottom: 8px;
   }
 
-
-  /* =========================
+/* =========================
      TEACHERS' DAY POPUP
      KEEP IT LOW + RIGHT
      ========================= */
 
-  .champion-trigger {
+.champion-trigger {
     right: 12px !important;
     left: auto !important;
 
@@ -3104,18 +2734,16 @@ html:not(.dark)
     z-index: 30;
   }
 
-
-  /* =========================
+/* =========================
      VIDEO CONTROLS
      DON'T HIT NAVBAR
      ========================= */
 
-  .cinematic-controls {
+.cinematic-controls {
     top: 82px !important;
     right: 12px !important;
-  }
+  }}
 
-}
 /* =========================================================
    =========================================================
    MESA FINAL MOBILE RESPONSIVE PATCH
@@ -3123,14 +2751,11 @@ html:not(.dark)
    =========================================================
    ========================================================= */
 
-@media (max-width: 700px) {
-
-
-  /* =====================================================
+@media (max-width: 700px) {/* =====================================================
      CURRENT TEAM — TWO CARDS PER ROW
   ===================================================== */
 
-  .core-team-grid,
+.core-team-grid,
   .core-team-grid-flexible {
     display:
       grid
@@ -3148,8 +2773,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .core-team-grid article,
+.core-team-grid article,
   .core-team-grid-flexible article {
     min-width:
       0
@@ -3164,8 +2788,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .core-team-grid .media-slot,
+.core-team-grid .media-slot,
   .core-team-grid-flexible .media-slot {
     width:
       100%
@@ -3184,8 +2807,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .core-team-grid .media-slot img,
+.core-team-grid .media-slot img,
   .core-team-grid-flexible .media-slot img {
     width:
       100%
@@ -3204,13 +2826,11 @@ html:not(.dark)
       !important;
   }
 
-
-
-  /* =====================================================
+/* =====================================================
      FACULTY — TWO CARDS PER ROW
   ===================================================== */
 
-  .faculty-grid {
+.faculty-grid {
     display:
       grid
       !important;
@@ -3231,8 +2851,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .faculty-grid article {
+.faculty-grid article {
     min-width:
       0
       !important;
@@ -3246,8 +2865,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .faculty-grid article .media-slot {
+.faculty-grid article .media-slot {
     width:
       100%
       !important;
@@ -3265,8 +2883,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .faculty-grid article .media-slot img {
+.faculty-grid article .media-slot img {
     width:
       100%
       !important;
@@ -3284,13 +2901,11 @@ html:not(.dark)
       !important;
   }
 
-
-
-  /* =====================================================
+/* =====================================================
      PAST / ARCHIVE TEAM — TWO PER ROW
   ===================================================== */
 
-  .annual-team-grid {
+.annual-team-grid {
     display:
       grid
       !important;
@@ -3311,8 +2926,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .annual-team-member {
+.annual-team-member {
     min-width:
       0
       !important;
@@ -3326,8 +2940,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .annual-member-photo {
+.annual-member-photo {
     width:
       100%
       !important;
@@ -3349,8 +2962,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .annual-member-photo img {
+.annual-member-photo img {
     width:
       100%
       !important;
@@ -3368,8 +2980,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .annual-member-copy {
+.annual-member-copy {
     padding:
       11px
       11px
@@ -3377,8 +2988,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .annual-member-copy span {
+.annual-member-copy span {
     font-size:
       9px
       !important;
@@ -3388,8 +2998,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .annual-member-copy h3 {
+.annual-member-copy h3 {
     margin-top:
       5px
       !important;
@@ -3399,20 +3008,17 @@ html:not(.dark)
       !important;
   }
 
-
-
-  /* =====================================================
+/* =====================================================
      ARCHIVE TITLE
   ===================================================== */
 
-  .annual-team-trigger {
+.annual-team-trigger {
     padding:
       18px
       !important;
   }
 
-
-  .annual-team-trigger strong {
+.annual-team-trigger strong {
     font-size:
       clamp(
         25px,
@@ -3426,13 +3032,11 @@ html:not(.dark)
       !important;
   }
 
-
-
-  /* =====================================================
+/* =====================================================
      EVENT POSTER — DO NOT CROP IMAGE
   ===================================================== */
 
-  .compact-event-card {
+.compact-event-card {
     display:
       block
       !important;
@@ -3446,8 +3050,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .compact-event-image {
+.compact-event-image {
     width:
       100%
       !important;
@@ -3469,8 +3072,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .compact-event-image .media-slot {
+.compact-event-image .media-slot {
     width:
       100%
       !important;
@@ -3484,8 +3086,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .compact-event-image img {
+.compact-event-image img {
     width:
       100%
       !important;
@@ -3511,21 +3112,18 @@ html:not(.dark)
       !important;
   }
 
-
-  .compact-event-copy {
+.compact-event-copy {
     padding:
       18px
       !important;
   }
 
-
-
-  /* =====================================================
+/* =====================================================
      GALLERY FILTER
      ONE HORIZONTAL SWIPEABLE ROW
   ===================================================== */
 
-  .gallery-filters-final {
+.gallery-filters-final {
     width:
       100%
       !important;
@@ -3552,15 +3150,13 @@ html:not(.dark)
       touch;
   }
 
-
-  .gallery-filters-final::-webkit-scrollbar {
+.gallery-filters-final::-webkit-scrollbar {
     display:
       none
       !important;
   }
 
-
-  .gallery-filters-final .reveal {
+.gallery-filters-final .reveal {
     width:
       max-content
       !important;
@@ -3574,8 +3170,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .gallery-filter-row {
+.gallery-filter-row {
     width:
       max-content
       !important;
@@ -3621,8 +3216,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .gallery-filter-row button {
+.gallery-filter-row button {
     flex:
       0 0 auto
       !important;
@@ -3676,22 +3270,19 @@ html:not(.dark)
       !important;
   }
 
-
-
-  /* =====================================================
+/* =====================================================
      VISION / MISSION
      CENTER GEAR BEHIND BOTH BUTTONS
   ===================================================== */
 
-  .vision-machine-section {
+.vision-machine-section {
     padding:
       48px
       14px
       !important;
   }
 
-
-  .vision-machine-grid {
+.vision-machine-grid {
     display:
       block
       !important;
@@ -3701,8 +3292,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .vision-selector {
+.vision-selector {
     position:
       relative
       !important;
@@ -3732,10 +3322,9 @@ html:not(.dark)
       !important;
   }
 
+/* GEAR */
 
-  /* GEAR */
-
-  .vision-rotary {
+.vision-rotary {
     position:
       absolute
       !important;
@@ -3784,8 +3373,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .vision-rotary.mission {
+.vision-rotary.mission {
     transform:
       translate(
         -50%,
@@ -3795,10 +3383,9 @@ html:not(.dark)
       !important;
   }
 
+/* VISION / MISSION BUTTONS */
 
-  /* VISION / MISSION BUTTONS */
-
-  .vision-selector button {
+.vision-selector button {
     position:
       absolute
       !important;
@@ -3832,29 +3419,25 @@ html:not(.dark)
       !important;
   }
 
-
-  .vision-selector button:first-child {
+.vision-selector button:first-child {
     left:
       8px
       !important;
   }
 
-
-  .vision-selector button:last-child {
+.vision-selector button:last-child {
     right:
       8px
       !important;
   }
 
-
-  .vision-selector button.active {
+.vision-selector button.active {
     transform:
       translateY(-50%)
       !important;
   }
 
-
-  .vision-content-machine {
+.vision-content-machine {
     min-height:
       0
       !important;
@@ -3870,19 +3453,13 @@ html:not(.dark)
     border-radius:
       18px
       !important;
-  }
-
-}
-
-
+  }}
 
 /* =========================================================
    EXTRA SMALL PHONE
 ========================================================= */
 
-@media (max-width: 390px) {
-
-  .vision-rotary {
+@media (max-width: 390px) {.vision-rotary {
     width:
       185px
       !important;
@@ -3892,8 +3469,7 @@ html:not(.dark)
       !important;
   }
 
-
-  .vision-selector button {
+.vision-selector button {
     width:
       120px
       !important;
@@ -3903,21 +3479,17 @@ html:not(.dark)
       !important;
   }
 
-
-  .vision-selector button:first-child {
+.vision-selector button:first-child {
     left:
       3px
       !important;
   }
 
-
-  .vision-selector button:last-child {
+.vision-selector button:last-child {
     right:
       3px
       !important;
-  }
-
-}
+  }}
 
 /* =========================================================
    =========================================================
@@ -3927,7 +3499,6 @@ html:not(.dark)
    =========================================================
    ========================================================= */
 
-
 /* =====================================================
    SECTION
 ===================================================== */
@@ -3936,14 +3507,6 @@ html:not(.dark)
   position:
     relative;
 }
-
-
-.legacy-heading {
-  margin-bottom:
-    26px;
-}
-
-
 
 /* =====================================================
    MAIN TIMELINE BOX
@@ -4001,8 +3564,6 @@ html:not(.dark)
 
 }
 
-
-
 /* =====================================================
    DESKTOP TRACK
 ===================================================== */
@@ -4049,73 +3610,30 @@ html:not(.dark)
 
 }
 
-
-
 /* =====================================================
    ORANGE TIMELINE LINE
 ===================================================== */
 
-.legacy-line {
-
-  position:
-    absolute
-    !important;
-
-  left:
-    8px
-    !important;
-
-  right:
-    8px
-    !important;
-
-  top:
-    50%
-    !important;
-
-  width:
-    auto
-    !important;
-
-  min-width:
-    0
-    !important;
-
-  height:
-    4px
-    !important;
-
-  transform:
-    translateY(
+.legacy-line {background: #f4b000 !important;
+width: auto !important;
+min-width: 0 !important;
+z-index: 1 !important;
+position: absolute !important;
+left: 8px !important;
+right: 8px !important;
+top: 50% !important;
+height: 4px !important;
+transform: translateY(
       -50%
-    )
-    !important;
-
-  border-radius:
-    999px
-    !important;
-
-  background:
-    #f4b000
-    !important;
-
-  box-shadow:
-    0 0 14px
+    ) !important;
+border-radius: 999px !important;
+box-shadow: 0 0 14px
     rgba(
       244,
       176,
       0,
       .12
-    )
-    !important;
-
-  z-index:
-    1
-    !important;
-
-}
-
-
+    ) !important;}
 
 /* =====================================================
    EACH EVENT COLUMN
@@ -4165,8 +3683,6 @@ html:not(.dark)
 
 }
 
-
-
 /* remove old alternating offsets */
 
 .legacy-track
@@ -4184,8 +3700,6 @@ article:nth-child(4) {
     !important;
 
 }
-
-
 
 /* =====================================================
    PHOTO FRAME
@@ -4254,8 +3768,6 @@ article:nth-child(4) {
 
 }
 
-
-
 /* REMOVE OLD DECORATIVE FRAME */
 
 .legacy-event-photo::before,
@@ -4270,8 +3782,6 @@ article:nth-child(4) {
     !important;
 
 }
-
-
 
 /* IMAGE */
 
@@ -4323,8 +3833,6 @@ article:nth-child(4) {
 
 }
 
-
-
 /* =====================================================
    EVENT 1 + EVENT 3
    PHOTO ABOVE / NAME BELOW
@@ -4347,8 +3855,6 @@ article:nth-child(3)
     !important;
 
 }
-
-
 
 .legacy-track
 article:nth-child(1)
@@ -4383,8 +3889,6 @@ strong {
     !important;
 
 }
-
-
 
 /* =====================================================
    EVENT 2 + EVENT 4
@@ -4425,8 +3929,6 @@ strong {
 
 }
 
-
-
 .legacy-track
 article:nth-child(2)
 .legacy-event-photo,
@@ -4446,8 +3948,6 @@ article:nth-child(4)
     !important;
 
 }
-
-
 
 /* =====================================================
    EVENT NAME PILL
@@ -4563,8 +4063,6 @@ article:nth-child(4)
 
 }
 
-
-
 /* REMOVE DOT BEFORE EVENT NAME */
 
 .legacy-track
@@ -4580,8 +4078,6 @@ strong::before {
     !important;
 
 }
-
-
 
 /* =====================================================
    SMALL CONNECTOR FROM TITLE TOWARD NODE
@@ -4628,7 +4124,6 @@ strong::after {
 
 }
 
-
 /* below-line titles connect upward */
 
 .legacy-track
@@ -4649,7 +4144,6 @@ strong::after {
 
 }
 
-
 /* above-line titles connect downward */
 
 .legacy-track
@@ -4669,8 +4163,6 @@ strong::after {
     !important;
 
 }
-
-
 
 /* =====================================================
    TIMELINE CIRCLES
@@ -4745,8 +4237,6 @@ article i {
 
 }
 
-
-
 /* REMOVE INNER BLACK CIRCLE */
 
 .legacy-track
@@ -4763,8 +4253,6 @@ i::after {
 
 }
 
-
-
 /* =====================================================
    HOVER
    NODE DOES NOT MOVE
@@ -4774,9 +4262,7 @@ i::after {
 @media
 (hover: hover)
 and
-(pointer: fine) {
-
-  .legacy-track
+(pointer: fine) {.legacy-track
   article:hover
   i {
 
@@ -4816,11 +4302,7 @@ and
       )
       !important;
 
-  }
-
-}
-
-
+  }}
 
 /* =====================================================
    REMOVE OLD ARTICLE CONNECTOR
@@ -4839,16 +4321,12 @@ article::after {
 
 }
 
-
-
 /* =====================================================
    BIG SCREEN
 ===================================================== */
 
 @media
-(min-width: 1200px) {
-
-  .legacy-event-photo {
+(min-width: 1200px) {.legacy-event-photo {
 
     width:
       clamp(
@@ -4870,16 +4348,10 @@ article::after {
       118px
       !important;
 
-  }
-
-}
-
-
+  }}
 
 @media
-(min-width: 1600px) {
-
-  .legacy-track {
+(min-width: 1600px) {.legacy-track {
 
     height:
       330px
@@ -4891,8 +4363,7 @@ article::after {
 
   }
 
-
-  .legacy-track
+.legacy-track
   article {
 
     height:
@@ -4905,8 +4376,7 @@ article::after {
 
   }
 
-
-  .legacy-event-photo {
+.legacy-event-photo {
 
     width:
       min(
@@ -4919,11 +4389,7 @@ article::after {
       125px
       !important;
 
-  }
-
-}
-
-
+  }}
 
 /* =====================================================
    DESKTOP
@@ -4931,9 +4397,7 @@ article::after {
 ===================================================== */
 
 @media
-(min-width: 769px) {
-
-  .legacy-timeline {
+(min-width: 769px) {.legacy-timeline {
 
     overflow:
       hidden
@@ -4941,8 +4405,7 @@ article::after {
 
   }
 
-
-  .legacy-track {
+.legacy-track {
 
     width:
       100%
@@ -4952,11 +4415,7 @@ article::after {
       0
       !important;
 
-  }
-
-}
-
-
+  }}
 
 /* =====================================================
    MOBILE
@@ -4964,9 +4423,7 @@ article::after {
 ===================================================== */
 
 @media
-(max-width: 768px) {
-
-  .legacy-timeline {
+(max-width: 768px) {.legacy-timeline {
 
     width:
       calc(
@@ -4997,8 +4454,7 @@ article::after {
 
   }
 
-
-  .legacy-timeline
+.legacy-timeline
   ::-webkit-scrollbar {
 
     display:
@@ -5007,8 +4463,7 @@ article::after {
 
   }
 
-
-  .legacy-track {
+.legacy-track {
 
     display:
       flex
@@ -5036,8 +4491,7 @@ article::after {
 
   }
 
-
-  .legacy-track
+.legacy-track
   article {
 
     flex:
@@ -5067,10 +4521,9 @@ article::after {
 
   }
 
+/* LANDSCAPE PHOTOS ON PHONE */
 
-  /* LANDSCAPE PHOTOS ON PHONE */
-
-  .legacy-event-photo {
+.legacy-event-photo {
 
     width:
       172px
@@ -5098,8 +4551,7 @@ article::after {
 
   }
 
-
-  .legacy-event-photo
+.legacy-event-photo
   img {
 
     width:
@@ -5116,10 +4568,9 @@ article::after {
 
   }
 
+/* TOP PHOTOS */
 
-  /* TOP PHOTOS */
-
-  .legacy-track
+.legacy-track
   article:nth-child(1)
   .legacy-event-photo,
 
@@ -5133,10 +4584,9 @@ article::after {
 
   }
 
+/* BOTTOM PHOTOS */
 
-  /* BOTTOM PHOTOS */
-
-  .legacy-track
+.legacy-track
   article:nth-child(2)
   .legacy-event-photo,
 
@@ -5152,10 +4602,9 @@ article::after {
 
   }
 
+/* BELOW LINE TITLES */
 
-  /* BELOW LINE TITLES */
-
-  .legacy-track
+.legacy-track
   article:nth-child(1)
   strong,
 
@@ -5171,10 +4620,9 @@ article::after {
 
   }
 
+/* ABOVE LINE TITLES */
 
-  /* ABOVE LINE TITLES */
-
-  .legacy-track
+.legacy-track
   article:nth-child(2)
   strong,
 
@@ -5190,8 +4638,7 @@ article::after {
 
   }
 
-
-  .legacy-track
+.legacy-track
   article
   strong {
 
@@ -5210,10 +4657,9 @@ article::after {
 
   }
 
+/* MOBILE LINE ACROSS FULL SCROLLABLE TRACK */
 
-  /* MOBILE LINE ACROSS FULL SCROLLABLE TRACK */
-
-  .legacy-line {
+.legacy-line {
 
     left:
       10px
@@ -5237,10 +4683,9 @@ article::after {
 
   }
 
+/* NODES STAY EXACTLY ON LINE */
 
-  /* NODES STAY EXACTLY ON LINE */
-
-  .legacy-track
+.legacy-track
   article i,
 
   .legacy-track
@@ -5257,9 +4702,8 @@ article::after {
       )
       !important;
 
-  }
+  }}
 
-}
 .contact-success-message {
   margin-top: 0.75rem;
   font-size: 0.75rem;
@@ -5276,17 +4720,14 @@ article::after {
    =========================================================
    ========================================================= */
 
-
 /* =========================================================
    DESKTOP
    Reduce oversized gaps slightly without making site cramped
 ========================================================= */
 
-@media (min-width: 901px) {
+@media (min-width: 901px) {/* HOME */
 
-  /* HOME */
-
-  .paper-intro {
+.paper-intro {
     min-height:
       0
       !important;
@@ -5300,8 +4741,7 @@ article::after {
       !important;
   }
 
-
-  .mesa-is-section {
+.mesa-is-section {
     padding-top:
       80px
       !important;
@@ -5311,8 +4751,7 @@ article::after {
       !important;
   }
 
-
-  .home-events {
+.home-events {
     padding-top:
       75px
       !important;
@@ -5322,10 +4761,9 @@ article::after {
       !important;
   }
 
+/* ABOUT */
 
-  /* ABOUT */
-
-  .vision-machine-section,
+.vision-machine-section,
   .faculty-guidance,
   .about-champions {
     padding-top:
@@ -5337,10 +4775,9 @@ article::after {
       !important;
   }
 
+/* TEAM */
 
-  /* TEAM */
-
-  .core-team-section,
+.core-team-section,
   .other-teams {
     padding-top:
       80px
@@ -5351,10 +4788,9 @@ article::after {
       !important;
   }
 
+/* EVENTS */
 
-  /* EVENTS */
-
-  .compact-events-list {
+.compact-events-list {
     padding-top:
       28px
       !important;
@@ -5364,10 +4800,9 @@ article::after {
       !important;
   }
 
+/* GALLERY */
 
-  /* GALLERY */
-
-  .gallery-page-section {
+.gallery-page-section {
     padding-top:
       22px
       !important;
@@ -5377,10 +4812,9 @@ article::after {
       !important;
   }
 
+/* CONTACT */
 
-  /* CONTACT */
-
-  .contact-workspace {
+.contact-workspace {
     padding-top:
       35px
       !important;
@@ -5388,19 +4822,13 @@ article::after {
     padding-bottom:
       85px
       !important;
-  }
-
-}
-
-
+  }}
 
 /* =========================================================
    TABLET
 ========================================================= */
 
-@media (min-width: 701px) and (max-width: 900px) {
-
-  .paper-intro,
+@media (min-width: 701px) and (max-width: 900px) {.paper-intro,
   .mesa-is-section,
   .home-events,
   .vision-machine-section,
@@ -5418,37 +4846,28 @@ article::after {
       !important;
   }
 
-
-  .paper-intro {
+.paper-intro {
     min-height:
       0
       !important;
   }
 
-
-  .home-mesa-mark {
+.home-mesa-mark {
     min-height:
       260px
       !important;
-  }
-
-}
-
-
+  }}
 
 /* =========================================================
    MOBILE
    THIS IS THE IMPORTANT PART
 ========================================================= */
 
-@media (max-width: 700px) {
-
-
-  /* =====================================================
+@media (max-width: 700px) {/* =====================================================
      HOME — INTRO
   ===================================================== */
 
-  .paper-intro {
+.paper-intro {
 
     min-height:
       0
@@ -5461,22 +4880,19 @@ article::after {
       !important;
   }
 
-
-  .paper-intro-grid {
+.paper-intro-grid {
 
     gap:
       20px
       !important;
   }
 
-
-
-  /* =====================================================
+/* =====================================================
      HOME LOGO / MESA MARK
      This was creating a huge empty vertical region
   ===================================================== */
 
-  .home-mesa-mark {
+.home-mesa-mark {
 
     min-height:
       190px
@@ -5495,8 +4911,7 @@ article::after {
       !important;
   }
 
-
-  .home-mesa-mark img {
+.home-mesa-mark img {
 
     width:
       min(
@@ -5510,21 +4925,18 @@ article::after {
       !important;
   }
 
-
-  .home-mesa-mark span {
+.home-mesa-mark span {
 
     margin-top:
       4px
       !important;
   }
 
-
-
-  /* =====================================================
+/* =====================================================
      HOME — ONE COMMUNITY
   ===================================================== */
 
-  .mesa-is-section {
+.mesa-is-section {
 
     padding:
       44px
@@ -5533,8 +4945,7 @@ article::after {
       !important;
   }
 
-
-  .mesa-story-grid {
+.mesa-story-grid {
 
     min-height:
       0
@@ -5545,16 +4956,14 @@ article::after {
       !important;
   }
 
-
-  .story-photo-stage {
+.story-photo-stage {
 
     min-height:
       0
       !important;
   }
 
-
-  .story-copy {
+.story-copy {
 
     padding:
       20px
@@ -5563,37 +4972,32 @@ article::after {
       !important;
   }
 
-
-  .story-copy h3 {
+.story-copy h3 {
 
     margin-top:
       12px
       !important;
   }
 
-
-  .story-copy p {
+.story-copy p {
 
     margin-top:
       14px
       !important;
   }
 
-
-  .story-selector {
+.story-selector {
 
     margin-top:
       20px
       !important;
   }
 
-
-
-  /* =====================================================
+/* =====================================================
      HOME — UPCOMING EVENTS
   ===================================================== */
 
-  .home-events {
+.home-events {
 
     padding:
       46px
@@ -5602,29 +5006,25 @@ article::after {
       !important;
   }
 
-
-  .section-heading-row {
+.section-heading-row {
 
     gap:
       14px
       !important;
   }
 
-
-  .events-preview-grid {
+.events-preview-grid {
 
     margin-top:
       28px
       !important;
   }
 
-
-
-  /* =====================================================
+/* =====================================================
      ABOUT PAGE
   ===================================================== */
 
-  .about-leaders-hero {
+.about-leaders-hero {
 
     min-height:
       0
@@ -5641,16 +5041,14 @@ article::after {
       !important;
   }
 
-
-  .about-logo-machine {
+.about-logo-machine {
 
     min-height:
       190px
       !important;
   }
 
-
-  .vision-machine-section {
+.vision-machine-section {
 
     padding:
       44px
@@ -5658,8 +5056,7 @@ article::after {
       !important;
   }
 
-
-  .faculty-guidance,
+.faculty-guidance,
   .about-champions {
 
     padding-top:
@@ -5679,13 +5076,11 @@ article::after {
       !important;
   }
 
-
-
-  /* =====================================================
+/* =====================================================
      TEAM PAGE
   ===================================================== */
 
-  .team-premium-hero {
+.team-premium-hero {
 
     min-height:
       0
@@ -5702,8 +5097,7 @@ article::after {
       !important;
   }
 
-
-  .core-team-section,
+.core-team-section,
   .other-teams {
 
     padding:
@@ -5712,38 +5106,33 @@ article::after {
       !important;
   }
 
-
-  .core-team-grid {
-
-    margin-top:
-      28px
-      !important;
-  }
-
-
-  .team-accordion {
+.core-team-grid {
 
     margin-top:
       28px
       !important;
   }
 
+.team-accordion {
 
+    margin-top:
+      28px
+      !important;
+  }
 
-  /* =====================================================
+/* =====================================================
      EVENTS PAGE
      DO NOT TOUCH LEGACY TIMELINE INTERNAL DESIGN
   ===================================================== */
 
-  .compact-events-page {
+.compact-events-page {
 
     padding-top:
       78px
       !important;
   }
 
-
-  .compact-event-tabs {
+.compact-event-tabs {
 
     padding:
       18px
@@ -5752,8 +5141,7 @@ article::after {
       !important;
   }
 
-
-  .compact-events-list {
+.compact-events-list {
 
     padding:
       24px
@@ -5762,21 +5150,18 @@ article::after {
       !important;
   }
 
-
-  .compact-events-heading {
+.compact-events-heading {
 
     margin-bottom:
       22px
       !important;
   }
 
-
-
-  /* =====================================================
+/* =====================================================
      GALLERY
   ===================================================== */
 
-  .gallery-compact-header {
+.gallery-compact-header {
 
     padding:
       105px
@@ -5785,8 +5170,7 @@ article::after {
       !important;
   }
 
-
-  .gallery-filters-final {
+.gallery-filters-final {
 
     padding-top:
       10px
@@ -5797,8 +5181,7 @@ article::after {
       !important;
   }
 
-
-  .gallery-page-section {
+.gallery-page-section {
 
     padding:
       14px
@@ -5807,13 +5190,11 @@ article::after {
       !important;
   }
 
-
-
-  /* =====================================================
+/* =====================================================
      CONTACT
   ===================================================== */
 
-  .contact-compact-header {
+.contact-compact-header {
 
     padding:
       100px
@@ -5822,8 +5203,7 @@ article::after {
       !important;
   }
 
-
-  .contact-workspace {
+.contact-workspace {
 
     padding:
       22px
@@ -5836,14 +5216,12 @@ article::after {
       !important;
   }
 
-
-
-  /* =====================================================
+/* =====================================================
      GENERIC SECTION HEADINGS
      Remove unnecessary space inside sections too
   ===================================================== */
 
-  .section-title,
+.section-title,
   .section-heading-row,
   .inner-heading {
 
@@ -5852,27 +5230,20 @@ article::after {
       !important;
   }
 
-
-  .section-title h2,
+.section-title h2,
   .section-heading-row h2,
   .inner-heading h2 {
 
     margin-top:
       10px
       !important;
-  }
-
-}
-
-
+  }}
 
 /* =========================================================
    VERY SMALL PHONES
 ========================================================= */
 
-@media (max-width: 390px) {
-
-  .paper-intro,
+@media (max-width: 390px) {.paper-intro,
   .mesa-is-section,
   .home-events,
   .vision-machine-section,
@@ -5890,28 +5261,808 @@ article::after {
       !important;
   }
 
-
-  .home-mesa-mark {
+.home-mesa-mark {
 
     min-height:
       165px
       !important;
   }
 
-
-  .mesa-story-grid {
+.mesa-story-grid {
 
     margin-top:
       22px
       !important;
   }
 
-
-  .events-preview-grid {
+.events-preview-grid {
 
     margin-top:
       24px
       !important;
+  }}
+
+/* =========================================================
+   LEGACY SECTION HEADING — MATCH REFERENCE
+========================================================= */
+
+.legacy-heading {margin-bottom: 26px;
+width: calc(100% - 120px) !important;
+max-width: 1360px !important;
+margin: 0 auto 28px !important;
+padding: 0 !important;}
+
+/* SMALL ORANGE LABEL */
+
+.legacy-heading > span {
+  display:
+    block
+    !important;
+
+  margin:
+    0 0 12px
+    !important;
+
+  color:
+    #f4b000
+    !important;
+
+  font-size:
+    11px
+    !important;
+
+  font-weight:
+    700
+    !important;
+
+  line-height:
+    1
+    !important;
+
+  letter-spacing:
+    .16em
+    !important;
+
+  text-transform:
+    uppercase
+    !important;
+}
+
+/* MEMORABLE MOMENTS */
+
+.legacy-heading h1 {
+  margin:
+    0
+    !important;
+
+  padding:
+    0
+    !important;
+
+  color:
+    #f3f1eb
+    !important;
+
+  font-size:
+    clamp(
+      34px,
+      3.2vw,
+      48px
+    )
+    !important;
+
+  font-weight:
+    800
+    !important;
+
+  line-height:
+    .98
+    !important;
+
+  letter-spacing:
+    -.025em
+    !important;
+
+  text-transform:
+    uppercase
+    !important;
+}
+
+/* DESCRIPTION */
+
+.legacy-heading p {
+  margin:
+    18px 0 0
+    !important;
+
+  max-width:
+    600px
+    !important;
+
+  color:
+    rgba(
+      243,
+      241,
+      235,
+      .72
+    )
+    !important;
+
+  font-size:
+    16px
+    !important;
+
+  line-height:
+    1.5
+    !important;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {.legacy-heading {
+    width:
+      calc(100% - 32px)
+      !important;
+
+    margin-bottom:
+      22px
+      !important;
   }
 
+.legacy-heading > span {
+    margin-bottom:
+      10px
+      !important;
+
+    font-size:
+      10px
+      !important;
+  }
+
+.legacy-heading h1 {
+    font-size:
+      clamp(
+        30px,
+        9vw,
+        38px
+      )
+      !important;
+
+    line-height:
+      1
+      !important;
+  }
+
+.legacy-heading p {
+    margin-top:
+      13px
+      !important;
+
+    font-size:
+      14px
+      !important;
+
+    line-height:
+      1.45
+      !important;
+  }}
+
+/* =========================================================
+   FINAL MOBILE HERO FIX
+   KEEP DESKTOP EXACTLY AS IT IS
+========================================================= */
+
+@media only screen and (max-width: 700px) {/* =====================================================
+     HERO
+     WEBSITE BACKGROUND REMAINS VISIBLE
+  ===================================================== */
+
+.cinematic-hero {
+    position: relative !important;
+
+    width: 100% !important;
+
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+
+    margin: 0 !important;
+
+    padding:
+      90px
+      0
+      0
+      !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+
+    overflow: hidden !important;
+
+    background:
+      transparent
+      !important;
+  }
+
+/* =====================================================
+     HIDE DESKTOP HERO CONTENT ON PHONE
+  ===================================================== */
+
+.hero-college,
+  .hero-identity,
+  .student-manifesto,
+  .hero-mobile-mesa-logo {
+    display:
+      none
+      !important;
+  }
+
+/* =====================================================
+     VIDEO
+     FULL WIDTH LANDSCAPE
+     LEFT EDGE → RIGHT EDGE
+  ===================================================== */
+
+.cinematic-media {
+    position:
+      relative
+      !important;
+
+    inset:
+      auto
+      !important;
+
+    order:
+      1
+      !important;
+
+    width:
+      100%
+      !important;
+
+    max-width:
+      none
+      !important;
+
+    height:
+      auto
+      !important;
+
+    min-height:
+      0
+      !important;
+
+    aspect-ratio:
+      16 / 9
+      !important;
+
+    margin:
+      0
+      !important;
+
+    padding:
+      0
+      !important;
+
+    overflow:
+      hidden
+      !important;
+
+    border:
+      0
+      !important;
+
+    border-radius:
+      0
+      !important;
+
+    transform:
+      none
+      !important;
+
+    background:
+      #000
+      !important;
+  }
+
+.cinematic-media video,
+  .cinematic-video-main {
+    position:
+      absolute
+      !important;
+
+    inset:
+      0
+      !important;
+
+    width:
+      100%
+      !important;
+
+    height:
+      100%
+      !important;
+
+    display:
+      block
+      !important;
+
+    object-fit:
+      cover
+      !important;
+
+    object-position:
+      center center
+      !important;
+
+    transform:
+      none
+      !important;
+
+    border:
+      0
+      !important;
+
+    border-radius:
+      0
+      !important;
+
+    box-shadow:
+      none
+      !important;
+  }
+
+.cinematic-shade {
+    display:
+      none
+      !important;
+  }
+
+/* =====================================================
+     REMOVE PAUSE + MUTE CONTROLS ON PHONE ONLY
+  ===================================================== */
+
+.cinematic-controls {
+    display:
+      none
+      !important;
+  }
+
+/* =====================================================
+     TEACHERS' DAY POPUP
+     DIRECTLY BELOW VIDEO
+  ===================================================== */
+
+.hero-popup {
+    position:
+      relative
+      !important;
+
+    inset:
+      auto
+      !important;
+
+    left:
+      auto
+      !important;
+
+    right:
+      auto
+      !important;
+
+    top:
+      auto
+      !important;
+
+    bottom:
+      auto
+      !important;
+
+    order:
+      2
+      !important;
+
+    width:
+      100%
+      !important;
+
+    max-width:
+      none
+      !important;
+
+    margin:
+      0
+      !important;
+
+    padding:
+      0
+      !important;
+
+    transform:
+      none
+      !important;
+
+    border:
+      0
+      !important;
+
+    border-radius:
+      0
+      !important;
+
+    background:
+      rgba(
+        5,
+        9,
+        12,
+        0.96
+      )
+      !important;
+
+    box-shadow:
+      none
+      !important;
+
+    backdrop-filter:
+      none
+      !important;
+
+    cursor:
+      pointer;
+  }
+
+.hero-popup:hover {
+    transform:
+      none
+      !important;
+  }
+
+/* =====================================================
+     TEACHERS' DAY ROW
+  ===================================================== */
+
+.hero-popup-small {
+    width:
+      100%
+      !important;
+
+    min-height:
+      54px
+      !important;
+
+    padding:
+      0
+      18px
+      !important;
+
+    display:
+      grid
+      !important;
+
+    grid-template-columns:
+      auto
+      1fr
+      auto
+      !important;
+
+    align-items:
+      center
+      !important;
+
+    gap:
+      10px
+      !important;
+  }
+
+/* BELL */
+
+.hero-popup-small
+  > svg:first-child {
+    width:
+      17px
+      !important;
+
+    height:
+      17px
+      !important;
+
+    color:
+      #f2a900
+      !important;
+  }
+
+/* TEXT WRAPPER */
+
+.hero-popup-small div {
+    display:
+      flex
+      !important;
+
+    align-items:
+      center
+      !important;
+
+    gap:
+      8px
+      !important;
+  }
+
+/* TEACHERS' DAY */
+
+.hero-popup-small span {
+    color:
+      #f2a900
+      !important;
+
+    font-size:
+      10px
+      !important;
+
+    font-weight:
+      800
+      !important;
+
+    line-height:
+      1
+      !important;
+
+    white-space:
+      nowrap
+      !important;
+  }
+
+/* DATE */
+
+.hero-popup-small strong {
+    color:
+      #f5f3ed
+      !important;
+
+    font-size:
+      15px
+      !important;
+
+    font-weight:
+      900
+      !important;
+
+    line-height:
+      1
+      !important;
+
+    white-space:
+      nowrap
+      !important;
+  }
+
+/* RIGHT ARROW */
+
+.hero-popup-small
+  > svg:last-child {
+    width:
+      18px
+      !important;
+
+    height:
+      18px
+      !important;
+
+    color:
+      #f5f3ed
+      !important;
+  }
+
+/* =====================================================
+     PHONE POPUP DOES NOT EXPAND
+  ===================================================== */
+
+.hero-popup-expanded {
+    display:
+      none
+      !important;
+  }
+
+.hero-popup--open {
+    width:
+      100%
+      !important;
+  }
+
+/* =====================================================
+     REMOVE DISCOVER MESA ON PHONE
+  ===================================================== */
+
+.cinematic-scroll {
+    display:
+      none
+      !important;
+  }
+
+/* =====================================================
+     YELLOW TICKER
+     DIRECTLY BELOW TEACHERS' DAY
+  ===================================================== */
+
+.hero-ticker {
+    position:
+      relative
+      !important;
+
+    inset:
+      auto
+      !important;
+
+    left:
+      auto
+      !important;
+
+    right:
+      auto
+      !important;
+
+    top:
+      auto
+      !important;
+
+    bottom:
+      auto
+      !important;
+
+    order:
+      3
+      !important;
+
+    width:
+      100%
+      !important;
+
+    max-width:
+      none
+      !important;
+
+    height:
+      27px
+      !important;
+
+    min-height:
+      27px
+      !important;
+
+    margin:
+      0
+      !important;
+
+    padding:
+      0
+      !important;
+
+    transform:
+      none
+      !important;
+
+    overflow:
+      hidden
+      !important;
+
+    background:
+      #f2a900
+      !important;
+
+    border:
+      0
+      !important;
+  }
+
+.hero-ticker > div {
+    height:
+      27px
+      !important;
+
+    min-height:
+      27px
+      !important;
+
+    display:
+      flex
+      !important;
+
+    align-items:
+      center
+      !important;
+
+    gap:
+      18px
+      !important;
+  }
+
+.hero-ticker span {
+    color:
+      #080a0c
+      !important;
+
+    font-size:
+      6px
+      !important;
+
+    font-weight:
+      900
+      !important;
+
+    line-height:
+      1
+      !important;
+
+    letter-spacing:
+      0.08em
+      !important;
+
+    white-space:
+      nowrap
+      !important;
+
+    opacity:
+      1
+      !important;
+  }
+
+.hero-ticker i {
+    width:
+      4px
+      !important;
+
+    min-width:
+      4px
+      !important;
+
+    height:
+      4px
+      !important;
+
+    border-radius:
+      50%
+      !important;
+
+    background:
+      #080a0c
+      !important;
+  }}
+
+/* =========================================================
+   TEACHERS' DAY → UPCOMING EVENTS
+   SCROLL SUPPORT ONLY
+   NO VISUAL/LAYOUT CHANGE
+========================================================= */
+
+.compact-event-tabs {
+  scroll-margin-top:
+    110px;
+}
+
+.hero-popup {
+  cursor:
+    pointer;
+}
+
+
+/* ============================================================
+   PAGE LAYOUT — FOOTER STAYS AT THE BOTTOM
+   ============================================================ */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app > main {
+  flex: 1 0 auto;
+  min-height: 0;
+}
+
+.mesa-footer-v2 {
+  flex-shrink: 0;
+  margin-top: auto;
 }
