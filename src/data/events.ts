@@ -65,60 +65,6 @@ export const events: MesaEvent[] = [
 
   {
     id:
-      "event-02",
-
-    title:
-      "ADHYAY",
-
-    date:
-      "13th or 14th January 2027",
-
-    location:
-      "PCCOE",
-
-    category:
-      "CULTURAL EVENT",
-
-    description:
-      "An exclusive interaction with a distinguished guest.",
-
-    image:
-      "/assets/events/upcoming/upcoming-02.jpg",
-
-    status:
-      "upcoming",
-  },
-
-
-  {
-    id:
-      "event-03",
-
-    title:
-      "UNMILAN",
-
-    date:
-      "Last week of October 2026",
-
-    location:
-      "PCCOE",
-
-    category:
-      "CULTURAL EVENT",
-
-    description:
-      "A motivating session by inspiring women.",
-
-    image:
-      "/assets/events/upcoming/upcoming-03.jpg",
-
-    status:
-      "upcoming",
-  },
-
-
-  {
-    id:
       "event-04",
 
     title:
@@ -173,6 +119,33 @@ export const events: MesaEvent[] = [
 
   {
     id:
+      "event-03",
+
+    title:
+      "UNMILAN",
+
+    date:
+      "Last week of October 2026",
+
+    location:
+      "PCCOE",
+
+    category:
+      "CULTURAL EVENT",
+
+    description:
+      "A motivating session by inspiring women.",
+
+    image:
+      "/assets/events/upcoming/upcoming-03.jpg",
+
+    status:
+      "upcoming",
+  },
+
+
+  {
+    id:
       "event-06",
 
     title:
@@ -192,6 +165,33 @@ export const events: MesaEvent[] = [
 
     image:
       "/assets/events/upcoming/training-workshop.jpeg",
+
+    status:
+      "upcoming",
+  },
+
+
+  {
+    id:
+      "event-02",
+
+    title:
+      "ADHYAY",
+
+    date:
+      "2nd week of February 2027",
+
+    location:
+      "PCCOE",
+
+    category:
+      "CULTURAL EVENT",
+
+    description:
+      "An exclusive interaction with a distinguished guest.",
+
+    image:
+      "/assets/events/upcoming/upcoming-02.jpg",
 
     status:
       "upcoming",
@@ -255,8 +255,14 @@ export const events: MesaEvent[] = [
   /*
   =======================================================
   PAST EVENTS
+  NEWEST FIRST
   =======================================================
   */
+
+
+  /* =====================================================
+     2026
+  ===================================================== */
 
   {
     id:
@@ -306,6 +312,200 @@ export const events: MesaEvent[] = [
 
     image:
       "/assets/events/past/event-02.jpg",
+
+    status:
+      "past",
+  },
+
+
+  /* =====================================================
+     2025
+  ===================================================== */
+
+
+  {
+    id:
+      "past-03",
+
+    title:
+      "UNMILAN 2025",
+
+    date:
+      "11th & 12th October 2025",
+
+    location:
+      "PCCOE",
+
+    category:
+      "CULTURAL EVENT",
+
+    description:
+      "A two-day MESA event focused on awareness, empowerment, women's health, safety, personality development and life skills.",
+
+    image:
+      "/assets/events/past/unmilan-2025.jpg",
+
+    status:
+      "past",
+  },
+
+
+  {
+    id:
+      "past-04",
+
+    title:
+      "SPARKFEST",
+
+    date:
+      "25th & 27th September 2025",
+
+    location:
+      "PCCOE",
+
+    category:
+      "TECHNICAL FEST",
+
+    description:
+      "A technical and non-technical fest organised on the occasion of Engineer's Day featuring engineering challenges, competitions and practical problem-solving activities.",
+
+    image:
+      "/assets/events/past/sparkfest-2025.jpg",
+
+    status:
+      "past",
+  },
+
+
+  {
+    id:
+      "past-05",
+
+    title:
+      "GAUNTLET RUN",
+
+    date:
+      "25th & 27th September 2025",
+
+    location:
+      "PCCOE",
+
+    category:
+      "TECHNICAL EVENT",
+
+    description:
+      "A multi-round competition featuring an aptitude test, campus-wide story hunt and a final hands-on mechanical assembly challenge.",
+
+    image:
+      "/assets/events/past/gauntlet-run-2025.jpg",
+
+    status:
+      "past",
+  },
+
+
+  {
+    id:
+      "past-06",
+
+    title:
+      "MECH TROUBLESHOOT",
+
+    date:
+      "25th September 2025",
+
+    location:
+      "PCCOE",
+
+    category:
+      "TECHNICAL EVENT",
+
+    description:
+      "An interdisciplinary troubleshooting competition testing aptitude, analytical thinking, coding and engineering problem-solving skills.",
+
+    image:
+      "/assets/events/past/mech-troubleshoot-2025.jpg",
+
+    status:
+      "past",
+  },
+
+
+  {
+    id:
+      "past-07",
+
+    title:
+      "VISIONARY TALK",
+
+    date:
+      "19th September 2025",
+
+    location:
+      "PCCOE",
+
+    category:
+      "INDUSTRY INTERACTION",
+
+    description:
+      "An industry-focused session guiding students on automotive engineering, innovation, career readiness and emerging technologies.",
+
+    image:
+      "/assets/events/past/visionary-talk-2025.jpg",
+
+    status:
+      "past",
+  },
+
+
+  {
+    id:
+      "past-08",
+
+    title:
+      "TEACHER'S DAY CELEBRATION 2025",
+
+    date:
+      "4th September 2025",
+
+    location:
+      "PCCOE",
+
+    category:
+      "CULTURAL EVENT",
+
+    description:
+      "A Teacher's Day celebration featuring faculty felicitation, customised portraits and interactive activities between students and teachers.",
+
+    image:
+      "/assets/events/past/teachers-day-2025.jpg",
+
+    status:
+      "past",
+  },
+
+
+  {
+    id:
+      "past-09",
+
+    title:
+      "MESA INDUCTION CEREMONY 2025",
+
+    date:
+      "12th August 2025",
+
+    location:
+      "PCCOE",
+
+    category:
+      "CULTURAL EVENT",
+
+    description:
+      "The formal induction ceremony welcoming the new MESA core team through introductions, badge felicitation, oath-taking and interaction with faculty.",
+
+    image:
+      "/assets/events/past/mesa-induction-2025.jpg",
 
     status:
       "past",
@@ -367,6 +567,30 @@ export const legacyEvents = [
 
     image:
       "/assets/events/legacy/techfest.jpg",
+  },
+
+
+  {
+    id:
+      5,
+
+    title:
+      "AUTO EXPO",
+
+    image:
+      "/assets/events/legacy/auto-expo.jpg",
+  },
+
+
+  {
+    id:
+      6,
+
+    title:
+      "SPORTS",
+
+    image:
+      "/assets/events/legacy/football.jpg",
   },
 
 ];

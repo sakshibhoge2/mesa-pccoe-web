@@ -196,7 +196,7 @@ function Events() {
               )
             }
           >
-            PAST — THIS YEAR
+            PAST — YEAR
           </button>
 
 
