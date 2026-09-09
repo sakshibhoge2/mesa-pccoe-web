@@ -36,32 +36,6 @@ export const events: MesaEvent[] = [
   =======================================================
   */
 
-  {
-    id:
-      "event-01",
-
-    title:
-      "Teacher's Day Celebration",
-
-    date:
-      "7th September 2026",
-
-    location:
-      "Seminar Hall, 9th Building",
-
-    category:
-      "CULTURAL EVENT",
-
-    description:
-      "Celebrating the contributions of teachers and educators in shaping the future of students.",
-
-    image:
-      "/assets/events/upcoming/upcoming-01.jpg",
-
-    status:
-      "upcoming",
-  },
-
 
   {
     id:
@@ -263,6 +237,34 @@ export const events: MesaEvent[] = [
   /* =====================================================
      2026
   ===================================================== */
+
+
+  {
+    id:
+      "past-00",
+
+    title:
+      "TEACHER'S DAY CELEBRATION",
+
+    date:
+      "7th September 2026",
+
+    location:
+      "Seminar Hall, 9th Building",
+
+    category:
+      "CULTURAL EVENT",
+
+    description:
+      "Celebrating the contributions of teachers and educators in shaping the future of students.",
+
+    image:
+      "/assets/events/upcoming/upcoming-01.jpg",
+
+    status:
+      "past",
+  },
+
 
   {
     id:
