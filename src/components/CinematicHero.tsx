@@ -1,7 +1,5 @@
 import {
   ArrowDown,
-  ArrowUpRight,
-  BellRing,
   Pause,
   Play,
   Volume2,
@@ -12,10 +10,6 @@ import {
   useRef,
   useState,
 } from "react";
-
-import {
-  heroPopup,
-} from "../data/site";
 
 
 function CinematicHero() {
@@ -104,70 +98,6 @@ function CinematicHero() {
     setMuted(
       next
     );
-
-  }
-
-
-
-  /* ======================================================
-     GO DIRECTLY TO UPCOMING EVENTS
-  ====================================================== */
-
-  function goToUpcomingEvents() {
-
-    window.location.hash =
-      "/events";
-
-
-    let attempts = 0;
-
-
-    const scrollToUpcoming =
-      window.setInterval(
-        () => {
-
-          attempts += 1;
-
-
-          const upcomingSection =
-            document.querySelector(
-              ".compact-event-tabs"
-            );
-
-
-          if (upcomingSection) {
-
-            window.clearInterval(
-              scrollToUpcoming
-            );
-
-
-            upcomingSection
-              .scrollIntoView({
-                behavior:
-                  "smooth",
-
-                block:
-                  "start",
-              });
-
-
-            return;
-
-          }
-
-
-          if (attempts >= 20) {
-
-            window.clearInterval(
-              scrollToUpcoming
-            );
-
-          }
-
-        },
-        100
-      );
 
   }
 
@@ -316,114 +246,6 @@ function CinematicHero() {
         </strong>
 
       </div>
-
-
-
-      {/* ==================================================
-          TEACHERS' DAY POPUP
-      ================================================== */}
-
-      {heroPopup.active && (
-
-        <button
-
-          type="button"
-
-          className="hero-popup"
-
-          aria-label="Open Teachers Day in upcoming events"
-
-          onClick={
-            goToUpcomingEvents
-          }
-
-        >
-
-          <div className="hero-popup-small">
-
-            <BellRing
-              size={19}
-            />
-
-
-            <div>
-
-              <span>
-                {
-                  heroPopup.eyebrow
-                }
-              </span>
-
-
-              <strong>
-                {
-                  heroPopup.meta
-                }
-              </strong>
-
-            </div>
-
-
-            <ArrowUpRight
-              size={16}
-            />
-
-          </div>
-
-
-
-          <div className="hero-popup-expanded">
-
-            <div>
-
-              <small>
-                {
-                  heroPopup.eyebrow
-                }
-              </small>
-
-
-              <strong>
-                {
-                  heroPopup.title
-                }
-              </strong>
-
-
-              <a
-
-                href="#/events"
-
-                onClick={(
-                  event
-                ) => {
-
-                  event.preventDefault();
-
-                  event.stopPropagation();
-
-                  goToUpcomingEvents();
-
-                }}
-
-              >
-
-                VIEW DETAILS
-
-
-                <ArrowUpRight
-                  size={14}
-                />
-
-              </a>
-
-            </div>
-
-          </div>
-
-        </button>
-
-      )}
 
 
 
