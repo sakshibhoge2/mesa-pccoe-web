@@ -70,7 +70,7 @@ function Team() {
           <div className="team-machine-window">
 
             <MediaSlot
-              src="/assets/team/team-group.jpg"
+              src="https://res.cloudinary.com/dejkj4mzq/image/upload/v1790509548/team-group-compresso.jpg"
               alt="Team MESA"
               label="TEAM GROUP PHOTO"
               className="team-group-machine-photo"

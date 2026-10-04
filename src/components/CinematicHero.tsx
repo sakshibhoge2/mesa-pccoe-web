@@ -12,6 +12,14 @@ import {
 } from "react";
 
 
+const HERO_VIDEO =
+  "https://res.cloudinary.com/dejkj4mzq/video/upload/v1790491842/mesa-hero.mp4";
+
+
+const MESA_LOGO =
+  "https://res.cloudinary.com/dejkj4mzq/image/upload/v1790509612/mesa-logo.png";
+
+
 function CinematicHero() {
 
   const videoRef =
@@ -36,7 +44,6 @@ function CinematicHero() {
     muted,
     setMuted,
   ] = useState(true);
-
 
 
   /* ======================================================
@@ -71,7 +78,6 @@ function CinematicHero() {
   }
 
 
-
   /* ======================================================
      VIDEO SOUND
   ====================================================== */
@@ -102,7 +108,6 @@ function CinematicHero() {
   }
 
 
-
   return (
 
     <section className="cinematic-hero">
@@ -113,7 +118,6 @@ function CinematicHero() {
       ================================================== */}
 
       <div className="cinematic-media">
-
 
         {!videoFailed ? (
 
@@ -143,7 +147,7 @@ function CinematicHero() {
 
             <source
 
-              src="/assets/videos/mesa-hero.mp4"
+              src={HERO_VIDEO}
 
               type="video/mp4"
 
@@ -170,9 +174,7 @@ function CinematicHero() {
 
         <div className="cinematic-shade" />
 
-
       </div>
-
 
 
       {/* ==================================================
@@ -192,7 +194,6 @@ function CinematicHero() {
       </div>
 
 
-
       {/* ==================================================
           MAIN MESA HERO IDENTITY
       ================================================== */}
@@ -201,7 +202,7 @@ function CinematicHero() {
 
         <img
 
-          src="/assets/brand/mesa-logo.png"
+          src={MESA_LOGO}
 
           alt="MESA PCCOE"
 
@@ -221,7 +222,6 @@ function CinematicHero() {
         </h1>
 
       </div>
-
 
 
       {/* ==================================================
@@ -246,7 +246,6 @@ function CinematicHero() {
         </strong>
 
       </div>
-
 
 
       {/* ==================================================
@@ -290,7 +289,6 @@ function CinematicHero() {
           </button>
 
 
-
           <button
 
             type="button"
@@ -324,7 +322,6 @@ function CinematicHero() {
           </button>
 
 
-
           <span>
 
             <i />
@@ -336,7 +333,6 @@ function CinematicHero() {
         </div>
 
       )}
-
 
 
       {/* ==================================================
@@ -353,13 +349,11 @@ function CinematicHero() {
 
         DISCOVER MESA
 
-
         <ArrowDown
           size={15}
         />
 
       </a>
-
 
 
       {/* ==================================================
@@ -402,7 +396,6 @@ function CinematicHero() {
                 {
                   item
                 }
-
 
                 <i />
 

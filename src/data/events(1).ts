@@ -12,7 +12,6 @@ export type MesaEvent = {
   description: string;
   image: string;
   status: EventStatus;
-  registrationUrl?: string;
 };
 
 
@@ -61,36 +60,6 @@ export const events: MesaEvent[] = [
 
     status:
       "upcoming",
-
-    registrationUrl:
-      "https://galaxia-lac.vercel.app/?",
-  },
-
-
-  {
-    id:
-      "event-03",
-
-    title:
-      "UNMILAN",
-
-    date:
-      "19th October 2026",
-
-    location:
-      "PCCOE",
-
-    category:
-      "CULTURAL EVENT",
-
-    description:
-      "A motivating session by inspiring women.",
-
-    image:
-      "/assets/events/upcoming/upcoming-03.jpg",
-
-    status:
-      "upcoming",
   },
 
 
@@ -102,7 +71,7 @@ export const events: MesaEvent[] = [
       "SPORTS",
 
     date:
-      "Last week of October 2026",
+      "1st week of October 2026",
 
     location:
       "PCCOE",
@@ -115,6 +84,33 @@ export const events: MesaEvent[] = [
 
     image:
       "/assets/events/upcoming/sports-fest.jpeg",
+
+    status:
+      "upcoming",
+  },
+
+
+  {
+    id:
+      "event-03",
+
+    title:
+      "UNMILAN",
+
+    date:
+      "Last week of October 2026",
+
+    location:
+      "PCCOE",
+
+    category:
+      "CULTURAL EVENT",
+
+    description:
+      "A motivating session by inspiring women.",
+
+    image:
+      "/assets/events/upcoming/upcoming-03.jpg",
 
     status:
       "upcoming",

@@ -21,35 +21,49 @@ import {
   homeStories,
 } from "../data/site";
 
+
+const MESA_LOGO =
+  "https://res.cloudinary.com/dejkj4mzq/image/upload/v1790509612/mesa-logo.png";
+
+
 function Home() {
+
   const [
     activeStory,
     setActiveStory,
   ] = useState(0);
 
+
   useEffect(() => {
+
     const timer =
       window.setInterval(
         () => {
+
           setActiveStory(
             (current) =>
               (current + 1) %
               homeStories.length
           );
+
         },
         4700
       );
+
 
     return () =>
       window.clearInterval(
         timer
       );
+
   }, []);
+
 
   const story =
     homeStories[
       activeStory
     ];
+
 
   const upcomingEvents =
     events
@@ -66,8 +80,10 @@ function Home() {
         3
       );
 
+
   return (
     <>
+
       <CinematicHero />
 
 
@@ -86,16 +102,22 @@ function Home() {
                 MESA / PCCOE
               </span>
 
+
               <h2>
+
                 BUILT BY STUDENTS.
+
                 <br />
 
                 <em>
                   FOR THE STUDENTS.
                 </em>
+
               </h2>
 
+
               <p>
+
                 The Mechanical Engineering
                 Students&apos; Association
                 of PCCOE connects technical
@@ -103,14 +125,18 @@ function Home() {
                 leadership, industry exposure
                 and memorable student
                 experiences.
+
               </p>
 
+
               <a href="#/about">
+
                 KNOW MESA
 
                 <ArrowUpRight
                   size={17}
                 />
+
               </a>
 
             </div>
@@ -119,13 +145,15 @@ function Home() {
             <div className="home-mesa-mark">
 
               <img
-                src="/assets/brand/mesa-logo.png"
+                src={MESA_LOGO}
                 alt="MESA PCCOE"
               />
 
               <span>
+
                 MECHANICAL ENGINEERING
                 STUDENTS&apos; ASSOCIATION
+
               </span>
 
             </div>
@@ -148,12 +176,15 @@ function Home() {
             </span>
 
             <h2>
+
               ONE COMMUNITY.
+
               <br />
 
               <em>
                 MANY EXPERIENCES.
               </em>
+
             </h2>
 
           </div>
@@ -178,6 +209,7 @@ function Home() {
                 }
               />
 
+
               <div className="story-index">
 
                 0
@@ -200,17 +232,20 @@ function Home() {
                 }
               </span>
 
+
               <h3>
                 {
                   story.title
                 }
               </h3>
 
+
               <p>
                 {
                   story.text
                 }
               </p>
+
 
               <div className="story-selector">
 
@@ -242,6 +277,7 @@ function Home() {
                 )}
 
               </div>
+
 
               <a href="#/about">
 
@@ -275,15 +311,19 @@ function Home() {
               </span>
 
               <h2>
+
                 UPCOMING
+
                 <br />
 
                 <em>
                   AT MESA.
                 </em>
+
               </h2>
 
             </div>
+
 
             <a href="#/events">
 
@@ -325,28 +365,37 @@ function Home() {
                     className="event-image"
                   />
 
+
                   <div className="event-preview-body">
 
                     <div>
 
                       <span>
+
                         0
                         {index + 1}
+
                       </span>
 
                       <small>
+
                         {
                           event.category
                         }
+
                       </small>
 
                     </div>
 
+
                     <h3>
+
                       {
                         event.title
                       }
+
                     </h3>
+
 
                     <p>
 
@@ -372,8 +421,10 @@ function Home() {
         </ScrollReveal>
 
       </section>
+
     </>
   );
 }
+
 
 export default Home;

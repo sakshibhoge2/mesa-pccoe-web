@@ -8,53 +8,44 @@ export type FacultyMember = {
 
 export const facultyMembers: FacultyMember[] = [
   {
-    id:
-      "dean-sdw",
+    id: "dean-sdw",
 
-    name:
-      "Dr. P. A. Deshmukh",
+    name: "Dr. P. A. Deshmukh",
 
     designation:
       "DEAN — STUDENT DEVELOPMENT & WELFARE",
 
     image:
-      "/assets/about/dean-sdw.jpg",
+      "https://res.cloudinary.com/dejkj4mzq/image/upload/v1790509585/dean-sdw.avif",
 
-    position:
-      "50% 18%",
+    position: "50% 18%",
   },
 
   {
-    id:
-      "hod",
+    id: "hod",
 
-    name:
-      "Dr. P.R. Kale",
+    name: "Dr. P.R. Kale",
 
     designation:
       "HEAD OF DEPARTMENT",
 
     image:
-      "/assets/about/hod.jpg",
+      "https://res.cloudinary.com/dejkj4mzq/image/upload/v1790509585/hod.webp",
 
-    position:
-      "50% 18%",
+    position: "50% 18%",
   },
 
   {
-    id:
-      "mesa-faculty",
+    id: "mesa-faculty",
 
-    name:
-      "Mr. Shriyash S. Shinde",
+    name: "Mr. Shriyash S. Shinde",
 
     designation:
       "FACULTY INCHARGE — MESA",
 
     image:
-      "/assets/about/mesa-faculty.jpg",
+      "https://res.cloudinary.com/dejkj4mzq/image/upload/v1790509586/mesa-faculty.jpg",
 
-    position:
-      "50% 18%",
+    position: "50% 18%",
   },
 ];

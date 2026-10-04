@@ -18,12 +18,11 @@ const STATUS_STEPS = [
 ];
 
 export default function LoadingScreen({
-  duration = 3200,
+  duration = 1200,
   onComplete,
   label,
 }: LoadingScreenProps) {
-  const [progress, setProgress] =
-    useState(0);
+  const [progress, setProgress] = useState(0);
 
   const [stepIndex, setStepIndex] =
     useState(0);
@@ -38,35 +37,24 @@ export default function LoadingScreen({
     useRef(false);
 
   useEffect(() => {
-    const tick = (
-      time: number
-    ) => {
-      if (
-        startRef.current === null
-      ) {
-        startRef.current =
-          time;
+    const tick = (time: number) => {
+      if (startRef.current === null) {
+        startRef.current = time;
       }
 
       const elapsed =
-        time -
-        startRef.current;
+        time - startRef.current;
 
-      const percentage =
-        Math.min(
-          100,
-          (elapsed / duration) *
-            100
-        );
-
-      setProgress(
-        percentage
+      const percentage = Math.min(
+        100,
+        (elapsed / duration) * 100
       );
+
+      setProgress(percentage);
 
       setStepIndex(
         Math.min(
-          STATUS_STEPS.length -
-            1,
+          STATUS_STEPS.length - 1,
           Math.floor(
             (percentage / 100) *
               STATUS_STEPS.length
@@ -74,47 +62,29 @@ export default function LoadingScreen({
         )
       );
 
-      if (
-        percentage < 100
-      ) {
+      if (percentage < 100) {
         frameRef.current =
-          requestAnimationFrame(
-            tick
-          );
-      } else if (
-        !doneRef.current
-      ) {
-        doneRef.current =
-          true;
+          requestAnimationFrame(tick);
+      } else if (!doneRef.current) {
+        doneRef.current = true;
 
-        window.setTimeout(
-          () => {
-            onComplete?.();
-          },
-          180
-        );
+        window.setTimeout(() => {
+          onComplete?.();
+        }, 100);
       }
     };
 
     frameRef.current =
-      requestAnimationFrame(
-        tick
-      );
+      requestAnimationFrame(tick);
 
     return () => {
-      if (
-        frameRef.current !==
-        null
-      ) {
+      if (frameRef.current !== null) {
         cancelAnimationFrame(
           frameRef.current
         );
       }
     };
-  }, [
-    duration,
-    onComplete,
-  ]);
+  }, [duration, onComplete]);
 
   const R = 46;
 
@@ -123,17 +93,14 @@ export default function LoadingScreen({
 
   const dashOffset =
     CIRC -
-    (progress / 100) *
-      CIRC;
+    (progress / 100) * CIRC;
 
-  const ticks =
-    Array.from(
-      {
-        length: 36,
-      },
-      (_, index) =>
-        index * 10
-    );
+  const ticks = Array.from(
+    {
+      length: 36,
+    },
+    (_, index) => index * 10
+  );
 
   return (
     <div className="ls-root">
@@ -171,8 +138,7 @@ export default function LoadingScreen({
             Consolas,
             monospace;
 
-          -webkit-font-smoothing:
-            antialiased;
+          -webkit-font-smoothing: antialiased;
         }
 
 
@@ -246,8 +212,7 @@ export default function LoadingScreen({
                 .8
               )
               1px,
-              transparent
-              1px
+              transparent 1px
             ),
             linear-gradient(
               90deg,
@@ -258,21 +223,18 @@ export default function LoadingScreen({
                 .8
               )
               1px,
-              transparent
-              1px
+              transparent 1px
             );
 
           background-size:
-            40px
-            40px;
+            40px 40px;
 
           opacity: .012;
         }
 
 
         /* ==========================================
-           SOFT VIGNETTE
-           VERY LIGHT ONLY
+           VIGNETTE
         ========================================== */
 
         .ls-vignette {
@@ -285,13 +247,7 @@ export default function LoadingScreen({
             radial-gradient(
               circle at center,
               transparent 40%,
-              rgba(
-                0,
-                0,
-                0,
-                .28
-              )
-              100%
+              rgba(0, 0, 0, .28) 100%
             );
         }
 
@@ -385,11 +341,9 @@ export default function LoadingScreen({
 
           font-size: 10px;
 
-          letter-spacing:
-            .18em;
+          letter-spacing: .18em;
 
-          text-transform:
-            uppercase;
+          text-transform: uppercase;
         }
 
 
@@ -428,8 +382,7 @@ export default function LoadingScreen({
               360px
             );
 
-          aspect-ratio:
-            1 / 1;
+          aspect-ratio: 1 / 1;
 
           display: flex;
 
@@ -480,24 +433,20 @@ export default function LoadingScreen({
               .17
             );
 
-          stroke-width:
-            .6;
+          stroke-width: .6;
         }
 
 
         .ls-gauge .fill {
-          stroke:
-            #f2a900;
+          stroke: #f2a900;
 
-          stroke-width:
-            .75;
+          stroke-width: .75;
 
-          stroke-linecap:
-            butt;
+          stroke-linecap: butt;
 
           transition:
             stroke-dashoffset
-            80ms
+            60ms
             linear;
         }
 
@@ -511,8 +460,7 @@ export default function LoadingScreen({
               .32
             );
 
-          stroke-width:
-            .4;
+          stroke-width: .4;
         }
 
 
@@ -525,13 +473,12 @@ export default function LoadingScreen({
               .82
             );
 
-          stroke-width:
-            .7;
+          stroke-width: .7;
         }
 
 
         /* ==========================================
-           INNER ROTATING BEARING
+           ROTATING BEARING
         ========================================== */
 
         .ls-bearing {
@@ -594,8 +541,7 @@ export default function LoadingScreen({
           transform:
             translateX(-50%);
 
-          background:
-            #f2a900;
+          background: #f2a900;
 
           box-shadow:
             0 0 18px
@@ -619,7 +565,7 @@ export default function LoadingScreen({
 
 
         /* ==========================================
-           VIDEO
+           PISTON VIDEO
         ========================================== */
 
         .ls-video-wrap {
@@ -684,8 +630,7 @@ export default function LoadingScreen({
             contrast(1.08)
             saturate(.85);
 
-          mix-blend-mode:
-            screen;
+          mix-blend-mode: screen;
         }
 
 
@@ -713,14 +658,13 @@ export default function LoadingScreen({
                 255,
                 .08
               ),
-              transparent
-              28%
+              transparent 28%
             );
         }
 
 
         /* ==========================================
-           FOOTER / STATUS
+           FOOTER
         ========================================== */
 
         .ls-footer {
@@ -752,19 +696,15 @@ export default function LoadingScreen({
         .ls-status-row {
           display: flex;
 
-          justify-content:
-            space-between;
+          justify-content: space-between;
 
-          align-items:
-            baseline;
+          align-items: baseline;
 
           font-size: 11px;
 
-          letter-spacing:
-            .14em;
+          letter-spacing: .14em;
 
-          text-transform:
-            uppercase;
+          text-transform: uppercase;
         }
 
 
@@ -774,8 +714,7 @@ export default function LoadingScreen({
 
 
         .ls-status-pct {
-          color:
-            #f2a900;
+          color: #f2a900;
 
           font-variant-numeric:
             tabular-nums;
@@ -819,10 +758,8 @@ export default function LoadingScreen({
                 .18
               )
               1px,
-              transparent
-              1px,
-              transparent
-              10px
+              transparent 1px,
+              transparent 10px
             );
         }
 
@@ -834,8 +771,7 @@ export default function LoadingScreen({
           left: 0;
           bottom: 0;
 
-          background:
-            #f2a900;
+          background: #f2a900;
 
           box-shadow:
             0 0 16px
@@ -848,7 +784,7 @@ export default function LoadingScreen({
 
           transition:
             width
-            80ms
+            60ms
             linear;
         }
 
@@ -879,16 +815,13 @@ export default function LoadingScreen({
 
           font-size: 9px;
 
-          letter-spacing:
-            .3em;
+          letter-spacing: .3em;
 
           text-align: center;
 
-          text-transform:
-            uppercase;
+          text-transform: uppercase;
 
-          white-space:
-            nowrap;
+          white-space: nowrap;
         }
 
 
@@ -977,8 +910,7 @@ export default function LoadingScreen({
                 100% - 30px
               );
 
-            white-space:
-              normal;
+            white-space: normal;
 
             font-size: 6px;
 
@@ -993,8 +925,7 @@ export default function LoadingScreen({
         ========================================== */
 
         @media (
-          prefers-reduced-motion:
-          reduce
+          prefers-reduced-motion: reduce
         ) {
 
           .ls-bearing,
@@ -1022,14 +953,12 @@ export default function LoadingScreen({
       <div className="ls-vignette" />
 
 
-
       {/* CORNERS */}
 
       <span className="ls-corner tl" />
       <span className="ls-corner tr" />
       <span className="ls-corner bl" />
       <span className="ls-corner br" />
-
 
 
       {/* LABELS */}
@@ -1040,13 +969,9 @@ export default function LoadingScreen({
 
 
       <span className="ls-tag top-right">
-
         FIG. 01
-
         <br />
-
         REV&nbsp;A
-
       </span>
 
 
@@ -1055,11 +980,9 @@ export default function LoadingScreen({
       </span>
 
 
-
       {/* CENTER */}
 
       <div className="ls-center">
-
 
         <svg
           className="ls-gauge"
@@ -1075,72 +998,43 @@ export default function LoadingScreen({
 
 
           {ticks.map(
-            (
-              degree
-            ) => {
+            (degree) => {
 
               const major =
-                degree %
-                  30 ===
-                0;
-
+                degree % 30 === 0;
 
               const inner =
-                major
-                  ? 40
-                  : 43;
+                major ? 40 : 43;
 
-
-              const outer =
-                46;
-
+              const outer = 46;
 
               const radians =
-                (
-                  degree *
-                  Math.PI
-                ) /
+                (degree * Math.PI) /
                 180;
-
 
               const x1 =
                 50 +
                 inner *
-                  Math.cos(
-                    radians
-                  );
-
+                  Math.cos(radians);
 
               const y1 =
                 50 +
                 inner *
-                  Math.sin(
-                    radians
-                  );
-
+                  Math.sin(radians);
 
               const x2 =
                 50 +
                 outer *
-                  Math.cos(
-                    radians
-                  );
-
+                  Math.cos(radians);
 
               const y2 =
                 50 +
                 outer *
-                  Math.sin(
-                    radians
-                  );
-
+                  Math.sin(radians);
 
               return (
-
                 <line
-                  key={
-                    degree
-                  }
+                  key={degree}
                   className={
                     major
                       ? "tick major"
@@ -1151,9 +1045,7 @@ export default function LoadingScreen({
                   x2={x2}
                   y2={y2}
                 />
-
               );
-
             }
           )}
 
@@ -1163,9 +1055,7 @@ export default function LoadingScreen({
             cx="50"
             cy="50"
             r={R}
-            strokeDasharray={
-              CIRC
-            }
+            strokeDasharray={CIRC}
             strokeDashoffset={
               dashOffset
             }
@@ -1174,15 +1064,13 @@ export default function LoadingScreen({
         </svg>
 
 
-
         <div className="ls-bearing" />
-
 
 
         <div className="ls-video-wrap">
 
           <video
-            src="/assets/videos/mesa-outro.mp4"
+            src="https://res.cloudinary.com/dejkj4mzq/video/upload/v1790512977/mesa-outro.mp4"
             autoPlay
             muted
             loop
@@ -1193,42 +1081,30 @@ export default function LoadingScreen({
         </div>
 
 
-
         <div className="ls-shine" />
 
-
       </div>
-
 
 
       {/* STATUS */}
 
       <div className="ls-footer">
 
-
         <div className="ls-status-row">
 
           <span className="ls-status-label">
-
             {label ||
               STATUS_STEPS[
                 stepIndex
               ]}
-
           </span>
 
 
           <span className="ls-status-pct">
-
-            {Math.floor(
-              progress
-            )}
-            %
-
+            {Math.floor(progress)}%
           </span>
 
         </div>
-
 
 
         <div className="ls-ruler">
@@ -1243,17 +1119,13 @@ export default function LoadingScreen({
 
         </div>
 
-
       </div>
 
 
-
       <span className="ls-brand">
-
         Mechanical Engineering
         Students&apos;
         Association
-
       </span>
 
     </div>

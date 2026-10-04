@@ -10,6 +10,10 @@ import {
 } from "../data/faculty";
 
 
+const MESA_LOGO =
+  "https://res.cloudinary.com/dejkj4mzq/image/upload/v1790509612/mesa-logo.png";
+
+
 const visionMission = {
   vision: {
     number:
@@ -108,7 +112,7 @@ function About() {
         <div className="about-logo-machine">
 
           <img
-            src="/assets/brand/mesa-logo.png"
+            src={MESA_LOGO}
             alt="MESA PCCOE"
           />
 
@@ -199,24 +203,34 @@ function About() {
             >
 
               <span className="vision-number">
+
                 {content.number}
+
                 {" / "}
+
                 {content.label}
+
               </span>
 
 
               <h2 className="vision-main-title">
+
                 {content.label}
+
               </h2>
 
 
               <p>
+
                 {content.text}
+
               </p>
 
 
               <small>
+
                 SELECT VISION / MISSION
+
               </small>
 
             </div>
@@ -243,12 +257,15 @@ function About() {
             </span>
 
             <h2>
+
               GUIDED BY EXPERIENCE.
+
               <br />
 
               <em>
                 DRIVEN BY STUDENTS.
               </em>
+
             </h2>
 
           </div>
@@ -282,16 +299,20 @@ function About() {
                   <div className="faculty-card-copy">
 
                     <span>
+
                       {
                         facultyRoles[index]
                       }
+
                     </span>
 
 
                     <h3>
+
                       {
                         facultyNames[index]
                       }
+
                     </h3>
 
                   </div>

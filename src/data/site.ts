@@ -14,7 +14,7 @@ export const heroPopup = {
   Add later if required:
 
   image:
-    "/assets/home/teachers-day.jpg",
+    "https://res.cloudinary.com/dejkj4mzq/image/upload/v1790509651/teachers-day.jpg",
   */
 
   href:
@@ -37,7 +37,7 @@ export const homeStories = [
       "Major milestones, competitions and experiences that represent the energy of Mechanical Engineering at PCCOE.",
 
     image:
-      "/assets/home/champions.jpg",
+      "https://res.cloudinary.com/dejkj4mzq/image/upload/v1790509650/champions.png",
   },
 
   {
@@ -54,7 +54,7 @@ export const homeStories = [
       "A flagship student experience built around participation, collaboration and learning.",
 
     image:
-      "/assets/home/adhyay.jpg",
+      "https://res.cloudinary.com/dejkj4mzq/image/upload/v1790509647/adhyay_1.jpg",
   },
 
   {
@@ -71,7 +71,7 @@ export const homeStories = [
       "Machines, mobility and real engineering brought closer to students through major MESA experiences.",
 
     image:
-      "/assets/home/auto-expo.jpg",
+      "https://res.cloudinary.com/dejkj4mzq/image/upload/v1790509646/auto-expo.jpg",
   },
 
   {
@@ -88,6 +88,6 @@ export const homeStories = [
       "The people, energy and shared experiences that make MESA more than an association.",
 
     image:
-      "/assets/home/unmilan.jpg",
+      "https://res.cloudinary.com/dejkj4mzq/image/upload/v1790509651/unmilan.png",
   },
 ];
